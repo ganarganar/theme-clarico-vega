@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<harpiya>
+    <!--======================== Inclusion of JS Files ======================-->
+    <template id="category_assets_wysiwyg" inherit_id="web_editor.assets_wysiwyg">
+        <xpath expr="script[last()]" position="after">
+            <script type="text/javascript" src="/emipro_theme_base/static/src/js/wysiwyg/widgets/dynamic_category_wysiwyg.js"/>
+        </xpath>
+    </template>
+    <template id="category_assets_editor" inherit_id="website.assets_editor">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/emipro_theme_base/static/src/js/menu/category_content_editor.js"/>
+        </xpath>
+    </template>
+</harpiya>

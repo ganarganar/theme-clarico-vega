@@ -1,0 +1,62 @@
+/*============================== Basic Variables with Font Size And Font Colour ========================*/
+
+$f_color :           		 #898383,#717171,#000000,#888888,#ffffff,#575757,#707070,#eaeaea,#969696,#222,#cccccc,
+							 #7b7f83,#4c5462,#8b93a1,#777,#999,#e0e0e0,#f5f5f5,theme-color('primary'),#333333,#444,#555, 
+							 #9c9c9c,#bcb6b6,#545353,#4e4e4e,transparent,inherit,  !default;
+
+$theme-color-light:          lighten(theme-color('primary'), 25%) !default;
+$theme-color-dark:          darken(theme-color('primary'), 15%) !default;
+$common_style:				 180%;
+$lead-font-size: 			 $font-size-base !default;
+$product-label: palette-color('product_label') !default;
+$product-label-dark: darken($product-label, 25%) !default;
+
+$btn-hover-color : 			 #000;
+$bg-skyblue : 				 #8fb7d7;
+
+$breadcrumb-bg:   			 #f5f5f5 !default;
+$breadcrumb-padding-y: 		 1.2rem !default;
+
+$carousel-control-color:	 #868e96 !default;
+
+$table-cell-padding:         1rem !default;
+
+$table-accent-bg:            #fff !default;
+$table-hover-bg:             #fff !default;
+
+$badge-font-size:            80% !default;
+
+$border-color:               #ededed !default;
+$table-border-color:         $border-color !default;
+$card-border-color:          $border-color !default;
+$dropdown-border-color:		 $border-color !default;
+
+$border-radius:               0 !default;
+$border-radius-lg:            0 !default;
+$border-radius-sm:            0 !default;
+
+$form-group-margin-bottom:    1.5rem !default;
+
+$navbar-nav-link-padding-x:         .7rem !default;
+ 
+$zindex-dropdown:1001 !default;
+$dropdown-link-color: #777777;
+$dropdown-link-hover-bg: transparent;
+$dropdown-link-hover-color:nth($f_color,19);
+
+/*--------------- Variables of Dynamic Category Menu --------------*/
+/* 1 */
+$menu-bo: rgba(white, .1);
+
+/* 2 */
+$sub-menu-bg: #eee;
+$sub-menu-bg-hover: white;
+
+/* 3 */
+$sub-menu-co: #222;
+
+/* 4 */
+$sub-menu-bo: rgba(black, .1);
+
+/* 5 */
+$menu-link-padding: 1em;

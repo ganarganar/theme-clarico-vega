@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<harpiya>
+    <record id="product_attribute_quick_filter" model="ir.ui.view">
+        <field name="name">product.attribute.quick.filter.form</field>
+        <field name="model">product.attribute</field>
+        <field name="inherit_id" ref="product.product_attribute_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='main_fields']" position="after">
+                <group>
+                    <group>
+                        <field name="is_quick_filter"/>
+                        <field name="website_ids" options="{'no_create': True}"
+                               domain="[('theme_id.author','like','Harpiya Software Tech.')]"
+                               widget="many2many_tags" attrs="{'invisible': [('is_quick_filter','=',False)]}"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</harpiya>
+

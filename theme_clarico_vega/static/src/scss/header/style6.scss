@@ -1,0 +1,528 @@
+/*=========================== Header Style 6 ===============================*/
+/*---- Company Logo and Static Menu ----*/
+.te_header_navbar
+{
+    padding:0px !important;
+    & #top_menu
+    {
+        >li > a.nav-link
+        {
+            color:nth($f_color,3);
+            border-top: 2px solid nth($f_color,27);
+            padding: 0.8rem;
+            min-height: $o-theme-navbar-logo-height;
+            display: inline-block;
+            vertical-align: middle;
+            line-height:$o-theme-navbar-logo-height / 1.4rem;
+        }
+        >li > a.nav-link.active
+        {
+           border-top: 2px solid theme-color('primary');
+        }
+    }
+	@media (max-width: 1000px) {
+		#top_menu{
+			> li > a.nav-link{
+				font-size:o-website-value('header-font-size');
+			}
+		}
+		.navbar-brand.logo img{
+			max-height:50px !important;
+		}
+	}
+	@include media-breakpoint-down(xs)
+	{
+		.navbar-brand.logo img{
+			max-height:40px !important;
+		}
+	}
+}
+.o_header_affix .te_header_navbar .navbar-brand.logo img
+{
+	height: 2.413rem;
+}
+.te_srch_icon_header{
+	display:none;
+}
+.te_header_language a.dropdown-toggle:hover{
+	color:nth($f_color,5);
+}
+.te_header_before_overlay
+{
+    .te_header_style_6_main
+    {
+        .js_language_selector
+        {
+            .dropup .dropdown-toggle::after
+            {
+                border-top: 0.3em solid;
+                border-bottom: 0;
+            }
+            button.btn.btn-sm.btn-secondary.dropdown-toggle{
+                color: nth($f_color,5);
+            }
+            button.btn.btn-sm.btn-secondary.dropdown-toggle {
+                @include media-breakpoint-down(xs) {
+                    padding:0px 1px;
+                }
+            }
+        }
+        .te_header_before_left > div.px-1:first-child {
+            border-left: 0px;
+        }
+    }
+}
+/*---- Static Menu collapse ----*/
+#top_menu_collapse
+{
+	@include media-breakpoint-down(sm) {
+		background-color:nth($f_color,5);
+	}
+}
+/*---- Header Social Icon and Search Icon ----*/
+.te_header_before_bg
+{
+	background-color:nth($f_color,19);
+}
+.te_header_style_6_main
+{
+    .te_header_search {
+        form.o_wsale_products_searchbar_form{
+            .dropdown-menu.show{
+                & button.dropdown-item:active{
+                    color: nth($f_color, 5) !important;
+                }
+            }
+        }
+    }
+	@media (max-width: 1100px)
+	{
+		& .te_header_before_left{
+			width:55%;
+		}
+		& .te_header_before_right{
+			width:45%;
+		}
+	}
+	@media (max-width: 1000px) {
+		& .te_header_before_left{
+			& a{
+				font-size:nth($f_sizes,3);
+			}
+		}
+		& .te_header_before_right{
+
+			& .te_header_static_menu a, .te_header_account a, .te_header_6_srch_icon a{
+				font-size:nth($f_sizes,3);
+			}
+			& .te_header_static_menu li{
+				padding: 0 4px;
+			}
+			.te_header_6_srch_icon{
+				padding: 0 5px !important;
+			}
+		}
+	}
+	@include media-breakpoint-down(sm)
+	{
+		& .te_header_before_left{
+			width: auto;
+    		float: left;
+			padding: 0;
+		}
+		> div > .row
+			{
+				margin: 0;
+				width: 100%;
+				display: inline-block;
+				@include media-breakpoint-down(xs){
+				    @include position(relative,3px);
+				}
+			}
+		.te_sub_search .te_search_icon
+		{
+			padding: 0.1rem 0.2rem;
+		}
+		& .te_header_before_right{
+	    	width: auto;
+	    	float: right;
+	    	position: initial;
+			padding: 0;
+			& .te_header_static_menu{
+				display:none;
+			}
+			& .te_header_6_srch_icon{
+			    margin-right:2px;
+			}
+			& .te_header_6_srch_icon, .te_header_account{
+				padding: 0 !important;
+			}
+		}
+		& .te_header_search{
+			width:100%;
+		}
+		.js_language_selector
+		{
+		     .dropdown-menu{
+                &:before{
+                    left:8px;
+                }
+                &:after{
+                    left:7px;
+                }
+            }
+		}
+	}
+	@include media-breakpoint-down(xs)
+	{
+		& .te_header_search{
+			& .te_srch_box{
+				width:80% !important;
+			}
+		}
+	}
+	.te_sub_search
+	{
+	    input.search-query.form-control.oe_search_box
+	    {
+            background: nth($f_color,27);
+		    border: 0;
+		    border-bottom: 1px solid nth($f_color,5);
+		    padding: 0.1rem 1rem;
+		    height: auto;
+		    color:nth($f_color,5);
+		    order: 2;
+		    &:focus
+		    {
+		    	background: nth($f_color,27);
+		    }
+		    &::placeholder
+		    {
+		        color:nth($f_color,5);
+		    }
+		}
+		button.btn.btn-primary.oe_search_button
+        {
+            color:nth($f_color,5);
+            padding: 0.1rem 1rem;
+            background-color: transparent;
+            border-color: transparent;
+        }
+        .btn-primary:not(:disabled):not(.disabled):active,
+        .btn-primary:not(:disabled):not(.disabled).active,
+        .show > .btn-primary.dropdown-toggle
+        {
+            background-color: transparent;
+            color: nth($f_color,5);
+            border-color:transparent;
+        }
+        .btn-primary:not(:disabled):not(.disabled):active:focus,
+        .btn-primary:not(:disabled):not(.disabled).active:focus,
+        .show > .btn-primary.dropdown-toggle:focus,
+        .btn-primary:focus, .btn-primary.focus
+        {
+            box-shadow:none;
+        }
+        .btn-primary.oe_search_button:hover
+        {
+            background-color: transparent;
+            border-color: transparent;
+        }
+	}
+	.te_header_account
+	{
+	    .dropdown-menu{
+            &:before, &:after{
+                right: 8px;
+                left:unset;
+            }
+            &:hover{
+                .dropdown-item{
+                    left:unset;
+                }
+            }
+        }
+	}
+}
+/*---- search icon ----*/
+.search_animate{
+	@include transition(all,0.5s,ease-in-out)
+	top:-100px;
+}
+.te_header_search
+{
+	display:none;
+	@include position(relative)
+	animation:animatebottom 0.2s
+}
+	.te_sub_search
+	{
+		float: right;
+		width: 60%;
+		& .input-group
+		{
+		    @include animation(0.3s, 0.4s, animateinput, ease-in, null,both)
+			opacity:1;
+		}
+		.te_header_search_close
+		{
+			@include position(absolute,0,0,auto,auto);
+			@include style(8,5);
+			cursor:pointer;
+		}
+	}
+@media (max-width: 1100px)
+{
+	& .te_header_search{
+		width:44%;
+		& .te_sub_search{
+			width:100%;
+		}
+	}
+}
+.te_srch_box::placeholder
+{
+	color:nth($f_color,8);
+}
+@keyframes animatebottom{
+	from{bottom:-100px;opacity:0}
+	to{bottom:0;opacity:1}
+}
+@keyframes animateinput{
+	from{
+		opacity:0;
+		width:0;
+	}
+	to{
+		opacity:1;
+		width:100%;
+	}
+}
+@-ms-keyframes animateinput{
+	from{
+		opacity:0;
+		width:0;
+	}
+	to{
+		opacity:1;
+		width:100%;
+	}
+}
+/*--- Header social icon --*/
+.te_header_before_left
+{
+	> div
+	{
+        display: inline-block;
+        vertical-align: middle;
+		.btn
+		{
+			padding: 0 0.375rem;
+		}
+	}
+	.btn-link,a.dropdown-toggle
+	{
+		@include style(3,5);
+	}
+	> div.px-1
+	{
+		border-left:1px solid $border-color;
+		.btn
+		{
+			@include media-breakpoint-down(xs)
+			{
+				padding: 0;
+			}
+		}
+	}
+	.h6_pricelist
+	{
+	    .dropdown-menu{
+            left:0px !important;
+            right:0;
+            @include media-breakpoint-down(lg){
+               left:0 !important;
+            }
+            @include media-breakpoint-down(md){
+                &:before{
+                    left:6px;
+                }
+                &:after{
+                    left:5px;
+                }
+            }
+            @include media-breakpoint-down(xs)
+            {
+               left:0 !important;
+            }
+	    }
+	}
+	@include media-breakpoint-down(lg) {
+		.te_currency_name
+		{
+			display: none
+		}
+		.te_currency_symbol
+		{
+			display: inline-block;
+		}
+	}
+	@include media-breakpoint-down(xs)
+	{
+		.te_header_social
+		{
+			display:none;
+		}
+		> div.px-1 {
+	    	border-left: 0;
+		}
+	}
+}
+.te_header_before_right
+{
+	text-align: right;
+	@include position(relative,0)
+
+	> div
+	{
+        display: inline-block;
+        vertical-align: middle;
+	}
+	.te_wish_icon_head, .te_cart_icon_head
+	{
+	    padding: 0px 16px 0px 0px;
+	    @include media-breakpoint-down(sm){
+	        padding: 0px 12px 0px 0px;
+	    }
+	    a.o_wsale_my_cart, a.te_wish_icon_head{
+	         .badge-primary{
+                color:nth($f_color,19);
+                background-color:nth($f_color,5);
+            }
+	    }
+		a
+		{
+			padding: 0;
+			@include position(relative);
+			display: inline-block !important;
+			@include style(7,4)
+			sup
+			{
+				@include border-radius(12px);
+				width: auto;
+				padding: 3px 5px;
+				vertical-align: top;
+				font-size: nth($f_sizes,9);
+				@include position(absolute, -8px, -8px);
+				display: inline-block !important;
+				 @include media-breakpoint-down(sm){
+				    @include position(absolute, -9px, -9px);
+				 }
+			}
+			i
+			{
+				display: inline-block !important;
+			}
+		}
+	}
+	@include media-breakpoint-down(sm){
+        .te_cart_icon_head {
+            padding: 0px 15px 0px 0px;
+        }
+    }
+
+	& .te_header_static_menu
+	{
+		> ul
+		{
+			list-style-type: none;
+			padding:0;
+			margin: 0;
+
+			> li{
+			    color:nth($f_color,5);
+			    display: inline;
+                padding: 0 0.6rem;
+                border-right: 1px solid #ededed;
+			}
+			a
+            {
+                @include style(3,5);
+            }
+		}
+	}
+	& .te_header_6_srch_icon
+	{
+		@include style(3,5);
+		cursor:pointer;
+		margin-left: 7px;
+
+		a
+		{
+			padding: 0px 6px;
+			vertical-align: middle;
+		}
+	}
+	.te_user_account > a,.te_signin > a
+	{
+		@include style(3,5);
+
+		.te_user_account_name
+		{
+			display: none;
+		}
+		.te_user_account_icon, .te_user_account_icon > i
+		{
+			display: inline-block !important;
+
+		}
+	}
+	.te_wish_icon_head, .te_cart_icon_head
+	{
+		a
+		{
+			@include style(3,5);
+			padding: 0px 6px;
+			display: inline-block !important;
+			@include media-breakpoint-down(xs){
+			    padding: 0px 4px;
+			}
+
+			i,sup
+			{
+				display: inline-block !important;
+			}
+		}
+	}
+	.te_bar_icon
+	{
+		a
+		{
+			@include style(2,5);
+			padding: 0px 8px;
+		}
+	}
+	@media (max-width: 1100px)
+	{
+		.te_header_static_menu
+		{
+			display: none;
+		}
+	}
+}
+.te_bar_icon i{
+    color:nth($f_color,5) !important;
+}
+/*Menu label text styles*/
+#top_menu_collapse #top_menu > li > a.nav-link span#menu_label_tx_span{
+    top:-8px;
+    @include media-breakpoint-down(sm){
+      top: auto;
+      margin-top: -1px;
+    }
+}
+header.o_header_affix.affix.affixed span#menu_label_tx_span{
+    @include media-breakpoint-down(sm){
+        margin-top: -1px;
+    }
+}

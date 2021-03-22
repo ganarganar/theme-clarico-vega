@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_product_label_line,product.label.line,model_product_label_line,,1,0,0,0
+access_product_label,Product.label,model_product_label,,1,0,0,0
+access_product_brand_ept,product.brand.ept,model_product_brand_ept,,1,0,0,0
+access_slider,slider,model_slider,,1,0,0,0
+access_slider_filter,slider.filter,model_slider_filter,,1,0,0,0
+access_slider_styles,slider.styles,model_slider_styles,,1,0,0,0
+access_product_tab_line,product.tab.line,model_product_tab_line,,1,0,0,0
+access_product_connector_line,product.connector.line,model_product_connector_line,,1,1,1,1

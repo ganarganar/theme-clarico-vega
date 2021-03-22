@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_product_tab_line_admin,access.product.tab.line.admin,emipro_theme_base.model_product_tab_line,base.group_system,1,1,1,1

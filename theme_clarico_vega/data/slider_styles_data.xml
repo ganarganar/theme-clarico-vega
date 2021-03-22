@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<harpiya>
+    <data noupdate="1">
+		 <record id="clarico_slider_styles_one" model="slider.styles">
+			<field name="name">Style 1</field>
+			<field name="theme_id" ref="base.module_theme_clarico_vega"/>
+		 </record>
+
+		 <record id="clarico_slider_styles_two" model="slider.styles">
+			<field name="name">Style 2</field>
+			<field name="theme_id" ref="base.module_theme_clarico_vega"/>
+		 </record>
+
+		 <record id="clarico_slider_styles_three" model="slider.styles">
+			<field name="name">Style 3</field>
+			<field name="theme_id" ref="base.module_theme_clarico_vega"/>
+		 </record>
+
+		 <record id="clarico_slider_styles_four" model="slider.styles">
+			<field name="name">Style 4</field>
+			<field name="theme_id" ref="base.module_theme_clarico_vega"/>
+		 </record>
+
+		 <record id="clarico_slider_styles_five" model="slider.styles">
+			<field name="name">Style 5</field>
+			<field name="theme_id" ref="base.module_theme_clarico_vega"/>
+		 </record>
+
+		 <record id="clarico_slider_styles_six" model="slider.styles">
+			<field name="name">Style 6</field>
+			<field name="theme_id" ref="base.module_theme_clarico_vega"/>
+		 </record>
+	</data>
+</harpiya>

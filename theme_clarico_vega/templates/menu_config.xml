@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<harpiya>
+    <!-- ============= Dynamic category listing based on is_dynamic_menu is enable/disable  =========== -->
+    <template id="website_submenu_ept" inherit_id="website.submenu">
+        <xpath expr="//li[@t-if='submenu.is_visible and not has_visible_submenu']" position="inside"><t t-if="submenu.is_dynamic_menu"><t t-call="theme_clarico_vega.website_dynamic_category" /></t></xpath>
+        <xpath expr="//li[@t-if='submenu.is_visible and not has_visible_submenu']" position="attributes">
+           <attribute name="t-attf-class">#{item_class or ''} #{'te_dynamic_ept' if submenu.is_dynamic_menu else ''} </attribute>
+        </xpath>
+    </template>
+    <!-- ============= Menu label text on based on menu =========== -->
+    <template id="website_submenu_label_ept" inherit_id="website.submenu">
+         <xpath expr="//li[@t-if='submenu.is_visible and not has_visible_submenu']/a" position="inside">
+            <t t-if="request.website.viewref('theme_clarico_vega.website_submenu_label_ept').active">
+                <t t-if="submenu.menu_label_text">
+                    <t t-foreach="submenu" t-as="m">
+                        <t t-call="theme_clarico_vega.website_menu_label_text" />
+                    </t>
+                </t>
+            </t>
+        </xpath>
+        <xpath expr="//li[@t-if='has_visible_submenu']/a" position="inside">
+            <t t-if="request.website.viewref('theme_clarico_vega.website_submenu_label_ept').active">
+                <t t-if="submenu.menu_label_text">
+                    <t t-foreach="submenu" t-as="m">
+                        <t t-call="theme_clarico_vega.website_menu_label_text" />
+                    </t>
+                </t>
+            </t>
+        </xpath>
+    </template>
+    <template id="website_menu_label_text">
+        <t t-set="label_color" t-value="m.menu_label_text_color"></t>
+        <span id="menu_label_tx_span">
+            <span t-field="m.menu_label_text" t-attf-style="background-color: {{ label_color }};border-top-color: {{ label_color }};border-right-color: {{ label_color }};" class="te_custom_menu_label label_tx"/>
+        </span>
+    </template>
+    <template id="website_dynamic_category"><div id="custom_menu" class="dropdown-menu te_custom_submenu o_mega_menu"><ul id="te_main_ul"><t t-set="category_fetch" t-value="website.category_check()"></t><t t-set="nav_increment" t-value="0" /><t t-foreach="category_fetch" t-as="c"><t t-call="theme_clarico_vega.web_categories_recursive"></t></t></ul></div></template>
+    <template id="web_categories_recursive"><t t-set="nav_increment" t-value="nav_increment + 1"></t><li id="custom_menu_li" class="nav-item"><t t-if="c.is_category_page"><t t-set="category_url" t-value="c.category_page.url"/></t><t t-else=""><t t-set="category_url" t-value="'/shop/category/%s' %slug(c)"/></t><a t-attf-id="nav_main_{{nav_increment}}" t-att-href="category_url" t-attf-class="nav-link te_main_a #{' active' if c.id == int(category or 0) else ''}"><span t-field="c.name" /></a><ul t-if="c.child_id" id="custom_recursive" class="t_custom_subctg"><t t-foreach="c.child_id" t-as="c"><t><t t-call="theme_clarico_vega.web_categories_recursive" /></t></t></ul></li></template>
+</harpiya>

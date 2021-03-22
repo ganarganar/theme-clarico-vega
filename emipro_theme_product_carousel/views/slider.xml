@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<harpiya>
+    <record id="slider_form_view" model="ir.ui.view">
+        <field name="name">slider.form</field>
+        <field name="model">slider</field>
+        <field name="arch" type="xml">
+            <form string="slider" duplicate="false">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" name="website_publish_button"
+                                type="object" icon="fa-globe">
+                            <field name="website_published" widget="website_publish_button"/>
+                        </button>
+                        <button type="object" class="oe_stat_button" name="action_preview" icon="fa-eye">
+                            <span class="o_stat_text">Preview</span>
+                        </button>
+                    </div>
+                    <group>
+                        <field name="name"/>
+                        <field name="website_id" domain="[('theme_id.author','like','Harpiya Software Tech.')]"/>
+                        <field name="theme_id"/>
+                        <field name="slider_filter_ids"/>
+                        <field name="slider_limit"/>
+                        <field name="slider_style_id" domain="[('theme_id','=',theme_id)]"
+                               options="{'no_quick_create': True, 'no_create_edit' : True, 'no_open': True}"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="slider_tree_view" model="ir.ui.view">
+        <field name="name">slider.tree.view</field>
+        <field name="model">slider</field>
+        <field name="arch" type="xml">
+            <tree string="slider">
+                <field name="name"/>
+                <field name="website_id" domain="[('theme_id.author','like','Harpiya Software Tech.')]"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_sliders" model="ir.actions.act_window">
+        <field name="name">slider</field>
+        <field name="res_model">slider</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_slider_settings" name="Slider" sequence="80"
+              parent="website.menu_website_global_configuration"/>
+    <menuitem id="menu_sliders" name="Sliders" action="action_sliders"
+              parent="emipro_theme_product_carousel.menu_slider_settings"/>
+
+</harpiya>

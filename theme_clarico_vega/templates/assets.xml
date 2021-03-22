@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<harpiya>
+    <!--======================== Inclusion of Scss Files ======================-->
+    <template id="theme_assets_frontend" inherit_id="website.assets_frontend">
+        <xpath expr="link[last()]" position="after">
+            <link rel="stylesheet" type="text/scss" href="/theme_clarico_vega/static/src/scss/mixins.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/theme_clarico_vega/static/src/scss/snippets.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/theme_clarico_vega/static/src/scss/blog.scss" />
+            <link rel="stylesheet" type="text/scss" href="/theme_clarico_vega/static/src/scss/customise_option.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/theme_clarico_vega/static/src/scss/layout.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/theme_clarico_vega/static/src/scss/megamenu.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/theme_clarico_vega/static/src/scss/portal.scss"/>
+            <link rel="stylesheet" type="text/css"  href="/theme_clarico_vega/static/src/scss/owl.carousel.min.css" />
+            <link rel="stylesheet" type="text/scss" href="/theme_clarico_vega/static/src/scss/ept_apps.scss" />
+            <link rel="stylesheet" type="text/scss" href="/theme_clarico_vega/static/src/scss/style_1.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/theme_clarico_vega/static/src/scss/style_2.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/theme_clarico_vega/static/src/scss/style_3.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/theme_clarico_vega/static/src/scss/style_4.scss"/>
+            <link rel="stylesheet" type="text/scss" href="/theme_clarico_vega/static/src/scss/style_5.scss"/>
+            <link rel="stylesheet" type="text/css" href="/theme_clarico_vega/static/src/scss/product_slider.scss" />
+            <link rel="stylesheet" type="text/css" href="/theme_clarico_vega/static/src/scss/label/sale_label.scss" />
+            <link rel="stylesheet" type="text/css" href="/theme_clarico_vega/static/src/scss/jquery.mCustomScrollbar.css" />
+
+            <!-- AOS animations -->
+            <link rel="stylesheet" href="/theme_clarico_vega/static/lib/aos/aos.css" />
+
+        </xpath>
+        <xpath expr="script[last()]" position="after">
+            <script type="text/javascript" src="/theme_clarico_vega/static/src/js/frontend/owl.carousel.js"/>
+            <script type="text/javascript" src="/theme_clarico_vega/static/src/js/frontend/theme_script.js"/>
+            <script type="text/javascript" src="/theme_clarico_vega/static/src/js/frontend/multi_item_carousel.js"/>
+            <script type="text/javascript" src="/theme_clarico_vega/static/src/js/frontend/offer_snippent_frontend.js"/>
+            <script type="text/javascript" src="/web/static/lib/jquery.touchSwipe/jquery.touchSwipe.js"/>
+
+            <!-- Add scripts by ept_1 -->
+            <script type="text/javascript" src="/emipro_theme_base/static/src/js/frontend/jquery_ui_slider.js"/>
+            <script type="text/javascript" src="/theme_clarico_vega/static/src/js/frontend/cart_popup.js"/>
+            <script type="text/javascript" src="/emipro_theme_base/static/src/js/frontend/quick_view.js"/>
+            <script type="text/javascript" src="/emipro_theme_base/static/src/js/frontend/price_slider.js"/>
+            <script type="text/javascript" src="/emipro_theme_base/static/src/js/frontend/load_product_through_ajax.js"/>
+            <script type="text/javascript" src="/emipro_theme_base/static/src/js/frontend/product_offer_slider.js"/>
+            <!-- End by ept_1 -->
+            <!-- Add scripts by ept_2 -->
+            <script type="text/javascript" src="/theme_clarico_vega/static/src/js/frontend/website_recently_viewed.js"></script>
+            <script type="text/javascript" src="/theme_clarico_vega/static/src/js/frontend/wishlist_animate.js"></script>
+            <script type="text/javascript" src="/theme_clarico_vega/static/src/js/frontend/dropdown_animate.js"></script>
+            <script type="text/javascript" src="/theme_clarico_vega/static/src/js/frontend/vertical_menu.js"/>
+            <script type="text/javascript" src="/theme_clarico_vega/static/src/js/frontend/jquery.mCustomScrollbar.js"/>
+            <!-- End by ept_2 -->
+
+            <script type="text/javascript" src="/theme_clarico_vega/static/src/js/frontend/jquery.mixitup.min.js"/>
+            <script type="text/javascript" src="/theme_clarico_vega/static/src/js/frontend/jquery.ui.touch-punch.min.js"/>
+        </xpath>
+    </template>
+    <!--============================ Inclusion of editor js Files =======================-->
+    <template id="assets_editor_ept" inherit_id="website.assets_editor">
+        <xpath expr="//script[last()]" position="after">
+            <script type="text/javascript"
+				src="/theme_clarico_vega/static/src/js/editor/customise_option.js"/>
+
+            <script type="text/javascript" src="/theme_clarico_vega/static/src/js/editor/offer_snippent_backend.js" />
+            <script type="text/javascript" src="/theme_clarico_vega/static/src/js/editor/snippet_animate_options.js"></script>
+            <script type="text/javascript" src="/theme_clarico_vega/static/src/js/editor/editor.js"></script>
+            <script type="text/javascript" src="/theme_clarico_vega/static/src/js/editor/google_map_snippet_backend.js" />
+        </xpath>
+    </template>
+    <!--====================== Customize Color Changes ===========================-->
+    <template id="theme_customize_options" inherit_id="web._assets_primary_variables">
+        <xpath expr="//link" position="after">
+            <link rel="stylesheet" type="text/scss"
+				href="/theme_clarico_vega/static/src/scss/theme_color.scss" />
+            <link rel="stylesheet" type="text/scss"
+				href="/theme_clarico_vega/static/src/scss/customise_variables.scss" />
+        </xpath>
+    </template>
+    <!--========================== Inclusion of lib scss Files =======================-->
+    <template id="theme_fonts" inherit_id="web._assets_frontend_helpers">
+        <xpath expr="//link[last()]" position="after">
+            <link rel="stylesheet" type="text/scss"
+				href="/theme_clarico_vega/static/lib/theme/para_size.scss" />
+            <link rel="stylesheet" type="text/scss"
+				href="/theme_clarico_vega/static/lib/theme/variables.scss" />
+            <link rel="stylesheet" type="text/scss"
+				href="/theme_clarico_vega/static/lib/theme/button.scss" />
+            <link rel="stylesheet" type="text/scss"
+				href="/theme_clarico_vega/static/lib/theme/heading_size.scss" />
+            <link rel="stylesheet" type="text/scss"
+				href="/theme_clarico_vega/static/lib/theme/link_color.scss" />
+        </xpath>
+    </template>
+    <!--================== Customize font Changes =======================-->
+    <template id="theme_custom_fonts" inherit_id="website._assets_primary_variables">
+        <xpath expr="//link" position="before">
+            <link rel="stylesheet" type="text/scss"
+				href="/theme_clarico_vega/static/lib/theme/fonts.scss" />
+        </xpath>
+    </template>
+    <template id="theme_clarico_inherit_layout" inherit_id="portal.frontend_layout">
+        <xpath expr="//footer" position="after">
+            <!-- AOS animations -->
+            <script src="/theme_clarico_vega/static/lib/aos/aos.js"></script>
+            <script>
+				AOS.init({
+			  		easing: 'ease-out-back',
+					duration: 1700,
+					offset: 0,
+                    delay: 150,
+				});
+			</script>
+        </xpath>
+    </template>
+
+    <!--============================ Ajax Sepete Ekle js Files =======================-->
+    <template id="ajax_add_to_cart" inherit_id="website.assets_frontend">
+        <xpath expr="script[last()]" position="after">
+            <script type="text/javascript" src="/theme_clarico_vega/static/src/js/frontend/ajax_cart.js"/>
+        </xpath>
+    </template>
+
+</harpiya>

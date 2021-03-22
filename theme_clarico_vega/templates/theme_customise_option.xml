@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<harpiya>
+    <!-- ================ Added new custom Header in customize option ================ -->
+    <template id="theme_customize_ept" inherit_id="website.theme_customize">
+        <xpath expr="//content[@id='theme_customize_content_fonts']"
+               position="after">
+            <!-- Button  Styles-->
+            <content id="theme_customize_content_button" string="Buttons"
+                     title="Choose your Button styles">
+                <more data-depends="">
+                    <list>
+                        <opt data-xmlid="theme_clarico_vega.option_s_button_01_assets"
+                             data-icon="/theme_clarico_vega/static/src/img/customise_option/g1-16.gif" string=" "/>
+                        <opt data-xmlid="theme_clarico_vega.option_s_button_02_assets"
+                             data-icon="/theme_clarico_vega/static/src/img/customise_option/g2-16.gif" string=" "/>
+                        <opt data-xmlid="theme_clarico_vega.option_s_button_03_assets"
+                             data-icon="/theme_clarico_vega/static/src/img/customise_option/g3-16.gif" string=" "/>
+                        <opt data-xmlid="theme_clarico_vega.option_s_button_04_assets"
+                             data-icon="/theme_clarico_vega/static/src/img/customise_option/g4-16.gif" string=" "/>
+                        <opt data-xmlid="theme_clarico_vega.option_s_button_05_assets"
+                             data-icon="/theme_clarico_vega/static/src/img/customise_option/g5-16.gif" string=" "/>
+                        <opt data-xmlid="theme_clarico_vega.option_s_button_06_assets"
+                             data-icon="/theme_clarico_vega/static/src/img/customise_option/g6-16.gif" string=" "/>
+                        <opt data-xmlid="theme_clarico_vega.option_s_button_07_assets"
+                             data-icon="/theme_clarico_vega/static/src/img/customise_option/g7-16.gif" string=" "/>
+                        <opt data-xmlid="theme_clarico_vega.option_s_button_08_assets"
+                             data-icon="/theme_clarico_vega/static/src/img/customise_option/g8-16.gif" string=" "/>
+                        <opt data-xmlid="theme_clarico_vega.option_s_button_09_assets"
+                             data-icon="/theme_clarico_vega/static/src/img/customise_option/g9-16.gif" string=" "/>
+                        <opt data-xmlid="theme_clarico_vega.option_s_button_10_assets"
+                             data-icon="/theme_clarico_vega/static/src/img/customise_option/g10-16.gif" string=" "/>
+                        <opt data-xmlid="theme_clarico_vega.option_s_button_11_assets"
+                             data-icon="/theme_clarico_vega/static/src/img/customise_option/button_11.gif" string=" "/>
+                        <opt data-xmlid="theme_clarico_vega.option_s_button_12_assets"
+                             data-icon="/theme_clarico_vega/static/src/img/customise_option/button_12.gif" string=" "/>
+                        <opt data-xmlid="theme_clarico_vega.option_s_button_13_assets"
+                             data-icon="/theme_clarico_vega/static/src/img/customise_option/button_13.gif" string=" "/>
+                        <opt data-xmlid="theme_clarico_vega.option_s_button_14_assets"
+                             data-icon="/theme_clarico_vega/static/src/img/customise_option/button_14.gif" string=" "/>
+                        <opt data-xmlid="theme_clarico_vega.option_s_button_15_assets"
+                             data-icon="/theme_clarico_vega/static/src/img/customise_option/button_15.gif" string=" "/>
+                        <opt data-xmlid="theme_clarico_vega.option_s_button_16_assets"
+                             data-icon="/theme_clarico_vega/static/src/img/customise_option/button_16.gif" string=" "/>
+                    </list>
+                </more>
+            </content>
+            <!-- Header Styles-->
+            <content id="theme_customize_content_header" string="Headers" title="Choose your Header styles">
+                <more data-depends="">
+                    <list>
+                        <opt data-xmlid="theme_clarico_vega.option_header_01_assets,theme_clarico_vega.customize_header_style_1"
+                                data-icon="/theme_clarico_vega/static/src/img/customise_option/h_style-1.jpg" data-reload="/"
+                                string=" "/>
+                        <opt data-xmlid="theme_clarico_vega.option_header_02_assets,theme_clarico_vega.customize_header_style_2"
+                                data-icon="/theme_clarico_vega/static/src/img/customise_option/h_style-2.jpg" data-reload="/"
+                                string=" "/>
+                        <opt data-xmlid="theme_clarico_vega.option_header_03_assets,theme_clarico_vega.customize_header_style_3"
+                                data-icon="/theme_clarico_vega/static/src/img/customise_option/h_style-3.jpg" data-reload="/"
+                                string=" "/>
+                        <opt data-xmlid="theme_clarico_vega.option_header_04_assets,theme_clarico_vega.customize_header_style_4"
+                                data-icon="/theme_clarico_vega/static/src/img/customise_option/h_style-4.jpg" data-reload="/"
+                                string=" "/>
+                        <opt data-xmlid="theme_clarico_vega.option_header_05_assets,theme_clarico_vega.customize_header_style_5"
+                                data-icon="/theme_clarico_vega/static/src/img/customise_option/h_style-5.jpg" data-reload="/"
+                                string=" "/>
+                        <opt data-xmlid="theme_clarico_vega.option_header_06_assets,theme_clarico_vega.customize_header_style_6"
+                                data-icon="/theme_clarico_vega/static/src/img/customise_option/h_style-6.jpg" data-reload="/"
+                                string=" "/>
+                        <opt data-xmlid="theme_clarico_vega.option_header_07_assets,theme_clarico_vega.customize_header_style_7"
+                                data-icon="/theme_clarico_vega/static/src/img/customise_option/h_style-7.jpg" data-reload="/"
+                                string=" "/>
+                         <opt data-xmlid="theme_clarico_vega.option_header_08_assets,theme_clarico_vega.customize_header_style_8"
+                                data-icon="/theme_clarico_vega/static/src/img/customise_option/h_style-8.jpg" data-reload="/"
+                                string=" "/>
+                        <opt data-xmlid="theme_clarico_vega.option_header_09_assets,theme_clarico_vega.customize_header_style_9"
+                                data-icon="/theme_clarico_vega/static/src/img/customise_option/h_style-9.jpg" data-reload="/"
+                                string=" "/>
+                        <opt data-xmlid="theme_clarico_vega.option_header_10_assets,theme_clarico_vega.customize_header_style_10"
+                                data-icon="/theme_clarico_vega/static/src/img/customise_option/h_style-10.jpg" data-reload="/"
+                                string=" "/>
+                        <opt data-xmlid="theme_clarico_vega.option_header_11_assets,theme_clarico_vega.customize_header_style_11"
+                                data-icon="/theme_clarico_vega/static/src/img/customise_option/h_style-11.jpg" data-reload="/"
+                                string=" "/>
+                    </list>
+                </more>
+            </content>
+            <!-- Footer Styles-->
+            <content id="theme_customize_content_footer" string="Footers" title="Choose your Footer styles">
+                <more data-depends="">
+                    <list>
+                        <opt data-xmlid="theme_clarico_vega.option_footer_01_assets,theme_clarico_vega.customize_footer_style_1"
+                             data-reload="/" data-icon="/theme_clarico_vega/static/src/img/customise_option/footer_1.jpg"
+                             string=" "/>
+                        <opt data-xmlid="theme_clarico_vega.option_footer_02_assets,theme_clarico_vega.customize_footer_style_2"
+                             data-reload="/" data-icon="/theme_clarico_vega/static/src/img/customise_option/footer_2.jpg"
+                             string=" "/>
+                        <opt data-xmlid="theme_clarico_vega.option_footer_03_assets,theme_clarico_vega.customize_footer_style_3"
+                             data-reload="/" data-icon="/theme_clarico_vega/static/src/img/customise_option/footer_3.jpg"
+                             string=" "/>
+                        <opt data-xmlid="theme_clarico_vega.option_footer_04_assets,theme_clarico_vega.customize_footer_style_4"
+                             data-reload="/" data-icon="/theme_clarico_vega/static/src/img/customise_option/footer_4.jpg"
+                             string=" "/>
+                        <opt data-xmlid="theme_clarico_vega.option_footer_05_assets,theme_clarico_vega.customize_footer_style_5"
+                             data-reload="/" data-icon="/theme_clarico_vega/static/src/img/customise_option/footer_5.jpg"
+                             string=" "/>
+                        <opt data-xmlid="theme_clarico_vega.option_footer_06_assets,theme_clarico_vega.customize_footer_style_6"
+                             data-reload="/" data-icon="/theme_clarico_vega/static/src/img/customise_option/footer_6.jpg"
+                             string=" "/>
+                        <opt data-xmlid="theme_clarico_vega.option_footer_07_assets,theme_clarico_vega.customize_footer_style_7"
+                             data-reload="/" data-icon="/theme_clarico_vega/static/src/img/customise_option/footer_7.jpg"
+                             string=" "/>
+                    </list>
+                </more>
+            </content>
+            <!-- Theme Configurations Added by ept_1-->
+            <content id="theme_configuration" string="Theme Settings"
+                     title="Manage Theme Features">
+                <list>
+                    <checkbox>
+                        <opt data-xmlid="theme_clarico_vega.ajax_add_to_cart" data-reload="/"
+                             string="AJAX Shopping Cart"/>
+                    </checkbox>
+                    <checkbox>
+                        <opt data-xmlid="theme_clarico_vega.quickview_icon_shop_product_item" data-reload="/"
+                             string="Hızlı Görünüm"/>
+                    </checkbox>
+                    <checkbox>
+                        <opt data-xmlid="theme_clarico_vega.website_pricefilter_ept" data-reload="/"
+                             string="Fiyat Filtresi"/>
+                    </checkbox>
+                     <checkbox>
+                        <opt data-xmlid="theme_clarico_vega.custom_template" data-reload="/"
+                             string="Advance Mini cart"/>
+                    </checkbox>
+                    <checkbox>
+                        <opt data-xmlid="theme_clarico_vega.login_popup_ept" data-reload="/"
+                             string="Login Popup"/>
+                    </checkbox>
+                    <checkbox>
+                        <opt data-xmlid="theme_clarico_vega.product_sticky_details_container" data-reload="/"
+                             string="Sticky Product Details"/>
+                    </checkbox>
+                    <checkbox>
+                        <opt data-xmlid="theme_clarico_vega.product_sticky_gallary" data-reload="/"
+                             string="Sticky Product Gallary"/>
+                    </checkbox>
+                </list>
+                <list>
+                    <checkbox>
+                        <opt data-xmlid="theme_clarico_vega.load_products_through_ajax" data-reload="/"
+                             string="Load Products Through Ajax"/>
+                    </checkbox>
+                     <checkbox>
+                        <opt data-xmlid="theme_clarico_vega.product_brand_container" data-reload="/"
+                             string="Product Brand"/>
+                     </checkbox>
+                    <checkbox>
+                        <opt data-xmlid="theme_clarico_vega.menu_vertical" data-reload="/"
+                             string="Vertical Menu"/>
+                    </checkbox>
+                    <checkbox>
+                        <opt data-xmlid="theme_clarico_vega.website_submenu_label_ept" data-reload="/"
+                             string="Menu Label"/>
+                    </checkbox>
+                    <checkbox>
+                        <opt data-xmlid="theme_clarico_vega.sticky_product_categories" data-reload="/"
+                             string="Sticky Attribute &amp; Category Filter"/>
+                    </checkbox>
+                </list>
+                <!-- Product Label Styles -->
+                <list string="Product Label">
+                    <checkbox>
+                        <opt data-xmlid="theme_clarico_vega.clarico_shop_products_label" data-reload="/"
+                             string="Product Label"/>
+                    </checkbox>
+                    <more data-depends="">
+                        <list>
+                            <opt data-widget="color" data-color="product_label" string="Default Color of Label"/>
+                        </list>
+                    </more>
+                </list>
+            </content>
+            <!-- End by ept_1 -->
+        </xpath>
+    </template>
+
+</harpiya>

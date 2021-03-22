@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<harpiya>
+
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="emipro_theme_base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <div id="clarico_settings_main" position="inside">
+                <div class="row o_settings_container mt16 w-100" id="clarico_banner_video">
+                    <div class="col-12 o_setting_box">
+                        <div class="o_setting_right_pane">
+                            <div class="content-group">
+                                <label string="Video URL for Banner" for="banner_video_url"/>
+                                <span class="fa fa-lg fa-globe"/>
+                                <div class="text-muted">
+                                    Video URL for the banner
+                                </div>
+                                <div class="mt8">
+                                    <field name="banner_video_url" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </field>
+    </record>
+
+</harpiya>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<harpiya>
+
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.emipro.base</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="website.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <div id="website_settings" position="after">
+                <h2>Emipro Theme Settings</h2>
+                <div class="row mt16 o_settings_container" id="clarico_settings_main"/>
+            </div>
+            <div id="clarico_settings_main" position="inside">
+                <div class="row mt16 o_settings_container" id="clarico_product_social_share">
+                    <div class="col-12 col-lg-6 o_setting_box" id="social_share">
+                        <div class="o_setting_left_pane">
+                            <field name="facebook_sharing"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="facebook_sharing"/>
+                            <span class="fa fa-lg fa-globe"/>
+                            <div class="text-muted">
+                                Display facebook sharing in product page
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_left_pane">
+                            <field name="twitter_sharing"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="twitter_sharing"/>
+                            <span class="fa fa-lg fa-globe"/>
+                            <div class="text-muted">
+                                Display twitter sharing in product page
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_left_pane">
+                            <field name="linkedin_sharing"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="linkedin_sharing"/>
+                            <span class="fa fa-lg fa-globe"/>
+                            <div class="text-muted">
+                                Display linkedin sharing in product page
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_left_pane">
+                            <field name="mail_sharing"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="mail_sharing"/>
+                            <span class="fa fa-lg fa-globe"/>
+                            <div class="text-muted">
+                                Display mail sharing in product page
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row o_settings_container mt16 w-100" id="clarico_product_name_lines">
+                    <div class="col-12 o_setting_box">
+                        <div class="o_setting_right_pane">
+                            <div class="content-group">
+                                <label string="Number of lines for product name" for="number_of_product_line"/>
+                                <span class="fa fa-lg fa-globe"/>
+                                <div class="text-muted">
+                                    Number of lines for product name
+                                </div>
+                                <div class="mt8">
+                                    <field name="number_of_product_line"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt16 o_settings_container" id="clarico_slider_auto_play">
+                    <div class="col-12 o_setting_box" >
+                        <div class="o_setting_left_pane">
+                            <field name="is_auto_play"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="is_auto_play"/>
+                            <div class="text-muted">
+                                Slider Auto Play
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </field>
+    </record>
+</harpiya>
+
+

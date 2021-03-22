@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<harpiya>
+    <!-- Quick view in shop -->
+    <template id="quickview_icon_shop_product_item" inherit_id="website_sale.products_item">
+        <xpath expr="//div[hasclass('o_wsale_product_btn')]" position="inside">
+            <a title="Hızlı Görünüm" class="btn btn-secondary quick-view-a te_quick_view"
+               t-att-data-id="'%s' % product.id">
+                <span class="fa fa-eye"/>
+            </a>
+        </xpath>
+    </template>
+    <template id="quickview_popup" inherit_id="web.frontend_layout">
+        <xpath expr="//div[@id='wrapwrap']/main" position="before">
+            <!-- Quick View Popup Model -->
+            <t t-call="theme_clarico_vega.quickview_popup_ept"/>
+        </xpath>
+    </template>
+    <template id="quickview_popup_ept">
+        <div class="modal fade" id="quick_view_model" tabindex='-1'>
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content quick_view_modal">
+                    <button type="button" class="close quick_close" data-dismiss="modal"
+                            aria-label="Kapat" tabindex="-1">
+                    </button>
+                    <t t-if="is_shop">
+                        <div class="modal-body"/>
+
+                    </t>
+                    <t t-else="">
+                        <div class="modal-body oe_website_sale"/>
+                    </t>
+                </div>
+            </div>
+        </div>
+    </template>
+    <template id="products_quick_view" inherit_id="website_sale.products">
+        <xpath expr="//div[hasclass('oe_website_sale')]" position="inside">
+            <div class="modal fade" id="quick_view_model_shop" tabindex='-1'>
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content quick_view_modal">
+                        <button type="button" class="close quick_close" data-dismiss="modal"
+                                aria-label="Kapat" tabindex="-1">
+                        </button>
+                        <div class="modal-body">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+    <!-- Quick view template block -->
+    <template id="quick_view_template" inherit_id="emipro_theme_base.quick_view_container" name="Quick View Template">
+        <xpath expr="//div[hasclass('quick_view_content')]" position="attributes">
+            <attribute name="class">quick_view_content d-flex align-content-center flex-wrap</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('quick_view_content')]" position="inside">
+            <t t-set="combination" t-value="product._get_first_possible_combination()"/>
+            <t t-set="combination_info"
+               t-value="product._get_combination_info(combination, add_qty=add_qty or 1, pricelist=pricelist)"/>
+            <t t-set="product_variant" t-value="product.env['product.product'].browse(combination_info['product_id'])"/>
+            <section
+                    t-attf-class="container-fluid py-2 oe_website_sale #{'discount' if combination_info['has_discounted_price'] else ''}"
+                    id="product_detail">
+                <div class="row">
+                    <div class="col-md-6 col-xl-6">
+                        <t t-call="website_sale.shop_product_carousel"/>
+                    </div>
+
+                    <div class="col-md-6 col-xl-6" id="product_details">
+                        <t t-if="request.website.viewref('theme_clarico_vega.clarico_shop_products_label').active">
+                            <t t-if="product.label_line_ids">
+                                <t t-foreach="product.label_line_ids" t-as="labels">
+                                    <t t-if="labels.website_id.id == website.id">
+                                        <div class="te_prod_label"
+                                             t-attf-style="background-color:#{labels.label.html_color};color:#{labels.label.font_html_color}">
+                                            <div class="te_label_tag" t-field="labels.label.name"/>
+                                        </div>
+                                    </t>
+                                </t>
+                            </t>
+                        </t>
+                        <h1 itemprop="name" t-field="product.name" class="te_product_name">Product Name</h1>
+                        <div class="o_not_editable">
+                            <p t-field="product.description_sale" class="te_prod_desc"/>
+                        </div>
+                        <span itemprop="url" style="display:none;" t-esc="product.website_url"/>
+                        <form t-if="product._is_add_to_cart_possible()" action="/shop/cart/update" method="POST">
+                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                            <div class="js_product js_main_product">
+                                <t t-call="website_sale.product_price"/>
+                                <t t-if="not request.website.viewref('website_sale.product_variants').active">
+                                    <t t-placeholder="select">
+                                        <input type="hidden" class="product_id" name="product_id"
+                                               t-att-value="product_variant.id"/>
+                                        <input type="hidden" class="product_template_id" name="product_template_id"
+                                               t-att-value="product.id"/>
+                                        <t t-if="combination" t-call="sale.variants">
+                                            <t t-set="ul_class" t-value="'flex-column'"/>
+                                            <t t-set="parent_combination" t-value="None"/>
+                                        </t>
+                                        <t t-else="">
+                                            <ul class="d-none js_add_cart_variants"
+                                                t-att-data-attribute_exclusions="{'exclusions: []'}"/>
+                                        </t>
+                                    </t>
+                                </t>
+                                <t t-else="">
+                                    <t t-if="not product.has_dynamic_attributes() and not product._has_no_variant_attributes() and not product._has_is_custom_values()">
+                                        <t t-set="attribute_exclusions" t-value="product._get_attribute_exclusions()"/>
+                                        <t t-set="filtered_sorted_variants"
+                                           t-value="product._get_possible_variants_sorted()"/>
+                                        <ul class="d-none js_add_cart_variants"
+                                            t-att-data-attribute_exclusions="json.dumps(attribute_exclusions)"/>
+                                        <input type="hidden" class="product_template_id" t-att-value="product.id"/>
+                                        <input type="hidden" t-if="len(filtered_sorted_variants) == 1"
+                                               class="product_id" name="product_id"
+                                               t-att-value="filtered_sorted_variants[0].id"/>
+                                        <t t-if="len(filtered_sorted_variants) &gt; 1">
+                                            <div t-foreach="filtered_sorted_variants" t-as="variant_id"
+                                                 class="custom-control custom-radio">
+                                                <t t-set="template_combination_info"
+                                                   t-value="product._get_combination_info(only_template=True, add_qty=add_qty, pricelist=pricelist)"/>
+                                                <t t-set="combination_info"
+                                                   t-value="variant_id._get_combination_info_variant(add_qty=add_qty, pricelist=pricelist)"/>
+                                                <input type="radio" name="product_id"
+                                                       class="custom-control-input product_id js_product_change"
+                                                       t-att-checked="'checked' if variant_id_index == 0 else None"
+                                                       t-attf-id="radio_variant_#{variant_id.id}"
+                                                       t-att-value="variant_id.id"
+                                                       t-att-data-price="combination_info['price']"
+                                                       t-att-data-combination="variant_id.product_template_attribute_value_ids.ids"/>
+                                                <label t-attf-for="radio_variant_#{variant_id.id}"
+                                                       label-default="label-default" class="custom-control-label">
+                                                    <span t-esc="combination_info['display_name']"/>
+                                                    <t t-set="diff_price"
+                                                       t-value="website.currency_id.compare_amounts(combination_info['price'], template_combination_info['price'])"/>
+                                                    <span class="badge badge-pill badge-secondary"
+                                                          t-if="diff_price != 0">
+                                                        <t t-esc="diff_price > 0 and '+' or '-'"/>
+                                                        <span t-esc="abs(combination_info['price'] - template_combination_info['price'])"
+                                                              t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                                                    </span>
+                                                </label>
+                                            </div>
+                                        </t>
+                                    </t>
+                                    <t t-else="">$0</t>
+                                </t>
+
+                                <p t-if="True" class="css_not_available_msg alert alert-warning">Bu kombinasyon mevcut değil.
+                                </p>
+                                <t t-set="qty_show"
+                                   t-value="request.website.viewref('website_sale.product_quantity').active"/>
+                                <t t-set="buy_now_show"
+                                   t-value="request.website.viewref('website_sale.product_buy_now').active"/>
+                                <t t-if="qty_show">
+                                    <div class="css_quantity input-group oe_website_spinner te_product_quantity"
+                                         contenteditable="false">
+                                        <div class="input-group-prepend">
+                                            <a t-attf-href="#" class="btn btn-secondary js_add_cart_json"
+                                               aria-label="Birini kaldır"
+                                               title="Birini kaldır">
+                                                <span class="fa fa-minus"/>
+                                            </a>
+                                        </div>
+                                        <input type="text" class="form-control quantity" data-min="1" name="add_qty"
+                                               value="1"/>
+                                        <div class="input-group-append">
+                                            <a t-attf-href="#" class="btn btn-secondary float_left js_add_cart_json"
+                                               aria-label="Bir tane ekle" title="Bir tane ekle">
+                                                <span class="fa fa-plus"/>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </t>
+                                <t t-set="configurator_state"
+                                   t-value="request.env['ir.module.module'].sudo().search([['name', '=', 'sale_product_configurator']])"/>
+                                <t t-if="configurator_state and configurator_state.state == 'installed'">
+                                    <a role="button"
+                                       t-att-id="'add_to_cart' if not product.optional_product_ids else ''"
+                                       t-attf-class="btn btn-primary btn-lg mt16 a-submit te_theme_button quick-add-to-cart #{'disabled out_of_stock' if product.virtual_available &lt; 1 else ''}"
+                                       href="#">
+                                        <span class="fa fa-shopping-cart"/>
+                                        Sepete Ekle
+                                    </a>
+                                </t>
+                                <t t-else="">
+                                    <a role="button"
+                                       id="add_to_cart"
+                                       t-attf-class="btn btn-primary btn-lg mt16 a-submit te_theme_button quick-add-to-cart #{'disabled out_of_stock' if product.virtual_available &lt; 1 else ''}"
+                                       href="#">
+                                        <span class="fa fa-shopping-cart"/>
+                                        Sepete Ekle
+                                    </a>
+                                </t>
+                                <t t-if="buy_now_show">
+                                    <a role="button" id="buy_now"
+                                       class="btn btn-outline-primary btn-lg mt16 d-block d-sm-inline-block te_theme_button"
+                                       href="#">
+                                        <span class="fa fa-bolt"/>
+                                        Hemen Al
+                                    </a>
+                                </t>
+                                <div class="availability_messages o_not_editable"/>
+                                <div id="product_option_block"/>
+                            </div>
+                        </form>
+                        <p t-elif="not product.active" class="alert alert-warning">Bu ürün artık mevcut değil.
+                        </p>
+                        <p t-else="" class="alert alert-warning">Bu ürünün geçerli bir kombinasyonu yok.</p>
+                    </div>
+                </div>
+            </section>
+        </xpath>
+    </template>
+</harpiya>

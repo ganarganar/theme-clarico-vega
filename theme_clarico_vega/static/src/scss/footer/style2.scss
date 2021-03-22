@@ -1,0 +1,293 @@
+/*========================== Footer Style 2 ==============================*/
+@include media-breakpoint-down(sm){
+    .te_ftr_container .container{
+        width: 90%;
+    }
+}
+/*---- Company Logo ----- */
+.te_company_info_section {
+	width:100%;
+	.te_company_detail {
+	    &:not(:first-child) {
+	        text-align: center;
+	        @include media-breakpoint-down(md)
+	        {
+	        	text-align: left;
+	        }
+	        > span {
+	            width: auto;
+	        }
+	        .te_ftr_add_ept {
+	            width: auto;
+	        }
+	    }
+	}
+	.te_company_detail
+	{
+		display: inline-block;
+		width: 33%;
+		padding: 20px 0;
+		vertical-align: top;
+		> a {
+		    color: inherit;
+		}
+		>span {
+		    display: inline-block;
+			width: 15%;
+			max-width: 40px;
+			vertical-align: top;
+		}
+		.te_ftr_add_ept
+		{
+		    display: inline-block;
+		    width: 80%;
+			padding: 0 3%;
+			line-height: 170%;
+			vertical-align: text-top;
+			color: inherit;
+			@include spacing(null,2px);
+			> span{
+			    padding-right: 0.22rem;
+			}
+		}
+		span >.te_ftr_info_icon
+		{	
+			@include style(2,5);	
+			background-color: nth($f_color,19);
+			@include border-radius(20px)
+			padding-top: 10px;
+			width: 35px;
+			height: 35px;
+			text-align: center;
+		}
+		@include media-breakpoint-down(md) {
+			width: 100%;
+			padding: 10px 0;
+		}
+	}
+}
+.te_newsletter_margin {
+    max-width: 350px;
+    margin: 14px auto;
+}
+.te_footer_language_title_style_2 {
+    display: inline-block;
+    width: 100%;
+    border-bottom: 1px solid nth($f_color,11);
+    ul {
+        padding-left: 0px;
+        list-style: none;
+        display: inline-block;
+        width: 100%;
+    }
+}
+/*--- Multiple Language Selected and Social Icon ---*/
+.te_f2_lang_social
+{
+	& .te_t_footer_lang
+	{
+		display: inline-block;
+		margin-top: 10px;
+		.list-inline-item
+		{
+			a{
+				color: inherit;
+				&:hover{
+					color:nth($f_color,19);
+				}
+			}
+		}
+		@include media-breakpoint-down(sm)
+		{
+			.js_language_selector
+			{
+				margin-bottom: 14px !important;
+				.dropdown-menu{
+                    transform: translate3d(65px, -73px, 0px) !important;
+                }
+			}
+		}	
+		@include media-breakpoint-down(xs)
+		{
+			margin-right:0;
+			width:100%;
+		}
+		.js_language_selector
+		{
+			margin-bottom: 18px !important;
+		}
+	}
+	& .te_footer_social_icon
+	{
+		display: inline-block;
+		@include media-breakpoint-down(xs)
+		{
+			width:100%;
+			margin-bottom: 12px;
+		}
+	}
+	@include media-breakpoint-down(md)
+	{
+		text-align:left;
+	}
+	@include media-breakpoint-down(sm)
+	{
+		margin-bottom: 0px;
+	}
+}
+/*------------ Static Menu ------------*/
+.te_footer_inline_menu
+{
+   margin: 10px 0px;
+	ul
+	{
+        padding: 0;
+        margin: 0;
+		li 
+		{
+            display: inline-block;
+            border-right: 1px solid nth($f_color,11);
+            @include media-breakpoint-down(xs) {
+                display: inline-block;
+                margin: 5px 0;
+                border-right: none;
+                width: 49%;
+            }
+			 a
+			{
+				font-size:nth($f_sizes,3);
+				color: inherit;
+				padding: 15px 10px;	
+				&:hover
+				{
+					 color: nth($f_color,19);
+	 				 @include transition(null,0.3s)
+				}
+			}		
+		}	
+		li:last-child
+		{
+			border-right: 1px solid nth($f_color,27);
+		}
+	}
+}
+/*--------- Social Icon ---------*/
+.te_footer_menu_social_icon
+{
+	text-align: center;
+	width: 100%;
+	margin:16px 0;
+
+	@include media-breakpoint-down(md)
+	{
+		margin:0;
+		padding-top: 20px;
+	}
+	.te_footer_logo_img
+	{
+		display:inline-block;
+		width:100%;
+		img {
+		    /*---- Dynamic height for logo -----*/
+			height: $o-theme-navbar-logo-height;
+			@include media-breakpoint-down(md)
+			{
+				float: left;
+		    	padding: 1% 0;
+			}
+			@include media-breakpoint-down(sm) {
+                height: auto;
+                max-height: min($o-theme-navbar-logo-height, 5rem);
+            }
+		}
+	}
+}
+.te_footer_social_icon
+{
+	a
+	{
+		font-size:nth($f_sizes,7);
+		display:inline-block;
+		padding:0;
+		span
+		{
+			display:inline-block;
+			padding: 0.625rem 0.3125rem;
+		}
+		.fa-facebook-square
+		{
+			color: #3B5998; /*This color is not used in variables*/
+		}
+		.fa-twitter
+		{
+			color: #36B9FF; /*This color is not used in variables*/
+		}
+		.fa-twitter
+		{
+			color: #36B9FF; /*This color is not used in variables*/
+		}
+		.fa-linkedin
+		{
+			color: #0077B5; /*This color is not used in variables*/
+		}
+		.fa-youtube-play
+		{
+			color: #FF0000; /*This color is not used in variables*/
+		}
+		.fa-google-plus-square
+		{
+			color: #DC4A38; /*This color is not used in variables*/
+		}
+		.fa-github
+		{
+			color: #24292E; /*This color is not used in variables*/
+		}
+		.fa-instagram
+		{
+			color: #e4405f; /*This color is not used in variables*/
+		}
+	}
+}
+/*-------- Copyright Text and Payment Image --------*/
+.te_footer_copyright_text
+{
+	margin-bottom:16px;
+	width:95%;
+}
+.te_copyright_add_language
+{
+    width: 49%;
+    text-align: left;
+	display: inline-block;
+	@include media-breakpoint-down(sm) {
+		margin-top: 0;
+		margin-bottom: 16px;
+		font-size:nth($f_sizes,3);
+	}
+
+}
+.te_footer_payment_img
+{
+    width: 49%;
+    text-align: right;
+    display: inline-block;
+}
+.te_copyright_add_language,.te_footer_payment_img{	
+	@include media-breakpoint-down(sm) {
+		width:100%;
+		text-align:left;
+	}
+}
+.te_footer_inline_menu,.te_footer_social_icon,.te_footer_logo_img img
+{
+	@include media-breakpoint-down(md) {
+		text-align:left;
+	}
+}
+.te_copyright_add_language 
+{ 
+	.js_language_selector > li > a
+	{
+		color: nth($f_color,22);
+	}
+}

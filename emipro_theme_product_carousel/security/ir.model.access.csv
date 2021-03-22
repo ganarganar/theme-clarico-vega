@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_slider_admin,access.slider.admin,emipro_theme_base.model_slider,base.group_system,1,1,1,1
+access_slider_filter_admin,access.slider.filter.admin,emipro_theme_base.model_slider_filter,base.group_system,1,1,1,1
+access_slider_styles_admin,access.slider.styles.admin,emipro_theme_base.model_slider_styles,base.group_system,1,1,1,1

@@ -1,0 +1,155 @@
+/*========================== Footer Style 3 ==========================*/
+/*----------- Company Logo -------------*/
+.te_footer_logo_title_socialicon
+{
+	background: darken(color('footer'), 5%);
+	>h5 span
+	{
+        padding: 0 0.3125rem;
+	}
+}
+/*---------- Multiple Language Selected ---------*/	
+.te_footer_language
+{
+	ul li
+	{
+        .btn-secondary
+        {
+                background-color: nth($f_color,27);
+                font-size:nth($f_sizes,2);
+                color: inherit;
+        }
+        a
+        {
+            font-size:nth($f_sizes,2);
+            color: inherit;
+            &:hover{
+                color:nth($f_color,19);
+            }
+        }
+	}
+	.js_language_selector .dropdown-menu{
+        @include media-breakpoint-down(sm){
+            transform: translate3d(53px, -73px, 0px) !important;
+        }
+    }
+ }
+ /*--------- Social Icon ----------*/
+.te_footer_social_icon
+{
+	>a
+	{
+		@include style(2,5,null,1.75rem);
+		background-color: nth($f_color,25);
+		width: 35px;
+		height: 35px;
+		text-align: center;
+		@include border-radius(50%)
+		margin-right: 8px;
+		margin-bottom: 8px;
+		padding:0;
+		span
+		{
+			padding: 0.625rem 0.3125rem;
+			color: inherit;
+		}
+		&:hover
+		{
+			background-color: nth($f_color,25);
+		}
+		@include media-breakpoint-down(sm) {
+		    margin-right: 3px;
+		}
+	}
+}
+/*-------- Static Menu -----------*/
+.te_footer_info_ept 
+{
+    margin: 0;
+    padding: 0;
+	li{
+        font-size:nth($f_sizes,3);
+        padding: 10px 0;
+        list-style-type: none;
+        @include transition(padding,.5s,ease,0s)
+        cursor: pointer;
+        &:hover
+        {
+            color: nth($f_color,19);
+            padding-left: 10px;
+        }
+        a{
+            color: inherit;
+            display: block;
+        }
+    }
+}
+/*---------- Contact Info ----------*/
+.te_footer_info_text 
+{
+    margin: 0;
+    padding: 0;
+    .te_ftr_add_info
+    {
+        list-style-type: none;
+        padding-top: 12px;
+    }
+    .te_ftr_text_style
+    {
+        font-size:nth($f_sizes,3);
+        @include spacing(null,0.125rem);
+        width: calc(100% - 24px);
+        >span
+        {
+            padding-right: 0.22rem;
+        }
+    }
+    .te_footer_add_tel_email_text_ept
+    {
+        display: inline-block;
+        vertical-align: top;
+        padding-right: 5px;
+    }
+}
+.te_footer_menu_info
+{
+		font-size:nth($f_sizes,2);
+		color: inherit;
+		text-transform: capitalize;
+		list-style-type: none;
+}
+@include media-breakpoint-down(sm)
+{	
+	.te_contact_info_s
+	{
+		padding-top: 0px !important;
+		padding-bottom: 0px !important;	
+	}
+}
+/*---------- Copyright And Payment Image ----------*/
+.te_copyright_add_language
+{
+	@include media-breakpoint-down(md) {
+		font-size:nth($f_sizes,3);
+		margin-bottom: 8px;
+		margin-top: 8px;
+		}
+		@include media-breakpoint-down(sm) {
+		text-align:left;
+	}
+}
+.te_footer_payment_img
+{
+	text-align:right;
+	@include media-breakpoint-down(sm) {
+		text-align:left;
+	}
+}
+@include media-breakpoint-down(sm) {
+	.te_end_ftr_container
+	{
+		width: 90%;
+		padding: 0;
+		padding-top:0 !important;
+	}
+}

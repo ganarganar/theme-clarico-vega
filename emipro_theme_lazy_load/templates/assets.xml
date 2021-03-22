@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<harpiya>
+    <!--======================== Inclusion of JS Files ======================-->
+    <template id="theme_assets_frontend_lazy_load" inherit_id="website.assets_frontend">
+        <xpath expr="script[last()]" position="after">
+            <script type="text/javascript" src="/emipro_theme_base/static/src/js/frontend/lazy_load.js"/>
+        </xpath>
+    </template>
+
+    <template id="lazyload_activate" inherit_id="website.layout">
+        <xpath expr="//div[@id='wrapwrap']" position="inside">
+            <input id="id_lazyload" type="hidden" name="is_lazyload" value="true"/>
+            <input type="hidden" class="current_website_id" t-att-value="request.env['website'].sudo().get_current_website().id"/>
+        </xpath>
+    </template>
+</harpiya>

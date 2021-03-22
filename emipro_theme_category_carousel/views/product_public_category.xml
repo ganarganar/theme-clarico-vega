@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<harpiya>
+    <!-- Product Public Categories -->
+    <record id="product_public_category_form_view_ept" model="ir.ui.view">
+        <field name="name">product.public.category.form.allow.category.in.crousel</field>
+        <field name="model">product.public.category</field>
+        <field name="inherit_id" ref="website_sale.product_public_category_form_view"/>
+        <field name="arch" type="xml">
+             <xpath expr="//field[@name='sequence']" position="after">
+                 <field name="allow_in_category_carousel"/>
+             </xpath>
+        </field>
+    </record>
+</harpiya>

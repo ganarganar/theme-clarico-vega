@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<harpiya>
+    <!-- Product Pricelist Item for Display a offer Message in slider -->
+    <record id="product_pricelist_item_offer_form" model="ir.ui.view">
+        <field name="name">product.pricelist.item.offer.form</field>
+        <field name="model">product.pricelist.item</field>
+        <field name="inherit_id" ref="product.product_pricelist_item_form_view"/>
+        <field name="arch" type="xml">
+            <field name="date_end" position="after">
+                <field name="is_display_timer"/>
+                <field name="offer_msg" attrs="{'invisible': [('is_display_timer','=',False)]}"/>
+            </field>
+        </field>
+    </record>
+    <record id="product_pricelist_ept" model="ir.ui.view">
+        <field name="name">product.pricelist.offer.form</field>
+        <field name="model">product.pricelist</field>
+        <field name="inherit_id" ref="product.product_pricelist_view_inherit"/>
+        <field name="arch" type="xml">
+            <field name="date_end" position="after">
+                <field name="is_display_timer"/>
+                <field name="offer_msg" attrs="{'invisible': [('is_display_timer','=',False)]}"/>
+            </field>
+        </field>
+    </record>
+
+</harpiya>

@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<harpiya>
+    <!--===================== Cart Page Banner =======================-->
+    <template id="cart_ept" inherit_id="website_sale.cart">
+        <xpath expr="//div[hasclass('col-lg-12')]/a[hasclass('btn-secondary')]" position="attributes">
+            <attribute name="class">btn btn-secondary mb32 d-none d-xl-inline-block te_theme_button</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('col-lg-12')]/a[hasclass('btn-primary')]" position="attributes">
+            <attribute name="class">btn btn-primary float-right d-none d-xl-inline-block te_theme_button</attribute>
+        </xpath>
+    </template>
+    <!--==================== Cart Lines =====================-->
+    <template id="cart_lines_ept" inherit_id="website_sale.cart_lines">
+        <xpath expr="//div[hasclass('js_cart_lines')]" position="replace">
+            <div t-if="not website_sale_order or not website_sale_order.website_order_line" class="js_cart_lines te_empty_cart mb32 text-center">
+          				Sepetiniz Boş!
+        	 </div>
+        </xpath>
+        <xpath expr="//table[@id='cart_products']" position="attributes">
+            <attribute name="class">mb64 table table-striped table js_cart_lines te_cart_table</attribute>
+        </xpath>
+        <xpath expr="//td[hasclass('td-price')]/t/del" position="attributes">
+            <attribute name="t-attf-class">#{'te_cart_del mr8'}</attribute>
+        </xpath>
+        <xpath expr="//strong[@t-field='line.name_short']" position="replace">
+            <strong t-field="line.product_id.name" />
+            
+<!--            <div class="te_rmv_cart_product">-->
+<!--                <a href='#' aria-label="Remove from cart" title="Remove from cart"-->
+<!--					class='js_delete_product no-decoration'>Remove item</a>-->
+<!--            </div>-->
+        </xpath>
+        <xpath expr="//td[hasclass('td-product_name')]/div" position="inside">
+            <div class="te_cart_prod_attr_lines mt4">
+                <t t-if="len(line.product_id.product_template_attribute_value_ids)">
+                    <t t-set="total_attribute" t-value="0"></t>
+                    <t t-foreach="line.product_id.product_template_attribute_value_ids" t-as="val_vart">
+                        <label>
+                            
+                            <span class="te_attr_span">
+                                <t t-esc="val_vart.attribute_id.name"></t>
+                            </span>
+                            :
+
+                            <span class="te_attr_span">
+                                <t t-esc="val_vart.name"></t>
+                            </span>
+                            <t t-set="total_attribute" t-value="total_attribute + 1"></t>
+                            <t t-if="total_attribute"><div class="te_attr_comma">,</div></t>
+                        </label>
+                    </t>
+                </t>
+            </div>
+        </xpath>
+        <xpath expr="//th[hasclass('td-qty')]" position="attributes">
+            <attribute name="class">td-qty text-center</attribute>
+        </xpath>
+        <xpath expr="//th[hasclass('td-price')]" position="attributes">
+            <attribute name="class">td-price text-center</attribute>
+        </xpath>
+        <xpath expr="//t[@t-call='website_sale.cart_line_description_following_lines']" position="replace">
+            <div t-if="line.get_description_following_lines()" t-attf-class="text-muted {{div_class}} small">
+            <t t-foreach="line.get_description_following_lines()" t-as="name_line">
+                <span><t t-esc="name_line"/></span>
+                <br t-if="not name_line_last" />
+            </t>
+        </div>
+        </xpath>
+        <!-- <xpath expr="//th[hasclass('td-action')]" position="replace"></xpath> -->
+        <!-- <xpath expr="//td[hasclass('td-action')]" position="replace"></xpath> -->
+    </template>
+    <!--=================== Suggested Products =====================-->
+    <template id="suggested_products_list_ept" inherit_id="website_sale.suggested_products_list">
+        <xpath expr="//h5" position="attributes">
+            <attribute name="class">js_cart_lines te_cart_sugg_h5 mb16
+			</attribute>
+        </xpath>
+        <xpath expr="//table[@id='suggested_products']" position="attributes">
+            <attribute name="class">js_cart_lines table table-striped mb64
+			</attribute>
+        </xpath>
+    </template>
+    <!--========================== cart summary =======================-->
+    <template id="cart_summary_ept" inherit_id="website_sale.cart_summary">
+        <xpath expr="//div[hasclass('card')]" position="attributes">
+            <attribute name="class">card te_cart_summary_card</attribute>
+        </xpath>
+        <xpath expr="//table[@id='cart_products']/thead" position="replace">
+            <thead>
+                <tr>
+                    <th class="border-top-0 td-img" width="80">Ürün</th>
+                    <th class="border-top-0"></th>
+                    <th class="border-top-0 td-qty">Miktar</th>
+                    <th class="border-top-0 text-right td-price">Fiyat</th>
+                </tr>
+            </thead>
+        </xpath>
+        <xpath expr="//table[@id='cart_products']" position="attributes">
+            <attribute name="class">table table-striped
+				te_confirm_products
+			</attribute>
+        </xpath>
+        <xpath expr="//table[@id='cart_products']//td[hasclass('td-price')]" position="attributes">
+            <attribute name="class">text-right td-price
+			</attribute>
+        </xpath>
+        <xpath expr="//strong[@t-field='line.name_short']" position="replace">
+            <strong t-field="line.product_id.name" />
+            <div class="te_checkout_prod_attr_lines mt4">
+                <t t-if="len(line.product_id.product_template_attribute_value_ids)">
+                    <t t-set="total_attribute" t-value="0"></t>
+                    <t t-foreach="line.product_id.product_template_attribute_value_ids" t-as="val_vart">
+                        <label class="w-100 mb0">
+                            <span class="te_attr_span">
+                                <t t-esc="val_vart.attribute_id.name"></t>
+                            </span>
+							:
+
+                            <span class="te_attr_span">
+                                <t t-esc="val_vart.name"></t>
+                            </span>
+                            <t t-set="total_attribute" t-value="total_attribute + 1"></t>
+                        </label>
+                    </t>
+                </t>
+            </div>
+        </xpath>
+    </template>
+    <!--====================== Promo code ======================-->
+    <template id="reduction_code_ept" inherit_id="website_sale.reduction_code">
+        <xpath expr="//a[hasclass('show_coupon')]" position="attributes">
+            <attribute name="class">btn-link show_coupon te_show_cpn</attribute>
+        </xpath>
+    </template>
+    <!--====================== Your details Form =========================-->
+    <template id="address_ept" inherit_id="website_sale.address">
+        <xpath expr="//div[hasclass('oe_cart')]/div/t[1]/h2" position="attributes">
+            <attribute name="class">o_page_header mt8 te_page_header</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('oe_cart')]/div/t[1]/h2" position="after">
+            <span class="mb16 d-block text-danger">* doldurulması zorunlu alanlar</span>
+        </xpath>
+        <xpath expr="//div[hasclass('oe_cart')]/div/t[2]/h2" position="attributes">
+            <attribute name="class">o_page_header mt8 te_page_header</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('oe_cart')]/div/t[2]/h2" position="after">
+            <span class="mb16 d-block text-danger">* doldurulması zorunlu alanlar</span>
+        </xpath>
+        <xpath expr="//div[hasclass('oe_cart')]/div/t[3]/h2" position="attributes">
+            <attribute name="class">o_page_header mt8 te_page_header</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('oe_cart')]/div/t[3]/h2" position="after">
+            <span class="mb16 d-block text-danger">* doldurulması zorunlu alanlar</span>
+        </xpath>
+        <xpath expr="//h2[hasclass('o_page_header')]/a" position="attributes">
+            <attribute name="class">te_checkout_login_link</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('justify-content-between')]"
+			position="attributes">
+            <attribute name="class">d-flex justify-content-between mt16
+			</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('justify-content-between')]/a[hasclass('btn-secondary')]" position="attributes">
+            <attribute name="class">btn btn-secondary mb32 te_theme_button</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('justify-content-between')]/a[hasclass('btn-primary')]" position="attributes">
+            <attribute name="class">btn btn-primary mb32 a-submit a-submit-disable a-submit-loading te_theme_button</attribute>
+        </xpath>
+    </template>
+    <!--========================= Checkout Address =============================-->
+    <template id="checkout_ept" inherit_id="website_sale.checkout">
+        <xpath expr="//div[hasclass('oe_cart')]" position="attributes">
+            <attribute name="class">col-12 col-xl order-xl-1 oe_cart
+				te_checkout_add_confirm
+			</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('all_shipping')]//a[hasclass('a-submit')]"
+			position="attributes">
+            <attribute name="class">a-submit btn btn-secondary mb16 btn-block
+				border_primary te_add_address
+			</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('justify-content-between')]"
+			position="attributes">
+            <attribute name="class">d-flex justify-content-between mt-4
+			</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('justify-content-between')]/a[hasclass('btn-secondary')]" position="attributes">
+            <attribute name="class">btn btn-secondary mb32 te_theme_button</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('justify-content-between')]/a[hasclass('btn-primary')]" position="attributes">
+            <attribute name="class">btn btn-primary mb32 te_theme_button</attribute>
+        </xpath>
+    </template>
+    <!--====================== Address kanban ==========================-->
+    <template id="address_kanban_ept" inherit_id="website_sale.address_kanban">
+        <!-- <xpath expr="//div[1]" position="attributes">
+            <attribute name="t-attf-class">card #{selected or 'js_change_shipping'}
+			</attribute>
+        </xpath> -->
+        <xpath expr="//span[hasclass('btn-ship')]/a[hasclass('btn-primary')]" position="attributes">
+            <attribute name="class">btn btn-block btn-primary te_theme_button</attribute>
+        </xpath>
+        <xpath expr="//span[hasclass('btn-ship')]/a[hasclass('btn-secondary')]" position="attributes">
+            <attribute name="class">btn btn-block btn-secondary te_theme_button</attribute>
+        </xpath>
+    </template>
+    <!--====================== Order Confirmation =======================-->
+    <template id="confirmation_ept" inherit_id="website_sale.confirmation">
+        <xpath expr="//p[hasclass('alert-info')]" position="attributes">
+            <attribute name="class">alert alert-info mt-3 te_alert_info
+			</attribute>
+        </xpath>
+        <xpath expr="//p[hasclass('alert-info')]/a" position="attributes">
+            <attribute name="class">btn-link btn-sm te_alert_signup_text
+			</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('oe_cart')]/div[hasclass('card')]"
+			position="attributes">
+            <attribute name="class">card mt-3 te_confirm_order_card</attribute>
+        </xpath>
+    </template>
+        <!--======================= Cart Popover ==========================-->
+    <template id="cart_popover_ept" inherit_id="website_sale.cart_popover" priority="17">
+        <xpath expr="//t[@t-if='website_sale_order and website_sale_order.website_order_line']" position="replace">
+            <t t-if="website_sale_order and website_sale_order.website_order_line">
+                <div class="scrollbar" t-attf-class="scrollbar #{'' if request.website.viewref('theme_clarico_vega.custom_template').active else 'te_qty_name' }">
+                    <t t-foreach="website_sale_order.website_order_line" t-as="line">
+                        <div class="row cart_line">
+                            <div class="col-sm-9">
+                                <div class="te_prod_name_info">
+                                    <t t-call="website_sale.cart_line_product_link">
+                                        <span class="h6 te_cart_popover_p_name" t-esc="line.product_id.name"/>
+                                    </t>
+                                    <div class="te_cart_popover_details">
+                                        <div class="te_cart_popover_price" name="price">
+                                            <t t-set="combination"
+                                               t-value="line.product_id.product_template_attribute_value_ids + line.product_no_variant_attribute_value_ids"/>
+                                            <t t-set="combination_info"
+                                               t-value="line.product_id.product_tmpl_id._get_combination_info(combination)"/>
+
+                                            <div itemprop="offers" itemscope="itemscope"
+                                                 itemtype="http://schema.org/Offer"
+                                                 class="product_price">
+                                                <h6 class="oe_price_h4 css_editable_mode_hidden">
+                                                    <span t-attf-class="text-danger oe_default_price te_shop_del {{'' if combination_info['has_discounted_price'] else 'd-none'}}"
+                                                          style="text-decoration: line-through; white-space: nowrap;"
+                                                          t-esc="combination_info['list_price']"
+                                                          t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                                                    <b class="oe_price" style="white-space: nowrap;"
+                                                       t-esc="combination_info['price']"
+                                                       t-options="{'widget': 'monetary', 'display_currency': website.currency_id}"/>
+                                                    <span itemprop="price" style="display:none;"
+                                                          t-esc="combination_info['price']"/>
+                                                    <span itemprop="priceCurrency" style="display:none;"
+                                                          t-esc="website.currency_id.name"/>
+                                                </h6>
+                                                <h6 class="css_non_editable_mode_hidden decimal_precision"
+                                                    t-att-data-precision="str(website.currency_id.decimal_places)">
+                                                    <span t-field="line.product_id.list_price"
+                                                          t-options='{"widget": "monetary","display_currency": line.product_id.currency_id,}'/>
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <t t-if="request.website.viewref('theme_clarico_vega.custom_template').active">
+                                    <t t-call="theme_clarico_vega.custom_template"/>
+                                </t>
+                                <t t-else="">
+                                    <div>Miktar: <t t-esc="int(line.product_uom_qty) == line.product_uom_qty and int(line.product_uom_qty) or line.product_uom_qty" /></div>
+                                </t>
+                            </div>
+                            <div class="col-sm-3">
+                                <span class="te_mini_img" t-field="line.product_id.image_256" t-options="{'widget': 'image', 'class': 'rounded'}"/>
+                                <a t-if="request.website.viewref('theme_clarico_vega.custom_template').active" href="#" aria-label="Sepetten Kaldır" title="Sepetten Kaldır"
+                                   class="js_delete_product no-decoration">
+                                </a>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+                <div class="text-center cart_subtotal">
+                    <span class="h6">
+                        <t t-call="website_sale.total">
+                            <t t-set='hide_coupon'>True</t>
+                        </t>
+                    </span>
+                    <div class="te_cart_btn">
+                        <a role="button" class="btn btn-primary te_theme_button mb-2" href="/shop/cart">
+                            Sepeti Görüntüle (<t t-esc="website_sale_order.cart_quantity" /> ürün)
+                        </a>
+                        <a role="button" class="btn btn-primary te_theme_button" href="/shop/checkout?express=1">
+                            Ödeme
+                        </a>
+                    </div>
+                </div>
+            </t>
+        </xpath>
+    </template>
+    <template id="custom_template" active="True">
+        <div class="te_prod_rm_info">
+            <td class="text-center td-qty">
+                <div class="te_cart_popover_qty">
+                    <div class="css_quantity input-group mx-auto">
+                        <div class="input-group-prepend">
+                            <a t-attf-href="#"
+                               class="btn btn-link js_add_cart_json d-none d-md-inline-block"
+                               aria-label="Birini kaldır" title="Birini kaldır">
+                                <i class="fa fa-minus te_icon_down"/>
+                            </a>
+                        </div>
+                        <input type="text"
+                               class="js_quantity form-control quantity p-1 text-center"
+                               t-att-data-line-id="line.id"
+                               t-att-data-product-id="line.product_id.id"
+                               t-att-value="int(line.product_uom_qty) == line.product_uom_qty and int(line.product_uom_qty) or line.product_uom_qty"/>
+                        <div class="input-group-append">
+                            <a t-attf-href="#"
+                               class="btn btn-link float_left js_add_cart_json d-none d-md-inline-block"
+                               aria-label="Bir tane ekle" title="Bir tane ekle">
+                                <i class="fa fa-plus te_icon_up"/>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </div>
+     </template>
+    <!--=============================== Product Configurator Configure Optional Products ========================-->
+    
+    <template id="wizard_checkout_ept" inherit_id="website_sale.wizard_checkout">
+        <xpath expr="//div[hasclass('col-xl')]" position="attributes">
+            <attribute name="class">col-xl text-lg-right text-md-right te_cart_wizard_main</attribute>
+        </xpath>
+    </template>
+    <template id="payment_section" inherit_id="website_sale.payment">
+        <xpath expr="//t[@t-set='submit_class']" position="attributes">
+            <attribute name="t-value">'btn btn-primary te_theme_button'</attribute>
+        </xpath>
+        <xpath expr="//t[@t-set='back_button_class']" position="attributes">
+            <attribute name="t-value">'btn btn-secondary te_theme_button'</attribute>
+        </xpath>
+    </template>
+    <template id="short_cart_summary_ept" inherit_id="website_sale.short_cart_summary">
+        <xpath expr="//a[hasclass('btn-secondary')]" position="attributes">
+            <attribute name="class">btn btn-secondary float-right d-none d-xl-inline-block te_theme_button</attribute>
+        </xpath>
+    </template>
+    <template id="coupon_form_ept" inherit_id="website_sale.coupon_form">
+        <xpath expr="//a[hasclass('btn-secondary')]" position="attributes">
+            <attribute name="class">btn btn-secondary a-submit te_theme_button</attribute>
+        </xpath>
+    </template>
+    <template id="extra_info_ept" inherit_id="website_sale.extra_info">
+        <xpath expr="//a[hasclass('btn-secondary')]" position="attributes">
+            <attribute name="class">btn btn-secondary mb32 float-left te_theme_button</attribute>
+        </xpath>
+        <xpath expr="//a[hasclass('btn-primary')]" position="attributes">
+            <attribute name="class">btn btn-primary float-right mb32 o_website_form_send te_theme_button</attribute>
+        </xpath>
+    </template>
+</harpiya>

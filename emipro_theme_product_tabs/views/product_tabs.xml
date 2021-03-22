@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<harpiya>
+    <record id="product_tabs" model="ir.ui.view">
+        <field name="name">Product Tab</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='sales']" position="after">
+                <page name="product_tabs" string="Product Tabs">
+                    <field name="tab_line_ids" mode="kanban">
+                        <kanban>
+                            <templates>
+                                <t t-name="kanban-box">
+                                    <div class="oe_kanban_details oe_kanban_global_click">
+                                        <field name="tab_name"/>
+                                    </div>
+                                </t>
+                            </templates>
+                        </kanban>
+                        <form string="Product Tab">
+                            <sheet>
+                                <group>
+                                    <field name="tab_name"/>
+                                    <field name="tab_content"/>
+                                    <field name="website_ids" options="{'no_create': True}" widget="many2many_tags"
+                                           groups="website.group_multi_website" domain="[('theme_id.author','like','Harpiya Software Tech.')]"/>
+                                    <field name="sequence"/>
+                                </group>
+                            </sheet>
+                        </form>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</harpiya>
+
+
+

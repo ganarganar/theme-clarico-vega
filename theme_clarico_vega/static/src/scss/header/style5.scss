@@ -1,0 +1,486 @@
+/*======================== Header Style 5 =================================*/
+/*------- Company Logo and Header Navbar -------*/
+.navbar-collapse
+{
+	@include media-breakpoint-down(sm)
+	{
+		background:nth($f_color,5);
+	}
+}
+.te_header_search
+{
+	button.oe_search_button
+	{
+		@include position(absolute,auto,0,auto,auto);
+		z-index: 9;
+	}
+}
+.te_header_navbar
+{
+	border-bottom:1px solid $border-color;
+	border-top: 1px solid $border-color;
+	background-color: nth($f_color,27) ;
+	padding:0px !important;
+
+		& #top_menu
+		{
+			>li > a.nav-link
+			{
+				color:nth($f_color,3);
+				padding: 0.8rem;
+				margin: 0 2px;
+				min-height: $o-theme-navbar-logo-height;
+				display: inline-block;
+                vertical-align: middle;
+
+				&:hover
+				{
+					color:nth($f_color,19);
+				}
+			}
+			>li > a.nav-link.active
+			{
+				border-radius: 25px 0 25px 0;
+				color:nth($f_color,19);
+			}
+		}
+	@include media-breakpoint-down(md)
+	{
+		#top_menu{
+			> li > a.nav-link{
+				font-size:nth($f_sizes,3);
+			}
+		}
+		.navbar-brand.logo img{
+			max-height:50px !important;
+		}
+	}
+	@include media-breakpoint-down(sm)
+	{
+		#top_menu
+		{
+			.nav-link
+			{
+				padding: 0.5rem !important;
+			}
+			.nav-link.active
+			{
+				color:nth($f_color,19);
+				background: nth($f_color,27) !important;
+			}
+		}
+		.navbar-brand.logo img
+		{
+			max-height:40px !important;
+		}
+		.navbar-toggler
+	    {
+			border-color: rgba(0, 0, 0, 0.4) !important;
+		}
+	}
+}
+.o_header_affix .te_header_navbar .navbar-brand.logo img
+{
+	height: 2.513rem;
+}
+/*------- Header Social Icon, Search Icon, Cart Icon, Wishlist Icon, User Icon ---------------------*/
+.te_header_style_5_main
+{
+	@include media-breakpoint-down(md)
+	{
+		& .te_header_before_left{
+			width: 55%;
+			padding-left:0;
+			& a{
+				font-size:nth($f_sizes,3);
+			}
+		}
+		& .te_header_before_right{
+			width: 45%;
+			padding-right:10px;
+			& .te_header_5_search{
+				& .oe_search_box{
+					height: 35px;
+				}
+				& .oe_search_button{
+					padding: 6px 15px;
+				}
+			}
+		}
+		.te_header_social
+		{
+			display:none;
+		}
+	}
+	@include media-breakpoint-down(sm)
+	{
+		> .row
+		{
+			width: 100%;
+			display: inline-block;
+			margin: 0;
+			padding: 0.5rem 0 !important;
+			@include position(relative,4px);
+		}
+		.te_header_before_left {
+		    width: auto;
+		    float: left;
+		    padding-right: 0;
+
+			>div.px-1
+			{
+				padding: 0;
+				border: 0;
+			}
+		}
+		 .te_header_before_right
+		 {
+		    width: auto;
+		    float: right;
+		    padding: 0;
+		    @include position(initial)
+
+		 	> div
+		 	{
+		 		padding: 0;
+		 		border: 0;
+		 	}
+		 	.te_cart_icon_head, .te_wish_icon_head, .te_bar_icon
+			{
+		 		a
+		 		{
+		 			padding: 0 4px;
+		 			font-size: nth($f_sizes,2);
+
+		 			sup
+		 			{
+		 				padding: 3px 5px;
+		 				top: -9px;
+                        right: 8px;
+		 			}
+		 		}
+			}
+			.te_wish_icon_head a {
+                padding: 0px 0px 0px 4px;
+            }
+            .te_cart_icon_head{
+			    position: relative;
+                left: 7px;
+			}
+		 	.te_search_icon_header,.te_user_account
+		 	{
+		 		> a
+		 		{
+		 			font-size: nth($f_sizes,2) !important;
+		 			padding: 0 4px !important;
+		 		}
+		 	}
+		 	.te_search_form_5_page
+		 	{
+		 		width: 90%;
+		 	}
+		}
+	}
+}
+.te_header_before_left
+{
+	> div
+	{
+        display: inline-block;
+        vertical-align: middle;
+		a,.btn-link
+		{
+			@include style(3,3);
+			margin-left: 0;
+		}
+		.dropdown-toggle
+		{
+			padding: 0 0.375rem;
+			@include media-breakpoint-down(sm)
+			{
+				padding: 0;
+			}
+		}
+	}
+	> div.px-1
+	{
+		border-left:1px solid $border-color;
+		padding: 0.7rem 0;
+
+		&:last-child
+		{
+			border-right:1px solid $border-color !important;
+			@include media-breakpoint-down(sm)
+			{
+				border-right:0 !important;
+			}
+		}
+	}
+	@include media-breakpoint-up(md)
+	{
+		.h5_pricelist .dropdown-menu
+		{
+			left:0px !important;
+			right:0;
+			&:before{
+                left:8px;
+            }
+            &:after{
+                left:7px;
+            }
+		}
+	}
+	@include media-breakpoint-down(sm){
+	    .h5_pricelist .dropdown-menu
+		{
+			&:before{
+                left:8px;
+            }
+            &:after{
+                left:7px;
+            }
+		}
+		.js_language_selector .dropdown-menu
+		{
+			&:before{
+                left:11px;
+            }
+            &:after{
+                left:10px;
+            }
+		}
+	}
+	.te_header_language
+	{
+		a
+		{
+			&:hover
+			{
+				color:nth($f_color,3);
+			}
+		}
+	}
+}
+.te_header_before_right
+{
+	text-align: right;
+	>div
+	{
+		display: inline-block;
+		padding: 0.7rem 0;
+		border-right:1px solid $border-color;
+	}
+	div.te_header_account a.dropdown-toggle{
+	    padding-left: 9px;
+	}
+	.te_cart_icon_head, .te_wish_icon_head
+	{
+		display:inline-block;
+		a{
+			padding: 0px 0px 0px 16px;
+			@include position(relative);
+			display:inline-block !important;
+			@include style(7,3);
+			sup
+			{
+				@include border-radius(12px);
+				width: auto;
+				padding: 4px 6px;
+				vertical-align: top;
+				font-size: nth($f_sizes,9);
+				display: inline-block !important;
+				top: -10px;
+                right: 10px;
+			}
+			i
+			{
+				display: inline-block !important;
+			}
+		}
+	}
+	.te_header_5_search
+	{
+		border-left: 1px solid $border-color;
+		.te_search_icon_header
+		{
+			a
+			{
+				padding: 0 12px;
+				@include style(7,3);
+			}
+		}
+		.te_search_5_form
+		{
+			@include position(fixed,0,auto,auto,0);
+			width: 100%;
+			background: nth($f_color,5);
+			z-index: 999;
+			display: block;
+			@include box-shadow(0px 0px 10px rgba(0, 0, 0, 0.08))
+			visibility:hidden;
+			transform: translate3d(0, -100%, 0);
+			@include transition(all, 0.3s, linear);
+
+			&.open_search
+			{
+				visibility: visible;
+				transform: translate3d(0, 0, 0);
+			}
+			.te_btn_5_close
+			{
+				@include style(12,6)
+				display: block;
+				@include position(absolute,18%,10%);
+				z-index: 5;
+				opacity: 1;
+				i
+				{
+					&:before
+					{
+						content: '\00d7';
+					}
+				}
+			}
+			.te_search_form_5_page
+			{
+				padding-top: 20px;
+				padding-bottom: 20px;
+				@include position(relative);
+
+                input.search-query.form-control.oe_search_box{
+                    background: nth($f_color,27);
+                    @include style(19,6,inherit,unset,capitalize);
+                    padding: 10px 0px;
+                    outline: none;
+                    width: 100%;
+                    margin-top: 12px;
+                    @include border-radius(0);
+                    border: 0;
+                    border-bottom: 1px solid $border-color;
+
+                    &:focus{
+                        box-shadow:none;
+                    }
+                    @include media-breakpoint-down(md)
+                    {
+                        margin-top: 35px;
+                    }
+                }
+                .o_wsale_products_searchbar_form
+                {
+                    button.btn.btn-primary.oe_search_button
+                    {
+                        @include position(absolute,auto,5%,0);
+						cursor: pointer;
+						padding: 5px;
+						display: inline-block;
+						background: none;
+						border: none;
+						@include style(19,6);
+                    }
+
+                }
+                .dropdown-menu button.dropdown-item.text-primary:active
+                {
+                    background-color: transparent;
+                }
+				.te_5_text
+				{
+					text-align: left;
+					color: nth($f_color,6);
+				}
+				form
+				{
+					@include position(relative);
+					display: block;
+				}
+			}
+		}
+	}
+	.te_header_account
+	{
+		.te_user_account, .te_signin
+		{
+			>a
+			{
+				padding: 0 12px;
+				@include style(7,3);
+
+				.te_user_account_icon
+				{
+					display: inline-block;
+				}
+			}
+		}
+		.te_user_account .dropdown-menu{
+             &:before, &:after{
+                left:unset
+            }
+            &:hover{
+                .dropdown-item{
+                    left:unset;
+                }
+            }
+        }
+		.te_signin{
+		    > a.btn-link {
+                padding: 0px 7px 0px 4px;
+            }
+		}
+		@include media-breakpoint-down(md)
+		{
+		    .dropdown-menu{
+                &:before{
+                    right: 18px;
+                }
+                &:after{
+                    right: 17px;
+                }
+            }
+		}
+	}
+	.te_bar_icon
+	{
+		a
+		{
+			@include style(7,3);
+			padding: 0px 12px 0px 10px;
+		}
+		@include media-breakpoint-down(sm){
+            margin-right: 8px;
+        }
+	}
+}
+.te_header_social
+{
+	a
+	{
+		border-left:1px solid $border-color !important;
+		padding: 0.7rem 0.675rem;
+	}
+}
+
+.te_header_before_overlay
+{
+    .te_header_style_5_main
+    {
+        .js_language_selector
+        {
+            .dropup .dropdown-toggle::after
+            {
+                border-top: 0.3em solid;
+                border-bottom: 0;
+            }
+            button.btn.btn-sm.btn-secondary.dropdown-toggle{
+                color: nth($f_color,3);
+            }
+        }
+    }
+}
+/*menu sale label style*/
+#top_menu_collapse #top_menu > li > a.nav-link span#menu_label_tx_span {
+    margin-top: 2px;
+    @include media-breakpoint-down(sm){
+        margin-top: -3px;
+    }
+}

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<harpiya>
+    <!-- ============= Added is_dynamic_menu in form view  =========== -->
+	<record id="website_menus_form_inherit" model="ir.ui.view">
+        <field name="name">website.menus.form.inherit</field>
+        <field name="model">website.menu</field>
+        <field name="inherit_id" ref="website.website_menus_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/group" position="after">
+                <group>
+                    <field name="is_dynamic_menu" />
+                    <field name="menu_label_text" />
+                    <field name="menu_label_text_color" />
+                </group>
+            </xpath>
+        </field>
+    </record>
+    <!-- ============= Added is_dynamic_menu in tree view  =========== -->
+    <record id="website_menu_tree_inherit" model="ir.ui.view">
+        <field name="name">website.menu.tree.inherit</field>
+        <field name="model">website.menu</field>
+        <field name="inherit_id" ref="website.menu_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='is_mega_menu']" position="after">
+                <field name="is_dynamic_menu" />
+                <field name="menu_label_text" />
+                <field name="menu_label_text_color" />
+            </xpath>
+        </field>
+    </record>
+</harpiya>
+
+

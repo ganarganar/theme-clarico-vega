@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<harpiya>
+
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.lazy.load</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="emipro_theme_base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <div id="clarico_settings_main" position="inside">
+                <div class="row o_settings_container mt16" id="clarico_lazy_load">
+                    <div class="col-12 o_setting_box">
+                        <div class="o_setting_left_pane">
+                            <field name="is_lazy_load"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="is_lazy_load"/>
+                            <span class="fa fa-lg fa-globe"/>
+                            <div class="text-muted">
+                                Enable lazy load for images
+                            </div>
+                            <div class="content-group" attrs="{'invisible': [('is_lazy_load', '=', False)]}">
+                                <label string="Lazyload Image" for="lazy_load_image"/>
+                                <span class="fa fa-lg fa-globe"/>
+                                <div class="text-muted">
+                                    Display this image while lazy load
+                                </div>
+                                <field name="lazy_load_image" class="w-25 mt-2" widget="image"
+                                       attrs="{'required': [('is_lazy_load', '=', True)]}"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </field>
+    </record>
+
+</harpiya>

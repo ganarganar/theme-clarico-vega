@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<harpiya>
+
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.load.more</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="emipro_theme_base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <div id="clarico_settings_main" position="inside">
+                <div class="row mt16 o_settings_container" id="clarico_vega_load_more">
+                    <div class="col-12 col-md-6 o_setting_box">
+                        <div class="o_setting_left_pane">
+                            <field name="is_load_more"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="is_load_more"/>
+                            <span class="fa fa-lg fa-globe"/>
+                            <div class="text-muted">
+                                Enable Load more for load product through Ajax
+                            </div>
+                            <div class="content-group" attrs="{'invisible': [('is_load_more', '=', False)]}">
+                                <div class="mt8">
+                                    <div class="content-group">
+                                        <label string="Loading type for products" for="button_or_scroll"/>
+                                        <span class="fa fa-lg fa-globe"
+                                              title="Values set here are website-specific."/>
+                                        <div class="mt4">
+                                            <field name="button_or_scroll" class="o_light_label" widget="radio"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt8">
+                                    <label string="Load more Image" for="load_more_image"/>
+                                    <span class="fa fa-lg fa-globe"/>
+                                    <div class="text-muted">
+                                        Display this image while Load more applies
+                                    </div>
+                                    <field name="load_more_image" class="w-25 mt-2" widget="image"
+                                           attrs="{'required': [('is_load_more', '=', True)]}"/>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="col-12 text-muted">Note: We suggest you to maintain the product column and count
+                            ratio in a normalized manner in the shop page. If the product column is 3 then product count
+                            should to be in the multiplier of 3. For example [ (3 x 5 = 15), (3 x 6 = 18), (3 x 8 =
+                            24),(4 x 4 = 16), (4 x 6 = 24) ]
+                        </span>
+                    </div>
+                    <div class="col-12 col-lg-6 o_setting_box" title="Load Prev-Next Button">
+                        <div class="content-group"
+                             attrs="{'invisible': ['|', ('button_or_scroll', '=', 'automatic'),('is_load_more', '=', False)]}">
+                            <div class="o_setting_right_pane">
+                                <div>
+                                    <label string="Label for the Prev Button" for="website_domain"/>
+                                    <span class="fa fa-lg fa-globe" title="Values set here are website-specific."/>
+                                    <div class="text-muted">
+                                        Display button label for load prev product
+                                    </div>
+                                    <div class="mt8">
+                                        <field name="prev_button_label" placeholder="Load previous"/>
+                                    </div>
+                                </div>
+                                <div class="mt8">
+                                    <label string="Label for the Next Button" for="website_domain"/>
+                                    <span class="fa fa-lg fa-globe" title="Values set here are website-specific."/>
+                                    <div class="text-muted">
+                                        Display button label for load next product
+                                    </div>
+                                    <div class="mt8">
+                                        <field name="next_button_label" placeholder="Load next"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <style type="text/css">
+                    .o_form_view #clarico_vega_load_more .o_field_translate.btn.btn-link {
+                    display: none;
+                    }
+                    .col-12.text-muted
+                    {
+                        display:block;
+                    }
+                </style>
+            </div>
+        </field>
+    </record>
+
+</harpiya>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<harpiya>
+    <record id="slider_filter_form_view" model="ir.ui.view">
+        <field name="name">slider.filter.form</field>
+        <field name="model">slider.filter</field>
+        <field name="arch" type="xml">
+            <form string="Slider Filter">
+                <div class="oe_button_box" name="button_box">
+                    <button class="oe_stat_button" name="website_publish_button"
+                            type="object" icon="fa-globe">
+                        <field name="website_published" widget="website_publish_button"/>
+                    </button>
+                </div>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="sequence"/>
+                        <field name="filter_id" domain="[('model_id','=','product.template')]"
+                               options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</harpiya>

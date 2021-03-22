@@ -1,0 +1,94 @@
+Version 13.0.2.0.7 - 09 June 20
+===================================
+Improvement
+
+ - Made some changes in slider in backend.
+ - Quick View functionality related changes.
+ - Translation related issue is fixed in Product Page offer box Days, Hours etc. text as per multiple language.
+
+Version 13.0.2.0.6 - 11 April 20
+===================================
+Improvement
+
+ - Made some changes in eCommerce Categories related thing.
+
+Version 13.0.2.0.5 - 12 March 20
+===================================
+Features
+
+ - Added Ajax Shopping Cart.
+
+Version 13.0.2.0.4 - 13 February 20
+===================================
+Improvement
+
+ - Added social icons and vertical menu related field in web-site.
+ - Removed warning message while upgrading theme.
+
+Version 13.0.2.0.3 - 28 January 20
+===================================
+Improvement
+
+ - Improved in Ajax Js code for Sticky Layer navigation/Attributes & Category filters.
+ - Added footer related field in web-site.
+
+Version 13.0.2.0.2 - 21 January 20
+===================================
+Bug Fixes
+
+ - Made some changes in module level dependency.
+
+Features
+
+ - Number of rows to show in product name selection.
+
+Version 13.0.2.0.1 - 18 January 20
+===================================
+Bug Fixes
+
+ - Fixed compare popover issue.
+
+Version 13.0.2.0.0 - 10 January 20
+===================================
+
+Features
+	
+	- Menu Label
+	- Lazy Load
+	- Bestseller Slider
+	- Dynamic Product Tabs
+	- Product Discount Slider
+	- Category Discount Slider
+	- All Product Discount Slider
+	- Brand Landing Page
+	- Category Landing Page
+	- Advance Category Product Slider
+	- Advance Product Label
+	- New Product Slider
+	- Load More Products
+	- Advance Mini Cart
+	- Dynamic Discount Message
+
+Version 13.0.1.0.1 - 19 November 19
+===================================
+
+1. Fix  - Solve the dynamic menu create issue.
+
+Version 13.0.1.0.0 - 14 November 19
+===================================
+
+1. Initial release
+
+	- Dynamic Product Slider
+	- Dynamic Category Listing
+	- Quick view
+	- Product label
+	- Dynamic category slider
+	- Dynamic Brand Slider
+	- Dynamic category Sliders
+	- Dynamic product Sliders
+	- Quick filter
+	- Brand filter
+	- Price filter
+	- Product offer timer
+	- Load product through ajax

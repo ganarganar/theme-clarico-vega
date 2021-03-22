@@ -3,7 +3,6 @@
 
     'name': 'Theme Clarico Vega',
     'category': 'Theme/eCommerce',
-    'summary': 'Harpiya clarico vega teması',
     'version': '1.5.1',
     'license': 'OPL-1',
     'depends': [
@@ -32,8 +31,6 @@
         'templates/compare.xml',
         'templates/assets.xml',
         'templates/emipro_custom_snippets.xml',
-        'templates/harpiya_default_snippets.xml',
-        'templates/harpiya_default_buttons_style.xml',
         'templates/theme_customise_option.xml',
         'templates/customize.xml',
         'templates/blog.xml',
@@ -55,18 +52,11 @@
         'templates/extra_pages.xml',
     ],
 
-    # Harpiya Store Specific
     'images': [
         'static/description/main_poster.jpg',
         'static/description/main_screenshot.gif',
     ],
 
-    # Author
-    'author': 'Harpiya Software Tech.',
-    'website': 'https://www.harpiya.com',
-    'maintainer': 'Harpiya Software Tech.',
-
-    # Technical
     'installable': True,
     'auto_install': False,
 }

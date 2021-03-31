@@ -349,7 +349,7 @@
 
                 input.search-query.form-control.oe_search_box{
                     background: nth($f_color,27);
-                    @include style(19,6,inherit,unset,capitalize);
+                    @include style(19,6);
                     padding: 10px 0px;
                     outline: none;
                     width: 100%;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<harpiya>
+<odoo>
     <!--=====================  Wishlist Page ======================================-->
     <template id="product_wishlist_ept" inherit_id="website_sale_wishlist.product_wishlist">
         <xpath expr="//section[hasclass('wishlist-section')]" position="attributes">
@@ -11,7 +11,7 @@
             <div class="checkbox">
                 <label class='text-muted'>
                     <input type="checkbox" id='b2b_wish' value="1" class="mr8"/>
-                    <span>Sepetim'e ürün ekle ama istek listemde tut</span>
+                    <span>Add product to my cart but keep it in my wishlist</span>
                 </label>
             </div>
         </xpath>
@@ -46,12 +46,12 @@
                                            type="hidden"/>
                                     <button type="button" role="button"
                                             class="btn btn-link o_wish_add mb4">
-                                        <i class="fa fa-shopping-cart mr4"></i>Sepete
-                                        <span class='d-none d-md-inline'>Ekle</span>
+                                        <i class="fa fa-shopping-cart mr4"></i>Add
+                                        <span class='d-none d-md-inline'>to Cart</span>
                                     </button>
                                     <button type="button" class="btn btn-link o_wish_rm no-decoration text-danger">
                                         <i class='fa fa-trash-o mr4'></i>
-                                        Kaldır
+                                        Remove
                                     </button>
                                 </div>
                             </td>
@@ -72,8 +72,8 @@
             <button t-if="product_variant" type="button" role="button" class="btn btn-link mt16 o_add_wishlist_dyn te_theme_button"
                     t-att-disabled='in_wish or None' t-att-data-product-template-id="product.id"
                     t-att-data-product-product-id="product_variant.id" data-action="o_wishlist">
-                <span class="fa fa-heart" role="img" aria-label="İstek listesine ekle"></span>
+                <span class="fa fa-heart" role="img" aria-label="Add to wishlist"></span>
             </button>
         </xpath>
     </template>
-</harpiya>
+</odoo>

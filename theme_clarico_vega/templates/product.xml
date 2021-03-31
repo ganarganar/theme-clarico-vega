@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<harpiya>
+<odoo>
     <!--=================== Product ========================-->
     <template id="product_ept" inherit_id="website_sale.product" name="product" priority="16">
         <xpath expr="//div[hasclass('row')]/div[hasclass('col-md-4')]"
@@ -12,7 +12,7 @@
                 <ol class="breadcrumb">
                     <section class="container">
                         <li class="breadcrumb-item">
-                            <a t-att-href="keep(category=0)">Ürünler</a>
+                            <a t-att-href="keep(category=0)">Products</a>
                         </li>
                         <li t-if="category" class="breadcrumb-item">
                             <a t-att-href="keep('/shop/category/%s' % slug(category), category=0)"
@@ -55,25 +55,25 @@
                             <span class='text-center d-inline-block'>
                                 <div class='rounded_digit_product'>
                                     <span id='days' class='d-block  te_days_hr_min_sec'></span>
-                                    <div id='time_lbl' class='d-block'>Gün</div>
+                                    <div id='time_lbl' class='d-block'>Days</div>
                                 </div>
                             </span>
                             <span class='text-center d-inline-block'>
                                 <div class='rounded_digit_product'>
                                     <span id='hours' class='d-block  te_days_hr_min_sec'></span>
-                                    <div id='time_lbl' class='d-block'>Saat</div>
+                                    <div id='time_lbl' class='d-block'>Hours</div>
                                 </div>
                             </span>
                             <span class='text-center d-inline-block'>
                                 <div class='rounded_digit_product'>
                                     <span id='minutes' class='d-block te_days_hr_min_sec'></span>
-                                    <div id='time_lbl' class=' d-block'>Dk</div>
+                                    <div id='time_lbl' class=' d-block'>Mins</div>
                                 </div>
                             </span>
                             <span class='text-center d-inline-block'>
                                 <div class='rounded_digit_product'>
                                     <span id='seconds' class='d-block te_days_hr_min_sec'></span>
-                                    <div id='time_lbl' class='d-block'>Sn</div>
+                                    <div id='time_lbl' class='d-block'>Secs</div>
                                 </div>
                             </span>
                         </div>
@@ -148,7 +148,7 @@
                          t-attf-class="alternative_product_main #{'full-width' if not product.accessory_product_ids else ''}">
                         <div id="myCarousel_alt_prod" class=""
                              data-interval="5000">
-                            <h3 class="te_product_alt_h3">Alternatif Ürünler</h3>
+                            <h3 class="te_product_alt_h3">Alternative Products</h3>
                             <div class="owl-carousel">
                                 <t t-foreach="product.alternative_product_ids" t-as="alt_product">
                                     <div class="border mt16 prod_details">
@@ -197,7 +197,7 @@
                      t-attf-class="accessory_product_main #{'full-width' if (not product.alternative_product_ids or not request.website.viewref('website_sale.recommended_products').active) else ''}">
                     <div id="myCarousel_acce_prod" class=""
                          data-interval="5000">
-                        <h3 class="te_product_alt_h3">Aksesuar Ürünleri</h3>
+                        <h3 class="te_product_alt_h3">Accessories Products</h3>
                         <div class="owl-carousel">
                             <t t-foreach="product.accessory_product_ids" t-as="alt_product">
                                 <div class="border mt16 prod_details">
@@ -295,14 +295,14 @@
                                         <a role="button" id="add_to_cart"
                                            class="btn btn-primary btn-md mt16 a-submit te_theme_button" href="#">
                                             <span class="fa fa-shopping-cart"/>
-                                            Sepete Ekle
+                                            Add to Cart
                                         </a>
                                         <t t-if="buy_now_show">
                                             <a role="button" id="buy_now"
                                                class="btn btn-outline-primary btn-md mt16 d-block d-sm-inline-block te_theme_button"
                                                href="#">
                                                 <span class="fa fa-bolt"/>
-                                                Hemen Al
+                                                Buy Now
                                             </a>
                                         </t>
                                     </div>
@@ -336,19 +336,19 @@
         <xpath expr="//div[@id='o-carousel-product']" position="replace">
             <div id="mainSlider" class="position-relative">
                 <div class="owl-carousel carousel-inner">
-                <t t-foreach="product_images" t-as="product_image">
-                <div t-attf-class="#{' active' if product_image_first else ''}">
-                <div t-if="product_image._name == 'product.image' and product_image.embed_code"
-                class="">
-                <t t-raw="product_image.embed_code"/>
+                    <t t-foreach="product_images" t-as="product_image">
+                        <div t-attf-class="#{' active' if product_image_first else ''}">
+                            <div t-if="product_image._name == 'product.image' and product_image.embed_code"
+                                 class="">
+                                <t t-raw="product_image.embed_code"/>
+                            </div>
+                            <div t-else="" t-field="product_image.image_1920"
+                                 class=""
+                                 t-options='{"widget": "image", "preview_image": "image_1024", "class": "product_detail_img mh-100", "alt-field": "name", "zoom": product_image.can_image_1024_be_zoomed and "image_1920"}'/>
+                        </div>
+                    </t>
                 </div>
-                <div t-else="" t-field="product_image.image_1920"
-                class=""
-                t-options='{"widget": "image", "preview_image": "image_1024", "class": "product_detail_img mh-100", "alt-field": "name", "zoom": product_image.can_image_1024_be_zoomed and "image_1920"}'/>
-                </div>
-                </t>
-                </div>
-                </div>
+            </div>
             <div t-ignore="True" id="thumbnailSlider" class="">
                 <input id="len-ept-image" type="hidden" t-attf-value="#{len(product_images)}"/>
                 <ol t-if="len(product_images) > 1" class="owl-carousel d-inline-block my-0 py-1 px-0 text-left">
@@ -439,7 +439,7 @@
                                            href="#nav_tabs_content_1"
                                            role="tab"
                                            aria-controls="nav_tabs_content_1"
-                                           aria-selected="true">Açıklama
+                                           aria-selected="true">Description
                                         </a>
                                     </li>
                                     <t t-set="categories"
@@ -452,7 +452,19 @@
                                                href="#nav_tabs_content_2"
                                                role="tab"
                                                aria-controls="nav_tabs_content_2"
-                                               aria-selected="false">Özellikler
+                                               aria-selected="false">Specification
+                                            </a>
+                                        </li>
+                                    </t>
+                                    <t t-if="product.sudo().document_ids">
+                                        <li class="nav-item">
+                                            <a class="nav-link"
+                                               id="nav_tabs_link_doc"
+                                               data-toggle="tab"
+                                               href="#nav_tabs_content_doc"
+                                               role="tab"
+                                               aria-controls="nav_tabs_content_doc"
+                                               aria-selected="false">Documents
                                             </a>
                                         </li>
                                     </t>
@@ -464,7 +476,7 @@
                                                href="#nav_tabs_content_3"
                                                role="tab"
                                                aria-controls="nav_tabs_content_3"
-                                               aria-selected="false">Yorumlar
+                                               aria-selected="false">Ratings and Reviews
                                             </a>
                                         </li>
                                     </t>
@@ -504,7 +516,7 @@
                                         <t t-set="categories"
                                            t-value="product.valid_product_template_attribute_line_ids._prepare_categories_for_display()"/>
                                         <t t-if="categories">
-                                            <h3 class="text-center mb32">Özellikler
+                                            <h3 class="text-center mb32">Specifications for
                                                 <t t-esc="product.name"/>
                                             </h3>
                                             <div class="row">
@@ -530,7 +542,7 @@
                                                                 <td>
                                                                     <t t-foreach="ptal.value_ids" t-as="pav">
                                                                         <span t-field="pav.name"/>
-                                                                        <t t-if="not pav_last">-</t>
+                                                                        <t t-if="not pav_last">or</t>
                                                                     </t>
                                                                 </td>
                                                             </tr>
@@ -556,6 +568,44 @@
                                         </t>
                                     </section>
                                 </div>
+
+                                <t t-if="product.sudo().document_ids">
+                                    <div class="tab-pane fade py-3"
+                                         id="nav_tabs_content_doc"
+                                         role="tabpanel"
+                                         aria-labelledby="nav_tabs_link_doc">
+                                        <div itemprop="doc" id="product_documents">
+                                            <t t-foreach="product.sudo().document_ids" t-as="doc">
+                                                <t t-if="not user_id._is_public()">
+                                                    <ul>
+                                                        <li>
+                                                            <t t-esc="doc.name"/>
+                                                            <a t-att-href="doc.sudo().website_url"
+                                                               t-att-download="doc.name">
+                                                                <i class="o_image o_image_thumbnail"
+                                                                   t-att-data-mimetype="doc.sudo().mimetype"/>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </t>
+                                                <t t-else="">
+                                                    <t t-if="doc.public">
+                                                        <ul>
+                                                            <li>
+                                                                <t t-esc="doc.name"/>
+                                                                <a t-att-href="doc.sudo().website_url"
+                                                                   t-att-download="doc.name">
+                                                                    <i class="o_image o_image_thumbnail"
+                                                                       t-att-data-mimetype="doc.sudo().mimetype"/>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </t>
+                                                </t>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </t>
                                 <t t-if="request.website.viewref('website_sale.product_comment').active">
                                     <div class="tab-pane fade o_not_editable py-3"
                                          id="nav_tabs_content_3"
@@ -603,7 +653,7 @@
                    t-value="round(difference*100/combination_info['list_price'])"/>
 
                 <div class="te_discount">
-                    <span class="te_prod_discount">Kazancınız: </span>
+                    <span class="te_prod_discount">You Save :</span>
                     <t t-esc="difference"
                        t-options='{"widget": "monetary",
                         "display_currency": product.currency_id, }'/>
@@ -612,4 +662,4 @@
             </t>
         </xpath>
     </template>
-</harpiya>
+</odoo>

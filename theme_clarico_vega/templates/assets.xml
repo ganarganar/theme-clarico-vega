@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<harpiya>
+<odoo>
     <!--======================== Inclusion of Scss Files ======================-->
     <template id="theme_assets_frontend" inherit_id="website.assets_frontend">
         <xpath expr="link[last()]" position="after">
@@ -110,11 +110,11 @@
         </xpath>
     </template>
 
-    <!--============================ Ajax Sepete Ekle js Files =======================-->
+    <!--============================ Ajax Add to Cart js Files =======================-->
     <template id="ajax_add_to_cart" inherit_id="website.assets_frontend">
         <xpath expr="script[last()]" position="after">
             <script type="text/javascript" src="/theme_clarico_vega/static/src/js/frontend/ajax_cart.js"/>
         </xpath>
     </template>
 
-</harpiya>
+</odoo>

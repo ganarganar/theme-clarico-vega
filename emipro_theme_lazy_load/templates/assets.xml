@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<harpiya>
+<odoo>
     <!--======================== Inclusion of JS Files ======================-->
     <template id="theme_assets_frontend_lazy_load" inherit_id="website.assets_frontend">
         <xpath expr="script[last()]" position="after">
@@ -13,4 +13,4 @@
             <input type="hidden" class="current_website_id" t-att-value="request.env['website'].sudo().get_current_website().id"/>
         </xpath>
     </template>
-</harpiya>
+</odoo>

@@ -1,4 +1,4 @@
-harpiya.define('emipro_theme_base.load_more', function(require) {
+odoo.define('emipro_theme_base.load_more', function(require) {
     'use strict';
 
     var ajax = require('web.ajax');

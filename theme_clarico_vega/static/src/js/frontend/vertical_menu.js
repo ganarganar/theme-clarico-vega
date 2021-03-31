@@ -1,4 +1,4 @@
-harpiya.define('theme_clarico_vega.vertical_menu', function(require) {
+odoo.define('theme_clarico_vega.vertical_menu', function(require) {
     'use strict';
 
     var publicWidget = require('web.public.widget');

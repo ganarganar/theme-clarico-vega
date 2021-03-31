@@ -1,7 +1,7 @@
 //--------------------------------------------------------------------------
 // Product Slider and Category Popup
 //--------------------------------------------------------------------------
-harpiya.define('website_slider.editor', function (require) {
+odoo.define('website_slider.editor', function (require) {
 'use strict';
 
     var core = require('web.core');

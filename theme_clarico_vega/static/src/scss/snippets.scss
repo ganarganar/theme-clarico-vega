@@ -83,8 +83,12 @@
 			78. Slider Style 14
 			79. Title style 4
 			80. Slider Style 14
+			81. 2 Column Style 6
+			82. Customer Style 5
+			83. Banner Style 3
+			84. Coming Soon Style 1
 		----------------------------------------------------------
-			Harpiya SNIPPETS
+			ODOO SNIPPETS
 
 			01. Title Snippet
 			02. Picture
@@ -109,7 +113,7 @@
 /*=================== 02. 4 Blocks =====================*/
 .te_block_heading 
 {
-	@include style(7,28)
+	@include style(7,28);
 	@include media-breakpoint-down(sm)
 	{
 		font-size:nth($f_sizes,3);
@@ -312,7 +316,7 @@
 		}
 	}
 	img{
-	    max-height:492px;
+	    max-height:700px;
 	}
 }
 @include media-breakpoint-down(xs)
@@ -347,7 +351,7 @@
 	text-align: center;
 }
 .te_slider_s3_img img{
-    max-height:520px;
+    max-height:660px;
 }
 /*================== 13. Slider Style 8 ========================*/
 .te_slider_right_content
@@ -355,7 +359,7 @@
 	text-align: center;
 	.te_sub_title
 	{
-		@include style(7,28,inherit,36px,capitalize);
+		@include style(7,28,inherit,36px);
 		letter-spacing: 3px;
 		font-weight: 600;
 		margin-bottom: 8px;
@@ -791,7 +795,7 @@
 {
 	text-align: left;
 	img{
-	    max-height: 410px;
+	    max-height: 500px;
 	}
 }
 .te_3_column_center_heading
@@ -875,7 +879,7 @@
 		min-height: 65px;
 	}
 	img{
-	    max-height: 348px;
+	    max-height: 424px;
 	}
 	.te_button_position
 	{
@@ -1084,7 +1088,7 @@
     
     img
     {
-    	 max-height: 490px;
+    	 max-height: 500px;
     }
 }
 @include media-breakpoint-down(md)
@@ -1112,13 +1116,14 @@
 	}
 }
 .te_offer_s1_1img img{
-    max-height:465px;
+    max-height:500px;
+    width: 100%;
 }
 .te_offer_s1_2img img{
     max-height:385px;
 }
 .te_offer_s1_3img img{
-    max-height:251px;
+    max-height:270px;
 }
 /*================ 31. Offer (style 2) =====================*/
 .te_space_section
@@ -1132,7 +1137,7 @@
 		text-align:center;
 	}
 	img{
-	    max-height:310px;
+	    max-height:460px;
 	}
 }
 .te_offer_2_left_txt
@@ -1171,7 +1176,7 @@
 	}
 	@include media-breakpoint-down(xs)
 	{
-		h2, h5, .text-capitalize, .te_btn_left_center, p
+		h2, h5, .te_btn_left_center, p
 		{
 			text-align:center;
 		}
@@ -1264,7 +1269,7 @@
 	}
 }
 .te_offer_bg_2 img{
-    max-height:139px;
+    max-height:150px;
 }
 .offer_3_main .card {
     border: 0;
@@ -1304,7 +1309,7 @@
 	
 	.te_special_text
 	{
-        @include style(18,6,inherit,normal,capitalize);
+        @include style(18,6,inherit,normal);
         cursor: pointer;
 	    padding: 4px;
 	    background-color: #FFF9D9; /*This color is not used in variables*/
@@ -1316,7 +1321,7 @@
 		cursor: pointer;
 	}
 	.te_off_text{
-		@include style(9,6,null,null,capitalize);
+		@include style(9,6);
 		cursor: pointer;
 		@include spacing(1px,null)		
 	}
@@ -1347,7 +1352,7 @@
 		display: inline-block;
 		max-height:300px;
 		img{
-		    max-height:199px;
+		    max-height:240px;
 		}
 	}
 	.te_left_side
@@ -1374,7 +1379,7 @@
 		height: unset;
 	}
 	img{
-	    max-height:295px;
+	    max-height:330px;
 	}
 }
 .te_offer_title
@@ -1388,7 +1393,8 @@
 }
 .te_days_hr_min_sec_digit
 {
-	@include style(7,3);
+    font-size:nth($f_sizes,7);
+// 	@include style(7,3);
 	@include spacing(1px,null);
 	@include media-breakpoint-down(lg)
 	{
@@ -1615,7 +1621,7 @@
 		img
 		{
 			@include transition(all,.4s,ease-out);
-			max-height: 348px;
+			max-height: 424px;
 		}
 	}
 	.te_3_col_block
@@ -1685,7 +1691,7 @@
 	img
 	{
 		border-radius:100%;
-		max-height:253px;
+		max-height:265px;
 	}
 	&:hover 
 	{
@@ -1726,7 +1732,7 @@
 		box-shadow: 0 3px 12px #ccc;
 	}
 	img{
-	    max-height:333px;
+	    max-height:500px;
 	}
 }
 /*================= 43. Team 6 ==================*/
@@ -1774,7 +1780,7 @@
 {
 	@include position(relative);
 	img{
-	    max-height:254px;
+	    max-height:424px;
 	}
 	.te_team_7_social_icon
 	{
@@ -1878,7 +1884,7 @@
 		padding:10%;
 	}
 	img{
-	    max-height: 305px;
+	    max-height: 425px;
 	}
 }
 /*====================== 47. 3 Column Style 9 ===================*/
@@ -2234,7 +2240,7 @@
 	z-index: 1;
 }
 .te_2col_s2_img img{
-    max-height: 305px;
+    max-height: 425px;
 }
 /*========================== 55. Offer Style 6 ======================*/
 .te_offer_main_content
@@ -2266,10 +2272,10 @@
 	}
 }
 .te_offer_s6_img_big img{
-    max-height:492px;
+    max-height:700px;
 }
 .te_offer_s6_img_small img{
-    max-height:250px;
+    max-height:451px;
 }
 /*========================== 56. Offer Style 7 ======================*/
 .te_offer_big_img_content
@@ -2338,10 +2344,10 @@
 	}
 }
 .te_offer_s7_img_big img{
-    max-height:495px;
+    max-height:700px;
 }
 .te_offer_s7_img_small img{
-    max-height:250px;
+    max-height:451px;
 }
 /*========================== 57. 2 Column Style 3 ======================*/
 .te_2_col_s3_content
@@ -2358,7 +2364,7 @@
 {
 	img
 	{
-	    max-height:305px;
+	    max-height:425px;
 		@media (min-width: 767.98px) and (max-width: 991.98px)
 		{
 			min-height:250px;
@@ -2480,12 +2486,7 @@
 		}
 	}
 }
-.te_offer_s8_big_img img{
-    min-height: 552px;
-}
-.te_offer_s8_small_img img{
-    min-height: 270px;
-}
+
 /*======================= 60. 3 Column Style 12 =================*/
 .te_price_s4
 {
@@ -2553,7 +2554,7 @@
 			z-index: 9;
 			@include media-breakpoint-down(xs)
 			{
-				font-size: nth($f_sizes,16);
+				font-size: nth($f_sizes,4);
 			}
 		}
 		&:before{
@@ -2807,7 +2808,7 @@
 		bottom: 18%;
 	}
 	.te_banner_inner img{
-        max-height:488px;
+        max-height:750px;
 	}
 	.te_banner_info
 	{
@@ -2896,7 +2897,7 @@
 			}
 			.te_banner_title_5
 			{
-				@include style(3,5)
+				@include style(3,5);
 				margin-bottom: 44px;
 			    font-weight: 300;
 			    @include spacing(7px,null)
@@ -3507,7 +3508,7 @@
     padding: 0 20px;
 	margin-bottom: 10px;
     img{
-        max-height:287px;
+        max-height:500px;
     }
 	.te_4_col_content
 	{
@@ -3572,7 +3573,7 @@
 .te_col_6_main
 {
     img{
-        max-height: 221px;
+        max-height: 300px;
     }
 	>div
 	{
@@ -3608,7 +3609,7 @@
 .te_col_7_main
 {
     img{
-        max-height: 293px;
+        max-height: 500px;
     }
 	>div
 	{
@@ -4217,7 +4218,305 @@
         }
     }
 }
-/*======================= Harpiya SNIPPETS ==================================*/
+/*===================== 81. 2 Column Style 6 =====================*/
+.te_2_col_s6{
+    @include box-shadow(0 10px 20px #ededed);
+    margin: 0;
+    padding: 20px;
+    margin-bottom: 25px;
+    border: 1px solid #ededed;
+    border-radius: 20px;
+    position:relative;
+    img{
+        padding:10px;
+        border-radius: 20px;
+        max-height: 125px;
+        @include media-breakpoint-down(xs){
+            padding:0px;
+            border-radius: 10px;
+        }
+    }
+    .te_offer_s6_name{
+        color:nth($f_color,19);
+        font-weight:600;
+    }
+    p{
+        @include line-clamp(3,85px);
+        @include media-breakpoint-down(sm){
+            height:70px;
+        }
+    }
+    .te_offer_s6_price{
+        font-weight:600;
+        font-size:nth($f_sizes,10);
+         @include media-breakpoint-down(xs){
+            margin-top: 8px;
+            font-size:nth($f_sizes,4);
+        }
+    }
+    .label_inner_div{
+        padding: 0 4px 0 8px;
+        @include position(absolute,15px,null,null,-8px);
+        background: rgba(165, 128, 109, 0.7);
+        z-index: 1;
+        .te_label_before{
+            content: "";
+            @include position(absolute,-7px,null,null,0px);
+            height: 0;
+            width: 0;
+            border-bottom: 7px solid rgba(165, 128, 109, 0.8);
+            border-left: 9px solid transparent;
+        }
+        .te_label_after{
+            content: "";
+            @include position(absolute,0px,-10px);
+            height: 0;
+            width: 0;
+            border-top: 13px solid transparent;
+            border-bottom: 14px solid transparent;
+            border-left: 10px solid rgba(165, 128, 109, 0.7);
+        }
+        .te_offer_label_name{
+            font-size:nth($f_sizes,18);
+            padding-left: 0px !important;
+            padding-right: 0px !important;
+        }
+    }
+}
+/*========================== 82. Customer Style 5 ===================*/
+.te_customer_testimonial_s5{
+    text-align:center;
+    background: #ededed;
+    .te_customer_testimonial{
+        font-size:nth($f_sizes,12);
+        color:nth($f_color,19);
+         @include media-breakpoint-down(xs){
+            font-size:nth($f_sizes,21);
+         }
+    }
+    .te_what_customer_saying_s5{
+        font-size:nth($f_sizes,15);
+         color:nth($f_color,3);
+         padding-top: 15px;
+         font-weight: 600;
+         @include media-breakpoint-down(xs){
+            font-size:nth($f_sizes,12);
+         }
+    }
+    .te_customer_caption_s5{
+        font-size:nth($f_sizes,1);
+         color:nth($f_color,4);
+         padding-top: 20px;
+    }
+    .te_customer_testimonial_item{
+        padding-bottom:30px;
+        .te_cutomer_item_bg{
+            background:nth($f_color,5);
+            text-align: left;
+            padding: 20px;
+            @include media-breakpoint-down(xs){
+                padding: 20px 20px 30px 20px;
+                .col-lg-3{
+                    vertical-align: top;
+                }
+            }
+            .col-lg-9{
+                float: right;
+                padding-right: 0;
+            }
+            img{
+                max-height:130px;
+            }
+            p{
+                @include line-clamp(3,80px);
+                margin-bottom: 10px;
+                line-height: 165%;
+                color:nth($f_color,14);
+                @include media-breakpoint-down(xs){
+                    -webkit-line-clamp: 4;
+                }
+            }
+            .te_customer_name_s5{
+                margin-bottom: 3px;
+            }
+            .te_customer_position_s5{
+                color:nth($f_color,19);
+            }
+        }
+    }
+}
+/*==================== 83. Banner Style 3 ==================*/
+.te_banner_s3{
+    .te_banner_s3_content{
+        margin: 10rem 0 12rem 0;
+        .te_banner_sub_heading{
+            font-size: 5rem;
+            margin-bottom: 5px;
+            @include media-breakpoint-down(sm){
+                font-size: 4rem;
+            }
+            @include media-breakpoint-down(xs){
+                font-size: 2.5rem;
+            }
+        }
+        .te_banner_main_heading{
+            font-size: 5rem;
+            margin-bottom: 15px;
+            @include media-breakpoint-down(sm){
+                font-size: 4rem;
+            }
+            @include media-breakpoint-down(xs){
+                font-size: 2.5rem;
+            }
+        }
+        p{
+            font-size: 1.2875rem;
+            @include media-breakpoint-down(sm){
+                font-size: 1.1875rem;
+            }
+            @include media-breakpoint-down(xs){
+                font-size: 0.875rem;
+            }
+        }
+    }
+    .te_category_banner_block{
+        margin-top:-4.5%;
+        margin-bottom: 32px;
+        @include media-breakpoint-down(lg){
+            margin-top:5%;
+        }
+        .te_banner_categ_block{
+            background:#ededed;
+            border-radius: 20px;
+            @include transition(all,0.2s,ease);
+            @include media-breakpoint-down(lg){
+                margin-bottom: 30px;
+            }
+            .te_categ_content{
+                a{
+                    padding: 40px 30px;
+                    display:block;
+                    font-size: 1.3rem;
+                    font-weight: 600;
+                    vertical-align: middle;
+                    color:nth($f_color,3);
+                    @include media-breakpoint-down(lg){
+                        padding: 50px 30px;
+                    }
+                }
+            }
+            img{
+                max-height:40px;
+                margin-right: 20px;
+            }
+            &:hover{
+                transform: scale(1.1);
+                background:nth($f_color,5);
+                box-shadow: 0px 0px 45px rgba(0, 0, 0, 0.15);
+                @include media-breakpoint-down(lg){
+                    transform:unset;
+                }
+            }
+        }
+    }
+    .container{
+        padding:0;
+        @include media-breakpoint-down(sm){
+            width:90%;
+        }
+    }
+}
+/*================= 84. Coming Soon Style 1 ===============*/
+.te_coming_soon_bg{
+    @include position(absolute,0,0,0,0);
+    z-index: 1034;
+    background-color:nth($f_color,5);
+    .container{
+        height:100%;
+        @include media-breakpoint-down(xs){
+            width:90%;
+        }
+    }
+    .te_coming_soon_row{
+        align-items: center;
+        height: 100%;
+        .te_coming_soon_txt{
+            text-align: center;
+            max-width: 650px;
+            position: relative;
+            display: inline-block;
+            @include media-breakpoint-down(lg){
+                margin:0px auto;
+            }
+            .te_coming_soon_heading{
+                font-size:3rem;
+                @include media-breakpoint-down(xs){
+                    font-size: 2.5rem;
+                }
+            }
+            .te_coming_soon_desc{
+                font-size:1.2875rem;
+                padding-top: 25px;
+                @include media-breakpoint-down(xs){
+                    font-size: 1rem;
+                }
+            }
+            .te_coming_soon_social_icon{
+                padding-top: 25px;
+                .btn{
+                    font-size: 1.5rem;
+                    padding: 0 15px;
+                    color: nth($f_color,19);
+                    @include media-breakpoint-down(xs){
+                        padding: 0 10px;
+                    }
+                    @include transition(all,0.4s,ease);
+                    &:hover{
+                        transform: scale(1.2);
+                    }
+                }
+            }
+            .snippet_right_timer_div{
+                text-align: center !important;
+                .col-lg-3.col-md-2{
+                    max-width: 20%;
+                    @include media-breakpoint-down(xs){
+                        max-width: 25%;
+                    }
+                    .rounded_digit{
+                        border: 0;
+                        border-radius: unset;
+                        font-weight: unset;
+                        width: unset;
+                        height: unset;
+                        box-shadow: unset;
+                        background:transparent;
+                        &:before{
+                            content: ':';
+                            float: right;
+                            font-size: 1.5rem;
+                            padding-top: 15px;
+                        }
+                    }
+                    &:last-child
+                    {
+                        .rounded_digit:before
+                        {
+                            content:unset;
+                        }
+                    }
+                    .te_days_hr_min_sec_digit{
+                        font-size:3rem;
+                        @include media-breakpoint-down(xs){
+                            font-size: 2.5rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+/*======================= ODOO SNIPPETS ==================================*/
 /*===================== 01. Title Snippet =================================*/
 .te_s_title_default
 {
@@ -4460,15 +4759,15 @@
 {
 	.te_slide_title_text
 	{
-		@include style(20,5,null,null,capitalize);
+		@include style(20,5);
 		@include media-breakpoint-down(xs)
 		{
-			@include style(15,5,null,null,capitalize);
+			@include style(15,5);
 		}
 	}
 	.te_slide_sub_title_text
 	{
-		@include style(4,5,null,null,capitalize);
+		@include style(4,5);
 	}
 	hr{
 		border-top: 1px solid nth($f_color,5);
@@ -4503,11 +4802,19 @@
   font-size:nth($f_sizes,2);
 }
 .te_banner_s2{
-    .te_img_hover_overflow img{
-        max-height:366px;
+    .te_img_hover_overflow {
+        @include media-breakpoint-down(xs){
+            width:100%;
+        }
+        img{
+            max-height:366px;
+        }
     }
     .te_img_height{
         max-width: 500px;
+        @include media-breakpoint-down(xs){
+            max-width: 100%;
+        }
     }
 }
 .te_jumbotron_bg
@@ -4586,7 +4893,7 @@ font-size:nth($f_sizes,8);
     max-height: 256px;
 }
 
-/*==================== Harpiya SNIPPETS END ==========================*/
+/*==================== ODOO SNIPPETS END ==========================*/
 
 /*============================== CAROUSEL ANIMATION (FULL WIDTH CONTENT-IMAGE) =========================*/
 

@@ -2,7 +2,7 @@
 """
     This model is used to create a slider styles fields
 """
-from harpiya import api, fields, models, _
+from odoo import api, fields, models, _
 
 class SliderStyles(models.Model):
     _name = "slider.styles"

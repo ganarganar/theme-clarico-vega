@@ -11,15 +11,15 @@
         'views/product_landing_page.xml',
     ],
 
-    #Harpiya Store Specific
+    #Odoo Store Specific
     'images': [
 	'static/description/emipro_theme_landing_page.jpg',
     ],
 
     # Author
-    'author': 'Harpiya Software Tech.',
-    'website': 'https://www.harpiya.com',
-    'maintainer': 'Harpiya Software Tech.',
+    'author': 'Emipro Technologies Pvt. Ltd.',
+    'website': 'https://www.emiprotechnologies.com',
+    'maintainer': 'Emipro Technologies Pvt. Ltd.',
 
     # Technical
     'installable': True,

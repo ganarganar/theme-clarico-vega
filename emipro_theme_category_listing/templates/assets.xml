@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<harpiya>
+<odoo>
     <!--======================== Inclusion of JS Files ======================-->
     <template id="category_assets_wysiwyg" inherit_id="web_editor.assets_wysiwyg">
         <xpath expr="script[last()]" position="after">
@@ -11,4 +11,4 @@
             <script type="text/javascript" src="/emipro_theme_base/static/src/js/menu/category_content_editor.js"/>
         </xpath>
     </template>
-</harpiya>
+</odoo>

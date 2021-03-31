@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<harpiya>
+<odoo>
     <!--================== Theme Price Filter Code ====================-->
     <template id="website_pricefilter_ept" name="Price Filter" inherit_id="website_sale.products_attributes">
         <xpath expr="//form" position="inside">
@@ -10,8 +10,8 @@
                 <input type="hidden" id="price_slider_max" t-att-value="range_values[3]"/>
                 <div class="ept_price_slider_block">
                     <div class="price_filter_head te_fa-plus">
-                        <span class="m-0 te_pricerange_title">Fiyat aralığı</span>
-                        <a class="price_filter_reset">(Sıfırla)</a>
+                        <span class="m-0 te_pricerange_title">Price range</span>
+                        <a class="price_filter_reset">(Reset)</a>
                     </div>
                     <div class="te_pricerange_content">
                         <div class="d-block mb8 te_price_filter_amount">
@@ -51,10 +51,12 @@
                             </div>
                         </div>
                         <span class="ept_price_slider_error"/>
-                        <span class="w-100 btn btn-primary mt16 rounded py-1" id="price_slider_filter">Filtreyi Uygula</span>
+                        <span class="w-100 btn btn-primary mt16 rounded py-1" id="price_slider_filter">apply
+                            filter
+                        </span>
                     </div>
                 </div>
             </t>
         </xpath>
     </template>
-</harpiya>
+</odoo>

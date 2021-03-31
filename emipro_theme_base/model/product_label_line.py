@@ -3,7 +3,7 @@
     This model is used to create a product line fields like product template id,website id and label
 """
 
-from harpiya import api, fields, models
+from odoo import api, fields, models
 
 
 class ProductLabelLine(models.Model):

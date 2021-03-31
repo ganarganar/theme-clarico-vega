@@ -1,4 +1,4 @@
-harpiya.define('emipro_theme_base.quick_view', function(require) {
+odoo.define('emipro_theme_base.quick_view', function(require) {
     'use strict';
 
     var sAnimations = require('website.content.snippets.animation');

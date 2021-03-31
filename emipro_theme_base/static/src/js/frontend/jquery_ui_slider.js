@@ -1,4 +1,4 @@
-harpiya.define('emipro_theme_base.jquery_ui_slider', function(require) {
+odoo.define('emipro_theme_base.jquery_ui_slider', function(require) {
     'use strict';
 /*!
 

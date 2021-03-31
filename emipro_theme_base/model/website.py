@@ -4,13 +4,15 @@ import json
 
 import werkzeug.urls
 import werkzeug.utils
-from harpiya.http import request
-from harpiya.tools import image_process
+from odoo.http import request
+from odoo.tools import image_process
+from werkzeug.exceptions import NotFound
 
-import harpiya
-from harpiya import fields, models, http
-from harpiya.addons.auth_oauth.controllers.main import OAuthLogin
-from harpiya.addons.website_sale_wishlist.controllers.main import WebsiteSaleWishlist
+import odoo
+from odoo import fields, models, http
+from odoo.addons.auth_oauth.controllers.main import OAuthLogin
+from odoo.addons.website_sale_wishlist.controllers.main import WebsiteSale
+from odoo.addons.website_sale_wishlist.controllers.main import WebsiteSaleWishlist
 
 
 class Website(models.Model):
@@ -762,7 +764,7 @@ class Website(models.Model):
     is_lazy_load = fields.Boolean(string='Lazyload', help="Lazy load will be enabled", readonly=False)
     lazy_load_image = fields.Binary('Lazyload Image', help="Display this image while lazy load applies.",
                                     readonly=False)
-    banner_video_url = fields.Char(string='Video URL', help='URL of a video for banner.', readonly=False)
+    banner_video_url = fields.Many2one('ir.attachment', "Video URL", help='URL of a video for banner.', readonly=False)
     number_of_product_line = fields.Selection([
         ('1', '1'),
         ('2', '2'),
@@ -806,7 +808,7 @@ class Website(models.Model):
         values = request.params.copy()
         try:
             values['databases'] = http.db_list()
-        except harpiya.exceptions.AccessDenied:
+        except odoo.exceptions.AccessDenied:
             values['databases'] = None
         return values['databases']
 
@@ -915,13 +917,13 @@ class Website(models.Model):
         if not prices_list: return False
 
         if not cust_min_val and not cust_max_val:
-            range_list.append(min(prices_list))
-            range_list.append(max(prices_list))
+            range_list.append(round(min(prices_list),2))
+            range_list.append(round(max(prices_list),2))
             range_list.append(round(min(prices_list),2))
             range_list.append(round(max(prices_list),2))
         else:
-            range_list.append(cust_min_val)
-            range_list.append(cust_max_val)
+            range_list.append(round(float(cust_min_val),2))
+            range_list.append(round(float(cust_max_val),2))
             range_list.append(round(min(prices_list), 2))
             range_list.append(round(max(prices_list), 2))
         return range_list
@@ -988,3 +990,41 @@ class Website(models.Model):
                 state=json.dumps(state),
             )
         return werkzeug.url_encode(params)
+
+    def get_product_count(self, attr, search=False, category=False, attributes=False):
+        """
+        Get the product count based on attribute value and current search domain.
+        """
+        domain = WebsiteSale._get_search_domain(self, search, category, attributes)
+        if attributes:
+            ids = []
+            for value in attributes:
+                if value[0] == 0:
+                    ids.append(value[1])
+                    domain += [('product_brand_ept_id.id', 'in', ids)]
+        cust_min_val = request.httprequest.values.get('min_price', False)
+        cust_max_val = request.httprequest.values.get('max_price', False)
+        if cust_max_val and cust_min_val:
+            if not cust_max_val.isnumeric() and cust_min_val.isnumeric():
+                raise NotFound()
+            price_products = request.env['product.template'].sudo().search(domain)
+            new_prod_ids = []
+            pricelist = request.website.pricelist_id
+            if price_products:
+                for prod in price_products:
+                    context = dict(request.context, quantity=1, pricelist=pricelist.id if pricelist else False)
+                    product_template = prod.with_context(context)
+
+                    list_price = product_template.price_compute('list_price')[product_template.id]
+                    price = product_template.price if pricelist else list_price
+                    if price and price >= float(cust_min_val) and price <= float(cust_max_val):
+                        new_prod_ids.append(prod.id)
+                domain += [('id', 'in', new_prod_ids)]
+            else:
+                domain = [('id', '=', False)]
+
+        Product = request.env['product.template']
+        search_product = Product.search(domain)
+        products = attr.pav_attribute_line_ids
+        matched_products = products.filtered(lambda pro: pro.product_tmpl_id.id in search_product.ids)
+        return len(matched_products)

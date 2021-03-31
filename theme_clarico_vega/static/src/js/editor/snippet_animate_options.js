@@ -1,7 +1,7 @@
 //--------------------------------------------------------------------------
 // Snippet Aos Animation customize Options and Expertise Progress bar 
 //--------------------------------------------------------------------------
-harpiya.define('theme_clarico_vega.snippetEpt', function (require) {
+odoo.define('theme_clarico_vega.snippetEpt', function (require) {
 	'use strict';
 	var SnippetOption = require('web_editor.snippets.options');
 

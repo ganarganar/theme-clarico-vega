@@ -3,7 +3,7 @@
     This model is used to create a offer timer fields in pricelist
 """
 
-from harpiya import fields, models
+from odoo import fields, models
 
 class PricelistItem(models.Model):
     _inherit = "product.pricelist.item"

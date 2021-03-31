@@ -1,7 +1,7 @@
 //--------------------------------------------------------------------------
 // Add value of latitude and longitude of google map snippet
 //--------------------------------------------------------------------------
-harpiya.define('theme_clarico_vega.google_map_snippet_backend',function(require) {
+odoo.define('theme_clarico_vega.google_map_snippet_backend',function(require) {
 'use strict';
     var core = require('web.core');
     var rpc = require('web.rpc');

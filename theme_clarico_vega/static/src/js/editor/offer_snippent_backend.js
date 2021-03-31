@@ -1,7 +1,7 @@
 //--------------------------------------------------------------------------
 // Modify Timer in Offer Timer Snippet
 //--------------------------------------------------------------------------
-harpiya.define('theme_clarico_vega.editor_js',function(require) {
+odoo.define('theme_clarico_vega.editor_js',function(require) {
 'use strict';
     var core = require('web.core');
     var options = require('web_editor.snippets.options');
@@ -53,7 +53,46 @@ harpiya.define('theme_clarico_vega.editor_js',function(require) {
         options.registry.js_timer = set_timer.extend({
             cleanForSave: function(){
                 this.$target.empty();
-            }
+            },
+        });
+
+        options.registry.colorpicker.include({
+            _onColorButtonEnter: function (ev) {
+                this.$target.removeClass(this.classes);
+                var color = $(ev.currentTarget).data('color');
+                if (color) {
+                    this.$target.addClass(this.colorPrefix + color);
+                } else if ($(ev.target).hasClass('o_custom_color')) {
+                    this.$target
+                        .removeClass(this.classes)
+                        .css('background-color', ev.currentTarget.style.backgroundColor);
+                        console.log($(ev.currentTarget).attr('class'));
+                    this.$target.filter('.js_timer_div')
+                            .removeClass(this.classes)
+                            .css('background-color', 'inherit');
+                    this.$target.filter('.js_timer_div')
+                            .removeClass(this.classes)
+                            .css('color', ev.currentTarget.style.backgroundColor);
+                }
+                this.$target.trigger('background-color-event', true);
+            },
+
+            _onColorButtonLeave: function (ev) {
+                this.$target.removeClass(this.classes);
+                this.$target.css('background-color', '');
+                var $selected = this.$el.find('.colorpicker button.selected');
+                if ($selected.length) {
+                    if ($selected.data('color')) {
+                        this.$target.addClass(this.colorPrefix + $selected.data('color'));
+                    } else if ($selected.hasClass('o_custom_color')) {
+                        this.$target.css('background-color', $selected.css('background-color'));
+
+                        this.$target.filter('.js_timer_div').css('background-color', 'inherit');
+                            this.$target.filter('.js_timer_div').css('color', $selected.css('background-color'));
+                    }
+                }
+                this.$target.trigger('background-color-event', 'reset');
+           },
         });
 });
     

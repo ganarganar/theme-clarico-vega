@@ -2,9 +2,9 @@
 """
     This model is used to create a slider filter fields
 """
-from harpiya import api, fields, models, _
-from harpiya.tools.safe_eval import safe_eval
-from harpiya.exceptions import UserError, ValidationError
+from odoo import api, fields, models, _
+from odoo.tools.safe_eval import safe_eval
+from odoo.exceptions import UserError, ValidationError
 
 
 class SliderFilter(models.Model):

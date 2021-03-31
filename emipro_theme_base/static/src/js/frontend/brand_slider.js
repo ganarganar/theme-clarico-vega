@@ -1,4 +1,4 @@
-harpiya.define('emipro_theme_base.brand_slider', function(require) {
+odoo.define('emipro_theme_base.brand_slider', function(require) {
     'use strict';
 
     var ajax = require('web.ajax');

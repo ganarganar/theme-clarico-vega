@@ -7,7 +7,7 @@
         06. Theme layout
         07. Compare short name
 **************************************************/
-harpiya.define('theme_clarico_vega.theme_script', function(require) {
+odoo.define('theme_clarico_vega.theme_script', function(require) {
     'use strict';
 
     var sAnimations = require('website.content.snippets.animation');
@@ -52,7 +52,7 @@ harpiya.define('theme_clarico_vega.theme_script', function(require) {
                 });
             }
 
-            $('.variant_attribute  .list-inline-item').first().addClass('active_li');
+            $('.variant_attribute  .list-inline-item').find('.active').parent().addClass('active_li');
             $( ".list-inline-item .css_attribute_color" ).change(function() {
                 $('.list-inline-item').removeClass('active_li');
                 $(this).parent('.list-inline-item').addClass('active_li');
@@ -66,7 +66,6 @@ harpiya.define('theme_clarico_vega.theme_script', function(require) {
         scrollbarCallbacks: function(){
             $('.te_attr_title').click(function(ev) {
                 var ul_height = $(this).siblings("ul").height();
-                console.log(ul_height)
                 if(ul_height > 141)
                 {
                     $(this).siblings("ul").mCustomScrollbar({
@@ -355,7 +354,19 @@ harpiya.define('theme_clarico_vega.theme_script', function(require) {
                     $(".te_clear_all_form_selection").css("display", "inline-block");
                     $(".te_view_all_filter_div").css("display", "inline-block");
                     if (target_select) {
-                        $(".te_view_all_filter_inner").append("<div class='attribute'>" + attr_value + "<a data-id='" + type_value + "' class='te_clear_attr_a "+attr_name+" "+attr_value_str+" '>x</a></div>");
+                    var temp_attr_value = attr_value.toString().split('(');
+                    var cust_attr_value = '';
+                        switch(parseInt(temp_attr_value.length)) {
+                          case 4:
+                            cust_attr_value += temp_attr_value[0] +' ('+ temp_attr_value[1] +' ('+temp_attr_value[2];
+                            break;
+                          case 3:
+                            cust_attr_value += temp_attr_value[0] +'('+ temp_attr_value[1];
+                            break;
+                          default:
+                            cust_attr_value += temp_attr_value[0];
+                        }
+                        $(".te_view_all_filter_inner").append("<div class='attribute'>" + cust_attr_value + "<a data-id='" + type_value + "' class='te_clear_attr_a "+attr_name+" "+attr_value_str+" '>x</a></div>");
                     }
                 }
             });

@@ -488,7 +488,7 @@
     }
     @include media-breakpoint-down(md) {
 		display: block;
-		@include style(1,5,inherit,0.7rem,capitalize)
+		@include style(1,5,inherit,0.7rem);
 		background:nth($f_color,19);
 		box-shadow: 0 4px 10px 0 rgba(3,3,3,.1);
 		margin: 0.8rem 0;
@@ -577,7 +577,6 @@
             margin-bottom: 16px;
             padding-top: 1rem;
             .te_quick_filter_name {
-                color: nth($f_color,20);
                 .te_clear_all_variant {
                     font-size: 0.75rem;
                     color: nth($f_color,19);
@@ -586,7 +585,7 @@
                 }
             }
             .css_attribute_color {
-                margin: 4px 6px 6px 0px;
+                margin: 4px 6px 6px 6px;
                 border: 1px solid #ededed;
                 width: 12px;
                 height: 12px;
@@ -1616,6 +1615,7 @@ button:focus {
         max-height: 440px !important;
         width: auto;
         margin: 0 auto;
+        padding:0.5px;
     }
 }
 #thumbnailSlider {
@@ -1744,7 +1744,7 @@ button:focus {
     #mainSlider, #thumbnailSlider, .alternative_product_main , .accessory_product_main, .te_product_slider_2, .te_prod_slider_4, .te_brand_slider, .te_category_slider, .te_prod_slider_1, .te_prod_slider_5, .te_product_slider_6
     {
         .owl-carousel {
-            direction: rtl;
+            direction: ltr;
         }
         .owl-carousel .owl-item {
             float: right;
@@ -1796,6 +1796,9 @@ button:focus {
         {
             min-width:15px;
         }
+    }
+    .fa.fa-angle-right, .fa.fa-angle-left{
+        transform:unset;
     }
 }
 /*--------- Load more for shop page ---------*/

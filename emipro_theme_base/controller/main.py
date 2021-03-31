@@ -5,23 +5,23 @@
 import datetime
 import json
 from datetime import timedelta, date
-from harpiya.http import request
-from harpiya.tools.safe_eval import safe_eval
+from odoo.http import request
+from odoo.tools.safe_eval import safe_eval
 from werkzeug.exceptions import NotFound
-from harpiya.exceptions import UserError
-from harpiya.addons.auth_signup.models.res_users import SignupError
+from odoo.exceptions import UserError
+from odoo.addons.auth_signup.models.res_users import SignupError
 import werkzeug
 
-from harpiya import http
-import harpiya
+from odoo import http
+import odoo
 import logging
-from harpiya.tools.translate import _
-from harpiya.addons.http_routing.models.ir_http import slug
-from harpiya.addons.sale.controllers.variant import VariantController
-from harpiya.addons.website.controllers.main import QueryURL
-from harpiya.addons.website_sale.controllers.main import TableCompute
-from harpiya.addons.website_sale_wishlist.controllers.main import WebsiteSale
-from harpiya.addons.website_sale_wishlist.controllers.main import WebsiteSaleWishlist
+from odoo.tools.translate import _
+from odoo.addons.http_routing.models.ir_http import slug
+from odoo.addons.sale.controllers.variant import VariantController
+from odoo.addons.website.controllers.main import QueryURL
+from odoo.addons.website_sale.controllers.main import TableCompute
+from odoo.addons.website_sale_wishlist.controllers.main import WebsiteSale
+from odoo.addons.website_sale_wishlist.controllers.main import WebsiteSaleWishlist
 from psycopg2 import Error
 
 
@@ -39,12 +39,12 @@ class EmiproThemeBase(http.Controller):
         values = {}
         values['login_success'] = False
         if not request.uid:
-            request.uid = harpiya.SUPERUSER_ID
+            request.uid = odoo.SUPERUSER_ID
 
         values = request.params.copy()
         try:
             values['databases'] = http.db_list()
-        except harpiya.exceptions.AccessDenied:
+        except odoo.exceptions.AccessDenied:
             values['databases'] = None
 
         if request.httprequest.method == 'POST':
@@ -59,9 +59,9 @@ class EmiproThemeBase(http.Controller):
                         values['user_type'] = 'portal'
                     values['login_success'] = True
 
-            except harpiya.exceptions.AccessDenied as e:
+            except odoo.exceptions.AccessDenied as e:
                 request.uid = old_uid
-                if e.args == harpiya.exceptions.AccessDenied().args:
+                if e.args == odoo.exceptions.AccessDenied().args:
                     values['error'] = _("Wrong login/password")
                 else:
                     values['error'] = e.args[0]
@@ -72,7 +72,7 @@ class EmiproThemeBase(http.Controller):
         if 'login' not in values and request.session.get('auth_login'):
             values['login'] = request.session.get('auth_login')
 
-        if not harpiya.tools.config['list_db']:
+        if not odoo.tools.config['list_db']:
             values['disable_database_manager'] = True
         return values
 
@@ -635,8 +635,14 @@ class EmiproThemeBaseExtended(WebsiteSaleWishlist):
         cust_max_val = request.httprequest.values.get('max_price', False)
 
         if cust_max_val and cust_min_val:
-            if not cust_max_val.isnumeric() and cust_min_val.isnumeric():
+            try:
+                cust_max_val = float(cust_max_val)
+                cust_min_val = float(cust_min_val)
+            except ValueError:
                 raise NotFound()
+
+            # if not cust_max_val.isunumeric() or not cust_min_val.isnumeric():
+            #     raise NotFound()
             products = request.env['product.template'].sudo().search(domain)
             new_prod_ids = []
             pricelist = request.website.pricelist_id
@@ -701,13 +707,3 @@ class EptWebsiteSaleVariantController(VariantController):
         except Exception as e:
             return res
         return res
-
-
-class ThemeSaleWholesale(EmiproThemeBase):
-    @http.route(auth="public", type='http')
-    def Brand(self, **post):
-        Website = request.env['website'].get_current_website()
-        if Website.wholesale and not request.session.uid:
-            return werkzeug.utils.redirect('/web/login', 303)
-        else:
-            return super(ThemeSaleWholesale, self).Brand(**post)

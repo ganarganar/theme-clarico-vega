@@ -1,4 +1,4 @@
-harpiya.define('theme_clarico_vega.ajax_cart', function (require) {
+odoo.define('theme_clarico_vega.ajax_cart', function (require) {
     "use strict";
     var sAnimations = require('website.content.snippets.animation');
     var publicWidget = require('web.public.widget');
@@ -13,34 +13,6 @@ harpiya.define('theme_clarico_vega.ajax_cart', function (require) {
     );
     /*var OptionalProductsModal = require('sale_product_configurator.OptionalProductsModal');*/
     var flag = 1;
-
-/*    OptionalProductsModal.include({
-        init: function (parent, params) {
-            this._super.apply(this, arguments);
-            this.isWebsite = params.isWebsite;
-
-            this.dialogClass = 'oe_optional_products_modal' + (params.isWebsite ? ' oe_website_sale' : '');
-            setTimeout(function(){
-                if($('.oe_optional_products_modal').length) {
-                    var ajaxCart = new publicWidget.registry.ajax_cart();
-                    if(!parent.attr('class')) {
-                        var product_id = $('.oe_optional_products_modal').find('.product_template_id').val();
-                        $(document).on('click', '.modal-footer .btn-secondary', function(){
-                            ajaxCart.ajaxCartSucess(product_id);
-                        });
-                    } else {
-                         var optional_parent = parent.attr('class')
-                        optional_parent = optional_parent.replace(" ", ".");
-                        var modal_id = $('.'+optional_parent).find('.modal_shown').attr('id');
-                        var product_id = $('#'+modal_id).find('.product_template_id').val();
-                        $(document).on('click', '#'+modal_id+' .modal-footer .btn-secondary', function(){
-                            ajaxCart.ajaxCartSucess(product_id);
-                        });
-                    }
-                }
-            },800);
-        }
-    });*/
 
     publicWidget.registry.WebsiteSale.include({
         _submitForm: function () {

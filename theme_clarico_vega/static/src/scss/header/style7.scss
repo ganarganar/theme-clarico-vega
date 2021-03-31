@@ -457,7 +457,7 @@
 			{
 				display: block;
 				padding: 13px 5px;
-				@include style(3,6,inherit,unset,capitalize);
+				@include style(3,6);
 
 				&:hover
 				{

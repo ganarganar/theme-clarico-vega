@@ -1,4 +1,4 @@
-harpiya.define('emipro_theme_base.price_slider', function(require) {
+odoo.define('emipro_theme_base.price_slider', function(require) {
     'use strict';
 
     var publicWidget = require('web.public.widget');

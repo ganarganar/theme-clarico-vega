@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<harpiya>
+<odoo>
     <!-- ======================= Header style option 1========================= -->
     <template id="customize_header_style_1" inherit_id="portal.frontend_layout"
               name="Header style 1">
@@ -51,7 +51,7 @@
                         </t>
                         <t t-else="">
                             <a class="te_header_before_logo navbar-brand" href="/" t-if="website"
-                               t-field="website.name">Websitem
+                               t-field="website.name">My Website
                             </a>
                         </t>
                         <div class="col-lg-4 te_header_1_right">
@@ -89,16 +89,16 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right js_usermenu" role="menu">
                                     <a role="menuitem" class="dropdown-item te_user_name">
-                                        <span class="te_user_drop_item">Merhaba,<span class="te_user_drop_item" t-esc="user_id.name[:15] + '...' if user_id.name and len(user_id.name) &gt; 16 else user_id.name"/></span>
+                                        <span class="te_user_drop_item">Hello, <span class="te_user_drop_item" t-esc="user_id.name[:15] + '...' if user_id.name and len(user_id.name) &gt; 16 else user_id.name"/></span>
                                     </a>
                                     <a href="/my/home" role="menuitem" class="dropdown-item">
-                                        <span class="fa fa-user"/><span class="te_user_drop_item">Hesabım</span>
+                                        <span class="fa fa-user"/><span class="te_user_drop_item">My Account</span>
                                     </a>
                                     <a href="/my/orders" role="menuitem" class="dropdown-item"><span
-                                            class="fa fa-pie-chart"/><span class="te_user_drop_item">Siparişlerim</span>
+                                            class="fa fa-pie-chart"/><span class="te_user_drop_item">My orders</span>
                                     </a>
                                     <a id="o_logout" class="dropdown-item" t-attf-href="/web/session/logout?redirect=/"
-                                       role="menuitem"><span class="fa fa-sign-out"/><span class="te_user_drop_item">Çıkış</span>
+                                       role="menuitem"><span class="fa fa-sign-out"/><span class="te_user_drop_item">Logout</span>
                                     </a>
                                 </div>
                             </div>
@@ -191,17 +191,17 @@
                                                 </a>
                                                 <div class="dropdown-menu dropdown-menu-right js_usermenu" role="menu">
                                                     <a role="menuitem" class="dropdown-item te_user_name">
-                                                        <span class="te_user_drop_item">Merhaba,<span class="te_user_drop_item" t-esc="user_id.name[:15] + '...' if user_id.name and len(user_id.name) &gt; 16 else user_id.name"/></span>
+                                                        <span class="te_user_drop_item">Hello, <span class="te_user_drop_item" t-esc="user_id.name[:15] + '...' if user_id.name and len(user_id.name) &gt; 16 else user_id.name"/></span>
                                                     </a>
                                                     <a href="/my/home" role="menuitem" class="dropdown-item"><span
-                                                            class="fa fa-user"/><span class="te_user_drop_item">Hesabım</span>
+                                                            class="fa fa-user"/><span class="te_user_drop_item">My Account</span>
                                                     </a>
                                                     <a href="/my/orders" role="menuitem" class="dropdown-item"><span
-                                                            class="fa fa-pie-chart"/><span class="te_user_drop_item">Siparişlerim</span>
+                                                            class="fa fa-pie-chart"/><span class="te_user_drop_item">My orders</span>
                                                     </a>
                                                     <a id="o_logout" class="dropdown-item"
                                                        t-attf-href="/web/session/logout?redirect=/"
-                                                       role="menuitem"><span class="fa fa-sign-out"/><span class="te_user_drop_item">Çıkış</span>
+                                                       role="menuitem"><span class="fa fa-sign-out"/><span class="te_user_drop_item">Logout</span>
                                                     </a>
                                                 </div>
                                             </div>
@@ -209,7 +209,7 @@
                                                  t-if="request.website.viewref('portal.portal_show_sign_in').active">
                                                 <t t-if="request.website.viewref('theme_clarico_vega.login_popup_ept').active">
                                                     <a href="#loginPopup" class="btn btn-link">
-                                                        <span class="te_user_account_name">Giriş</span>
+                                                        <span class="te_user_account_name">Sign in</span>
                                                         <span class="te_user_account_icon">
                                                             <i class="fa fa-user" aria-hidden="true"></i>
                                                         </span>
@@ -218,7 +218,7 @@
                                                 </t>
                                                 <t t-else="">
                                                     <a t-attf-href="/web/login" class="btn btn-link">
-                                                        <span class="te_user_account_name">Giriş</span>
+                                                        <span class="te_user_account_name">Sign in</span>
                                                         <span class="te_user_account_icon">
                                                             <i class="fa fa-user" aria-hidden="true"></i>
                                                         </span>
@@ -245,7 +245,7 @@
                                 </t>
                                 <t t-else="">
                                     <a class="te_header_before_logo navbar-brand" href="/" t-if="website"
-                                       t-field="website.name">Websitem
+                                       t-field="website.name">My Website
                                     </a>
                                 </t>
                             </div>
@@ -348,7 +348,7 @@
                             </t>
                             <t t-else="">
                                 <a class="te_header_before_logo navbar-brand" href="/" t-if="website"
-                                   t-field="website.name">Websitem
+                                   t-field="website.name">My Website
                                 </a>
                             </t>
                         </div>
@@ -381,17 +381,17 @@
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right js_usermenu" role="menu">
                                         <a role="menuitem" class="dropdown-item te_user_name">
-                                            <span class="te_user_drop_item">Merhaba,<span class="te_user_drop_item" t-esc="user_id.name[:15] + '...' if user_id.name and len(user_id.name) &gt; 16 else user_id.name"/></span>
+                                            <span class="te_user_drop_item">Hello, <span class="te_user_drop_item" t-esc="user_id.name[:15] + '...' if user_id.name and len(user_id.name) &gt; 16 else user_id.name"/></span>
                                         </a>
                                         <a href="/my/home" role="menuitem" class="dropdown-item"><span
-                                                class="fa fa-user"/><span class="te_user_drop_item">Hesabım</span>
+                                                class="fa fa-user"/><span class="te_user_drop_item">My Account</span>
                                         </a>
                                         <a href="/my/orders" role="menuitem" class="dropdown-item"><span
-                                                class="fa fa-pie-chart"/><span class="te_user_drop_item">Siparişlerim</span>
+                                                class="fa fa-pie-chart"/><span class="te_user_drop_item">My orders</span>
                                         </a>
                                         <a id="o_logout" class="dropdown-item"
                                            t-attf-href="/web/session/logout?redirect=/"
-                                           role="menuitem"><span class="fa fa-sign-out"/><span class="te_user_drop_item">Çıkış</span>
+                                           role="menuitem"><span class="fa fa-sign-out"/><span class="te_user_drop_item">Logout</span>
                                         </a>
                                     </div>
                                 </div>
@@ -399,7 +399,7 @@
                                      t-if="request.website.viewref('portal.portal_show_sign_in').active">
                                     <t t-if="request.website.viewref('theme_clarico_vega.login_popup_ept').active">
                                         <a href="#loginPopup" class="btn btn-link">
-                                            <span class="te_user_account_name">Giriş</span>
+                                            <span class="te_user_account_name">Sign in</span>
                                             <span class="te_user_account_icon">
                                                 <i class="fa fa-user" aria-hidden="true"></i>
                                             </span>
@@ -408,7 +408,7 @@
                                     </t>
                                     <t t-else="">
                                         <a t-attf-href="/web/login" class="btn-link">
-                                            <span class="te_user_account_name">Giriş</span>
+                                            <span class="te_user_account_name">Sign in</span>
                                             <span class="te_user_account_icon">
                                                 <i class="fa fa-user-o" aria-hidden="true"></i>
                                             </span>
@@ -434,7 +434,7 @@
         <xpath expr="//li[contains(@t-attf-class, 'o_wsale_my_cart')]" position="inside">
             <a href="/shop/cart" id="my_cart" class="nav-link o_wsale_my_cart">
                 <i class="fa fa-shopping-cart"></i>
-                Sepetim
+                My Cart
                 <sup t-attf-class="my_cart_quantity badge badge-primary"
                      t-esc="website_sale_order and website_sale_order.cart_quantity or ''"/>
             </a>
@@ -442,7 +442,7 @@
         <xpath expr="//li[hasclass('o_wsale_my_wish')]" position="inside">
             <a href="/shop/wishlist" class="nav-link te_wish_icon_head">
                 <i class="fa fa-heart"/>
-                İstek Listem
+                Wishlist
                 <sup t-attf-class="my_wish_quantity o_animate_blink badge badge-primary">
                     <t t-esc='wishcount or "0"'/>
                 </sup>
@@ -502,7 +502,7 @@
                             </t>
                             <t t-else="">
                                 <a class="te_header_before_logo navbar-brand" href="/" t-if="website"
-                                   t-field="website.name">Websitem
+                                   t-field="website.name">My Website
                                 </a>
                             </t>
                         </div>
@@ -542,17 +542,17 @@
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right js_usermenu" role="menu">
                                         <a role="menuitem" class="dropdown-item te_user_name">
-                                            <span class="te_user_drop_item">Merhaba,<span class="te_user_drop_item" t-esc="user_id.name[:15] + '...' if user_id.name and len(user_id.name) &gt; 16 else user_id.name"/></span>
+                                            <span class="te_user_drop_item">Hello, <span class="te_user_drop_item" t-esc="user_id.name[:15] + '...' if user_id.name and len(user_id.name) &gt; 16 else user_id.name"/></span>
                                         </a>
                                         <a href="/my/home" role="menuitem" class="dropdown-item"><span
-                                                class="fa fa-user"/><span class="te_user_drop_item">Hesabım</span>
+                                                class="fa fa-user"/><span class="te_user_drop_item">My Account</span>
                                         </a>
                                         <a href="/my/orders" role="menuitem" class="dropdown-item"><span
-                                                class="fa fa-pie-chart"/><span class="te_user_drop_item">Siparişlerim</span>
+                                                class="fa fa-pie-chart"/><span class="te_user_drop_item">My orders</span>
                                         </a>
                                         <a id="o_logout" class="dropdown-item"
                                            t-attf-href="/web/session/logout?redirect=/"
-                                           role="menuitem"><span class="fa fa-sign-out"/><span class="te_user_drop_item">Çıkış</span>
+                                           role="menuitem"><span class="fa fa-sign-out"/><span class="te_user_drop_item">Logout</span>
                                         </a>
                                     </div>
                                 </div>
@@ -560,7 +560,7 @@
                                      t-if="request.website.viewref('portal.portal_show_sign_in').active">
                                     <t t-if="request.website.viewref('theme_clarico_vega.login_popup_ept').active">
                                         <a href="#loginPopup" class="btn-link">
-                                            <span class="te_user_account_name">Giriş</span>
+                                            <span class="te_user_account_name">Sign in</span>
                                             <span class="te_user_account_icon">
                                                 <i class="fa fa-user" aria-hidden="true"></i>
                                             </span>
@@ -569,7 +569,7 @@
                                     </t>
                                     <t t-else="">
                                         <a t-attf-href="/web/login" class="btn-link">
-                                            <span class="te_user_account_name">Giriş</span>
+                                            <span class="te_user_account_name">Sign in</span>
                                             <span class="te_user_account_icon">
                                                 <i class="fa fa-user" aria-hidden="true"></i>
                                             </span>
@@ -688,17 +688,17 @@
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right js_usermenu" role="menu">
                                         <a role="menuitem" class="dropdown-item te_user_name">
-                                            <span class="te_user_drop_item">Merhaba,<span class="te_user_drop_item" t-esc="user_id.name[:15] + '...' if user_id.name and len(user_id.name) &gt; 16 else user_id.name"/></span>
+                                            <span class="te_user_drop_item">Hello, <span class="te_user_drop_item" t-esc="user_id.name[:15] + '...' if user_id.name and len(user_id.name) &gt; 16 else user_id.name"/></span>
                                         </a>
                                         <a href="/my/home" role="menuitem" class="dropdown-item"><span
-                                                class="fa fa-user"/><span class="te_user_drop_item">Hesabım</span>
+                                                class="fa fa-user"/><span class="te_user_drop_item">My Account</span>
                                         </a>
                                         <a href="/my/orders" role="menuitem" class="dropdown-item"><span
-                                                class="fa fa-pie-chart"/><span class="te_user_drop_item">Siparişlerim</span>
+                                                class="fa fa-pie-chart"/><span class="te_user_drop_item">My orders</span>
                                         </a>
                                         <a id="o_logout" class="dropdown-item"
                                            t-attf-href="/web/session/logout?redirect=/"
-                                           role="menuitem"><span class="fa fa-sign-out"/><span class="te_user_drop_item">Çıkış</span>
+                                           role="menuitem"><span class="fa fa-sign-out"/><span class="te_user_drop_item">Logout</span>
                                         </a>
                                     </div>
                                 </div>
@@ -828,17 +828,17 @@
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right js_usermenu" role="menu">
                                             <a role="menuitem" class="dropdown-item te_user_name">
-                                                <span class="te_user_drop_item">Merhaba,<span class="te_user_drop_item" t-esc="user_id.name[:15] + '...' if user_id.name and len(user_id.name) &gt; 16 else user_id.name"/></span>
+                                                <span class="te_user_drop_item">Hello, <span class="te_user_drop_item" t-esc="user_id.name[:15] + '...' if user_id.name and len(user_id.name) &gt; 16 else user_id.name"/></span>
                                             </a>
                                             <a href="/my/home" role="menuitem" class="dropdown-item"><span
-                                                    class="fa fa-user"/><span class="te_user_drop_item">Hesabım</span>
+                                                    class="fa fa-user"/><span class="te_user_drop_item">My Account</span>
                                             </a>
                                             <a href="/my/orders" role="menuitem" class="dropdown-item"><span
-                                                    class="fa fa-pie-chart"/><span class="te_user_drop_item">Siparişlerim</span>
+                                                    class="fa fa-pie-chart"/><span class="te_user_drop_item">My orders</span>
                                             </a>
                                             <a id="o_logout" class="dropdown-item"
                                                t-attf-href="/web/session/logout?redirect=/"
-                                               role="menuitem"><span class="fa fa-sign-out"/><span class="te_user_drop_item">Çıkış</span>
+                                               role="menuitem"><span class="fa fa-sign-out"/><span class="te_user_drop_item">Logout</span>
                                             </a>
                                         </div>
                                     </div>
@@ -846,7 +846,7 @@
                                          t-if="request.website.viewref('portal.portal_show_sign_in').active">
                                         <t t-if="request.website.viewref('theme_clarico_vega.login_popup_ept').active">
                                             <a href="#loginPopup" class="btn-link">
-                                                <span class="te_user_account_name">Giriş</span>
+                                                <span class="te_user_account_name">Sign in</span>
                                                 <span class="te_user_account_icon">
                                                     <i class="fa fa-user" aria-hidden="true"></i>
                                                 </span>
@@ -855,7 +855,7 @@
                                         </t>
                                         <t t-else="">
                                             <a t-attf-href="/web/login" class="btn-link">
-                                                <span class="te_user_account_name">Giriş</span>
+                                                <span class="te_user_account_name">Sign in</span>
                                                 <span class="te_user_account_icon">
                                                     <i class="fa fa-user" aria-hidden="true"></i>
                                                 </span>
@@ -971,17 +971,17 @@
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right js_usermenu" role="menu">
                                             <a role="menuitem" class="dropdown-item te_user_name">
-                                                <span class="te_user_drop_item">Merhaba,<span class="te_user_drop_item" t-esc="user_id.name[:15] + '...' if user_id.name and len(user_id.name) &gt; 16 else user_id.name"/></span>
+                                                <span class="te_user_drop_item">Hello, <span class="te_user_drop_item" t-esc="user_id.name[:15] + '...' if user_id.name and len(user_id.name) &gt; 16 else user_id.name"/></span>
                                             </a>
                                             <a href="/my/home" role="menuitem" class="dropdown-item"><span
-                                                    class="fa fa-user"/><span class="te_user_drop_item">Hesabım</span>
+                                                    class="fa fa-user"/><span class="te_user_drop_item">My Account</span>
                                             </a>
                                             <a href="/my/orders" role="menuitem" class="dropdown-item"><span
-                                                    class="fa fa-pie-chart"/><span class="te_user_drop_item">Siparişlerim</span>
+                                                    class="fa fa-pie-chart"/><span class="te_user_drop_item">My orders</span>
                                             </a>
                                             <a id="o_logout" class="dropdown-item"
                                                t-attf-href="/web/session/logout?redirect=/"
-                                               role="menuitem"><span class="fa fa-sign-out"/><span class="te_user_drop_item">Çıkış</span>
+                                               role="menuitem"><span class="fa fa-sign-out"/><span class="te_user_drop_item">Logout</span>
                                             </a>
                                         </div>
                                     </div>
@@ -1121,14 +1121,16 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right js_usermenu" role="menu">
                             <a role="menuitem" class="dropdown-item te_user_name">
-                                <span class="te_user_drop_item">Merhaba,<span class="te_user_drop_item" t-esc="user_id.name[:15] + '...' if user_id.name and len(user_id.name) &gt; 16 else user_id.name"/></span>
+                                <span class="te_user_drop_item">Hello, <span class="te_user_drop_item" t-esc="user_id.name[:15] + '...' if user_id.name and len(user_id.name) &gt; 16 else user_id.name"/></span>
                             </a>
-                            <a href="/my/home" role="menuitem" class="dropdown-item"><span class="fa fa-user"/><span class="te_user_drop_item">Hesabım</span>
+                            <a href="/my/home" role="menuitem" class="dropdown-item"><span class="fa fa-user"/><span class="te_user_drop_item">My
+                                Account</span>
                             </a>
-                            <a href="/my/orders" role="menuitem" class="dropdown-item"><span class="fa fa-pie-chart"/><span class="te_user_drop_item">Siparişlerim</span>
+                            <a href="/my/orders" role="menuitem" class="dropdown-item"><span class="fa fa-pie-chart"/><span class="te_user_drop_item">My
+                                orders</span>
                             </a>
                             <a id="o_logout" class="dropdown-item" t-attf-href="/web/session/logout?redirect=/"
-                               role="menuitem"><span class="fa fa-sign-out"/><span class="te_user_drop_item">Çıkış</span>
+                               role="menuitem"><span class="fa fa-sign-out"/><span class="te_user_drop_item">Logout</span>
                             </a>
                         </div>
                     </div>
@@ -1194,7 +1196,7 @@
                             </t>
                             <t t-else="">
                                 <a class="te_header_before_logo navbar-brand" href="/" t-if="website"
-                                   t-field="website.name">Websitem
+                                   t-field="website.name">My Website
                                 </a>
                             </t>
                         </div>
@@ -1253,14 +1255,16 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right js_usermenu" role="menu">
                             <a role="menuitem" class="dropdown-item te_user_name">
-                                <span class="te_user_drop_item">Merhaba,<span class="te_user_drop_item" t-esc="user_id.name[:15] + '...' if user_id.name and len(user_id.name) &gt; 16 else user_id.name"/></span>
+                                <span class="te_user_drop_item">Hello, <span class="te_user_drop_item" t-esc="user_id.name[:15] + '...' if user_id.name and len(user_id.name) &gt; 16 else user_id.name"/></span>
                             </a>
-                            <a href="/my/home" role="menuitem" class="dropdown-item"><span class="fa fa-user"/><span class="te_user_drop_item">Hesabım</span>
+                            <a href="/my/home" role="menuitem" class="dropdown-item"><span class="fa fa-user"/><span class="te_user_drop_item">My
+                                Account</span>
                             </a>
-                            <a href="/my/orders" role="menuitem" class="dropdown-item"><span class="fa fa-pie-chart"/><span class="te_user_drop_item">Siparişlerim</span>
+                            <a href="/my/orders" role="menuitem" class="dropdown-item"><span class="fa fa-pie-chart"/><span class="te_user_drop_item">My
+                                orders</span>
                             </a>
                             <a id="o_logout" class="dropdown-item" t-attf-href="/web/session/logout?redirect=/"
-                               role="menuitem"><span class="fa fa-sign-out"/><span class="te_user_drop_item">Çıkış</span>
+                               role="menuitem"><span class="fa fa-sign-out"/><span class="te_user_drop_item">Logout</span>
                             </a>
                         </div>
                     </div>
@@ -1373,15 +1377,16 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right js_usermenu" role="menu">
                                 <a role="menuitem" class="dropdown-item te_user_name">
-                                    <span class="te_user_drop_item">Merhaba,<span class="te_user_drop_item" t-esc="user_id.name[:15] + '...' if user_id.name and len(user_id.name) &gt; 16 else user_id.name"/></span>
+                                    <span class="te_user_drop_item">Hello, <span class="te_user_drop_item" t-esc="user_id.name[:15] + '...' if user_id.name and len(user_id.name) &gt; 16 else user_id.name"/></span>
                                 </a>
-                                <a href="/my/home" role="menuitem" class="dropdown-item"><span class="fa fa-user"/><span class="te_user_drop_item">Hesabım</span>
+                                <a href="/my/home" role="menuitem" class="dropdown-item"><span class="fa fa-user"/><span class="te_user_drop_item">My
+                                    Account</span>
                                 </a>
                                 <a href="/my/orders" role="menuitem" class="dropdown-item"><span
-                                        class="fa fa-pie-chart"/><span class="te_user_drop_item">Siparişlerim</span>
+                                        class="fa fa-pie-chart"/><span class="te_user_drop_item">My orders</span>
                                 </a>
                                 <a id="o_logout" class="dropdown-item" t-attf-href="/web/session/logout?redirect=/"
-                                   role="menuitem"><span class="fa fa-sign-out"/><span class="te_user_drop_item">Çıkış</span>
+                                   role="menuitem"><span class="fa fa-sign-out"/><span class="te_user_drop_item">Logout</span>
                                 </a>
                             </div>
                         </div>
@@ -1499,14 +1504,16 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right js_usermenu" role="menu">
                                 <a role="menuitem" class="dropdown-item te_user_name">
-                                    <span class="te_user_drop_item">Merhaba,<span class="te_user_drop_item" t-esc="user_id.name[:15] + '...' if user_id.name and len(user_id.name) &gt; 16 else user_id.name"/></span>
+                                    <span class="te_user_drop_item">Hello, <span class="te_user_drop_item" t-esc="user_id.name[:15] + '...' if user_id.name and len(user_id.name) &gt; 16 else user_id.name"/></span>
                                 </a>
-                                <a href="/my/home" role="menuitem" class="dropdown-item"><span class="fa fa-user"/><span class="te_user_drop_item">Hesabım</span>
+                                <a href="/my/home" role="menuitem" class="dropdown-item"><span class="fa fa-user"/><span class="te_user_drop_item">My
+                                    Account</span>
                                 </a>
-                                <a href="/my/orders" role="menuitem" class="dropdown-item"><span class="fa fa-pie-chart"/><span class="te_user_drop_item">Siparişlerim</span>
+                                <a href="/my/orders" role="menuitem" class="dropdown-item"><span class="fa fa-pie-chart"/><span class="te_user_drop_item">My
+                                    orders</span>
                                 </a>
                                 <a id="o_logout" class="dropdown-item" t-attf-href="/web/session/logout?redirect=/"
-                                   role="menuitem"><span class="fa fa-sign-out"/><span class="te_user_drop_item">Çıkış</span>
+                                   role="menuitem"><span class="fa fa-sign-out"/><span class="te_user_drop_item">Logout</span>
                                 </a>
                             </div>
                         </div>
@@ -1671,4 +1678,4 @@
             <t t-set="search" t-value="False"/>
         </xpath>
     </template>
-</harpiya>
+</odoo>

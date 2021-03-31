@@ -5,7 +5,7 @@
       04. Mixin for effect and align
       05. Mixin for Animation
       06. Mixin for Transition
-      07. Harpiya Icon Snippet
+      07. Odoo Icon Snippet
       08. Common style for (container, Button, Image Zoom Effect)
 **********************************************************************************/
 
@@ -80,10 +80,6 @@ p {
 	{
 		font-size:nth($f_sizes,3)
 	}
-}
-.btn
-{
-	text-transform:capitalize;
 }
 
 /*============================ 04. Mixin for effect and align ======================*/
@@ -214,7 +210,7 @@ p {
     transition-timing-function:$t_timing-function;
     transition-delay:$t_delay;
 }
-/*================== 07. Harpiya Icon Snippet ==========================*/
+/*================== 07. Odoo Icon Snippet ==========================*/
 .te_menu_flip_box
 {
   perspective: 1000px;

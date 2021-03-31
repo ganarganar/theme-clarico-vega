@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<harpiya>
+<odoo>
     <template id="login_register_popup" name="Login Register Popup">
         <div class="modal fade text-left" id="loginRegisterPopup" role="dialog" tabindex='-1'>
             <div class="modal-dialog">
@@ -18,14 +18,14 @@
                                     t-attf-class="login_register_tab #{'full-width' if not b2c_selected else ''} ">
                                     <a href="#loginPopup" aria-controls="loginPopup" role="tab" class="active"
                                        data-toggle="tab">
-                                        Giriş
+                                        Login
                                     </a>
                                 </li>
                                 <t t-if="b2c_selected">
                                     <li role="presentation" class="login_register_tab">
                                         <a href="#registerPopup" aria-controls="registerPopup" role="tab" class=""
                                            data-toggle="tab">
-                                            Kaydol
+                                            Register
                                         </a>
                                     </li>
                                 </t>
@@ -61,21 +61,21 @@
                     <span class="input-group-append">
                         <a role="button" href="/web/database/selector" class="btn btn-secondary">
                             Select
-                            <i class="fa fa-database" role="img" aria-label="Veritabanı" title="Veritabanı"/>
+                            <i class="fa fa-database" role="img" aria-label="Database" title="Database"/>
                         </a>
                     </span>
                 </div>
             </div>
             <div class="form-group field-login">
-                <label for="login">E-posta</label>
-                <input type="text" placeholder="E-posta" name="login" t-att-value="login" id="login"
+                <label for="login">Email</label>
+                <input type="text" placeholder="Email" name="login" t-att-value="login" id="login"
                        t-attf-class="form-control #{'form-control-sm' if form_small else ''}" required="required"
                        autofocus="autofocus" autocapitalize="off"/>
             </div>
 
             <div class="form-group field-password">
-                <label for="password">Şifre</label>
-                <input type="password" placeholder="Şifre" name="password" id="password"
+                <label for="password">Password</label>
+                <input type="password" placeholder="Password" name="password" id="password"
                        t-attf-class="form-control #{'form-control-sm' if form_small else ''}" required="required"
                        autocomplete="current-password" t-att-autofocus="'autofocus' if login else None"
                        maxlength="4096"/>
@@ -91,17 +91,17 @@
             <div class="te_error-success"/>
 
             <div t-attf-class="clearfix oe_login_buttons text-center mb-1 {{'pt-2' if form_small else 'pt-3'}}">
-                <button type="submit" class="btn btn-primary btn-block te_theme_button te_login_button">Giriş
+                <button type="submit" class="btn btn-primary btn-block te_theme_button te_login_button">Log in
                 </button>
                 <t t-if="debug">
                     <button type="submit" name="redirect" value="/web/become"
-                            class="btn btn-link btn-sm btn-block">Yönetici olarak giriş yap
+                            class="btn btn-link btn-sm btn-block">Log in as superuser
                     </button>
                 </t>
                 <div class="justify-content-between mt-2 d-flex small">
                     <a class="open_reset_password"
                        t-if="request.env['ir.config_parameter'].sudo().get_param('auth_signup.reset_password') == 'True'"
-                       t-attf-href="#resetPasswordPopup" data-keyboard="true">Şifremi Unuttum
+                       t-attf-href="#resetPasswordPopup" data-keyboard="true">Reset Password
                     </a>
                 </div>
                 <div class="o_login_auth"/>
@@ -112,7 +112,7 @@
                        t-value="request.env['auth.oauth.provider'].sudo().search_read([('enabled', '=', True)])"/>
                     <t t-if="len(providers) &gt; 0">
                         <em t-attf-class="d-block text-center text-muted small my-#{len(providers) if len(providers) &lt; 3 else 3}">
-                            - yada -
+                            - or -
                         </em>
                         <div class="o_auth_oauth_providers list-group mt-1 mb-1 text-left">
                             <t t-foreach="providers" t-as="p">
@@ -141,7 +141,7 @@
 
             <t t-if="not token">
                 <div class="form-group field-login">
-                    <label for="login" class="col-form-label">E-posta Adresiniz</label>
+                    <label for="login" class="col-form-label">Your Email</label>
                     <input type="text" name="login" t-att-value="login" id="login" class="form-control"
                            autofocus="autofocus" required="required" autocapitalize="off"/>
                 </div>
@@ -155,9 +155,9 @@
             <input type="hidden" name="token" t-att-value="token"/>
             <div class="clearfix oe_login_buttons">
                 <div class="d-flex justify-content-between align-items-center small">
-                    <button type="submit" class="btn btn-primary te_theme_button">Onayla</button>
-                    <a class="back_login" t-if="not token" href="#loginPopup">Giriş'e Dön</a>
-                    <a class="back_login" t-if="invalid_token" href="#loginPopup">Giriş'e Dön</a>
+                    <button type="submit" class="btn btn-primary te_theme_button">Confirm</button>
+                    <a class="back_login" t-if="not token" href="#loginPopup">Back to Login</a>
+                    <a class="back_login" t-if="invalid_token" href="#loginPopup">Back to Login</a>
                 </div>
                 <div class="o_login_auth"/>
             </div>
@@ -181,7 +181,7 @@
             <input type="hidden" name="redirect" t-att-value="redirect"/>
             <input type="hidden" name="token" t-att-value="token"/>
             <div class="text-center oe_signup_buttons pt-3">
-                <button type="submit" class="btn btn-primary btn-block te_theme_button te_signup_button">Kaydol
+                <button type="submit" class="btn btn-primary btn-block te_theme_button te_signup_button">Sign up
                 </button>
                 <div class="o_login_auth"/>
                 <t t-set="enable"
@@ -191,7 +191,7 @@
                        t-value="request.env['auth.oauth.provider'].sudo().search_read([('enabled', '=', True)])"/>
                     <t t-if="len(providers) &gt; 0">
                         <em t-attf-class="d-block text-center text-muted small my-#{len(providers) if len(providers) &lt; 3 else 3}">
-                            - yada -
+                            - or -
                         </em>
                         <div class="o_auth_oauth_providers list-group mt-1 mb-1 text-left">
                             <t t-foreach="providers" t-as="p">
@@ -210,4 +210,4 @@
     </template>
 
 
-</harpiya>
+</odoo>

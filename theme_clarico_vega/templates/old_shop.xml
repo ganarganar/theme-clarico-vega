@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--==================== Product item used by /shop and /shop/cart ============================-->
+    <template id="products_item_ept" inherit_id="website_sale.products_item">
+        <xpath expr="//a[@t-att-href='product_href']" position="replace">
+            <a t-att-href="product_href" class="d-block h-100" itemprop="url">
+                <t t-if="website.is_lazy_load">
+                    <span class="new_span d-flex h-100 justify-content-center align-items-center">
+                        <img t-attf-data-src="/web/image/product.template/#{product.id}/image_1920"
+                             t-attf-src="/web/image/website/#{website.id}/lazy_load_image"
+                             class="img img-fluid lazyload"
+                             alt="Product image"/>
+                    </span>
+                </t>
+                <t t-else="">
+                    <span t-field="product.image_1920"
+                          t-options="{'widget': 'image', 'class': 'lazy', 'preview_image': 'image_1024' if product_image_big else 'image_512', 'data-original': 'image_1024' if product_image_big else 'image_512'}"
+                          class="new_span d-flex h-100 justify-content-center align-items-center"/>
+                </t>
+            </a>
+        </xpath>
+        <xpath expr="//h6[hasclass('o_wsale_products_item_title')]/a" position="attributes">
+            <attribute name="t-attf-class">
+                product_name
+                #{'te_2_line' if (website.number_of_product_line == '2') else 'te_3_line' if (website.number_of_product_line == '3') else ''}
+            </attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('o_wsale_product_information_text')]" position="attributes">
+            <attribute name="t-attf-class">
+                p-2 o_wsale_product_information_text
+                #{'te_shop_icon' if request.website.viewref('theme_clarico_vega.quickview_icon_shop_product_item').active or request.website.viewref('website_sale_wishlist.add_to_wishlist').active or request.website.viewref('website_sale.products_add_to_cart').active or request.website.viewref('website_sale_comparison.add_to_compare').active else 'te_shop_icon_not'}
+            </attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('o_wsale_product_information')]" position="attributes">
+            <attribute name="class">card-body p-0 te_product_info o_wsale_product_information</attribute>
+        </xpath>
+    </template>
+    <template id="products_description_ept" inherit_id="website_sale.products_description">
+        <xpath expr="//div[hasclass('oe_subdescription')]" position="replace">
+            <t t-if="product.description_sale">
+                <div class="oe_subdescription" contenteditable="false">
+                    <div itemprop="description" t-field="product.description_sale"/>
+                </div>
+            </t>
+        </xpath>
+    </template>
+    <template id="load_products_through_ajax" inherit_id="website_sale.products_categories"
+              name="Load Products Through Ajax">
+        <xpath expr="//div[@id='products_grid']" position="before">
+            <input type="hidden" class="load_products_through_ajax" value="True"/>
+        </xpath>
+    </template>
+    <!--================= Sticky Sidebar =====================-->
+    <template id="sticky_product_categories" inherit_id="website_sale.products" name="Sticky Sidebar">
+        <xpath expr="//div[@id='products_grid_before']" position="attributes">
+            <attribute name="class">col-lg-3 te_product_sticky_sidebar te_product_sidebar_scrollbar</attribute>
+        </xpath>
+    </template>
+    <!--====================== shop product listing ==========================-->
+    <template id="products_ept" inherit_id="website_sale.products" priority="15">
+        <!-- Category Wise Landing Page -->
+        <xpath expr="//div[hasclass('oe_website_sale')]" position="before">
+            <div t-if="category" class="te_shop_breadcrumb">
+                <t t-set="categ_value" t-value="website.get_product_categs_path(category.id)"/>
+                <t t-set="categ" t-value="categ_value.get('categ_set',False)"/>
+                <t t-set="web_url" t-value="categ_value.get('web_url',False)"/>
+                <ol class="breadcrumb">
+                    <div class="container">
+                        <li class="breadcrumb-item">
+                            <a href="/shop">
+                                <i class="fa fa-home"></i>
+                            </a>
+                        </li>
+                        <t t-if="categ">
+                            <t t-foreach="categ" t-as="c">
+                                <t t-set="rec"
+                                   t-value="request.env['product.public.category'].sudo().search([('id', '=', c)])"/>
+                                <li class="breadcrumb-item">
+                                    <a t-att-href="'/shop/category/%s' %slug(rec)">
+                                        <span class="product_catg_breadcrumb" t-esc="rec.name"></span>
+                                    </a>
+                                </li>
+                            </t>
+                        </t>
+                    </div>
+                </ol>
+            </div>
+        </xpath>
+        <xpath expr="//div[hasclass('products_pager')][1]/t[@t-call='website_sale.pricelist_list']"
+               position="replace"/>
+        <xpath expr="//div[hasclass('text-muted')]" position="replace">
+            <t t-if="not bins">
+                <div class="text-center">
+                    <t t-if="not search">
+                        <div class="text-muted te_no_products">
+                            <h3 class="css_editable_display mt8">No product defined.</h3>
+                            <t t-if="search">
+                                <p>
+                                    No results found for "
+
+                                    <strong t-esc='search'/>
+                                    ".
+
+                                </p>
+                            </t>
+                        </div>
+                    </t>
+                    <t t-else="">
+                        <h3 class="mt8">No results</h3>
+                        <p>No results for "<strong t-esc='search'/>"
+                            <t t-if="category">in category "<strong t-esc="category.display_name"/>"
+                            </t>
+                            .
+                        </p>
+                    </t>
+                    <p class="te_extra_text pt16" groups="sales_team.group_sale_manager">
+                        Click
+
+                        <i>'New'</i>
+                        in the top-right corner to create your first product.
+
+                    </p>
+                    <a class="btn btn-primary mt16 te_theme_button" href="/shop">Continue To Shop</a>
+                </div>
+            </t>
+        </xpath>
+        <xpath expr="//div[hasclass('products_pager')][1]" position="attributes">
+            <attribute name="class">products_pager form-inline te_shop_pager
+                te_shop_pager_top
+            </attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('products_pager')][2]" position="attributes">
+            <attribute name="class">products_pager form-inline justify-content-end mt-3 mb-3
+                te_shop_pager
+            </attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('products_pager')][1]" position="inside">
+            <div class="te_view_all_filter_div">
+                <span class="te_view_filter_span">Filters</span>
+                <a class="te_clear_all_form_selection">(Clear All)</a>
+                <div class="te_view_all_filter_inner"></div>
+            </div>
+        </xpath>
+        <xpath expr="//div[hasclass('products_pager')][1]" position="after">
+            <t t-if="(request.website.viewref('website_sale.products_categories').active) or (request.website.viewref('website_sale.products_attributes').active)">
+                <div class="te_shop_filter_resp">
+                    <span class="fa fa-align-left mr-1"></span>
+                    <span class="filters-title-ept">Filters</span>
+                </div>
+
+                <!--<span class="te_shop_filter_resp_sticky te_shop_filter_resp">
+                    <span class="fa fa-filter"></span>
+                </span>-->
+            </t>
+        </xpath>
+        <xpath expr="//div[@id='products_grid_before']" position="inside">
+            <div class="te_filter_close te_filter_btn_close">
+                <span class="te_filter_icon_close">x</span>
+            </div>
+        </xpath>
+        <xpath expr="//t[@t-if='td_product']/td" position="attributes">
+            <attribute name="t-attf-class">oe_product #{td_product['class']} te_shop_grid
+            </attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('products_pager')][1]" position="inside">
+            <div class="te_quick_filter_main_div mt-3 ml-md-2">
+                <span class="te_quick_filter_dropdown btn te_sort_btn">Quick Filter</span>
+            </div>
+        </xpath>
+        <xpath expr="//div[hasclass('products_pager')][1]/t[@t-call='website.pager']/t[@t-set='_classes']"
+               position="replace">
+            <t t-set="_classes">mt-3 ml-md-2</t>
+        </xpath>
+        <xpath expr="//div[hasclass('oe_website_sale')]//div[hasclass('o_wsale_products_main_row')]"
+               position="attributes">
+            <attribute name="t-attf-class">row o_wsale_products_main_row
+                #{'enabled' if (request.website.viewref('website_sale.products_categories').active or request.website.viewref('website_sale.products_attributes').active) else ''}
+            </attribute>
+        </xpath>
+        <!--============= Load more feature =================-->
+        <xpath expr="//div[hasclass('oe_website_sale')]" position="before">
+            <t t-set="is_shop" t-value="1"/>
+            <t t-if="website.is_load_more">
+                <input type="hidden" class="load_more_next_page" t-att-pager="pager"
+                       t-att-first-page-url="pager['page_first']['url']" t-att-last-page-url="pager['page_last']['url']"
+                       t-att-prev-page-url="pager['page_previous']['url']"
+                       t-att-next-page-url="pager['page_next']['url']"
+                       t-att-prev-page-num="pager['page_previous']['num']"
+                       t-att-next-page-num="pager['page_next']['num']"
+                       t-att-total-page="pager['page_count']" t-att-page-number="pager['page']['num']"
+                       t-att-current-page-number="pager['page']['num']" t-att-current-page-url="pager['page']['url']"
+                       t-att-button-scroll="website.button_or_scroll"/>
+            </t>
+        </xpath>
+        <!--================== Load more buttons ======================-->
+        <!--======= Load more previous button =======-->
+        <xpath expr="//div[@id='products_grid']//div[hasclass('o_wsale_products_grid_table_wrapper')]"
+               position="before">
+            <t t-if="website.is_load_more and bins">
+                <div class="d-none cus_theme_loader_layout_prev">
+                    <div class="cus_theme_loader_div_layout">
+                        <img t-attf-src="/web/image/website/#{website.id}/load_more_image"
+                             class="img img-fluid"/>
+                    </div>
+                </div>
+            </t>
+            <t t-if="website.is_load_more and website.button_or_scroll == 'button' and bins">
+                <div class="load_more_button_top_main">
+                    <button t-attf-class="load_more_button_top btn te_theme_button #{'active' if pager['page']['num'] > 1 else ''} ">
+                        <span t-field="website.prev_button_label"/>
+                    </button>
+                </div>
+            </t>
+        </xpath>
+        <!--======= Load more next button =======-->
+        <xpath expr="//div[@id='products_grid']//div[hasclass('o_wsale_products_grid_table_wrapper')]" position="after">
+            <t t-if="website.is_load_more and website.button_or_scroll == 'button' and bins">
+                <div class="load_more_button_top_main">
+                    <button t-attf-class="load_more_button btn te_theme_button #{'active' if pager['page']['num'] &gt;= 1 and pager['page']['num'] &lt; pager['page_count'] else 'test'}">
+                        <span t-field="website.next_button_label"/>
+                    </button>
+                </div>
+            </t>
+            <t t-if="website.is_load_more and bins">
+                <div class="d-none cus_theme_loader_layout_next">
+                    <div class="cus_theme_loader_div_layout">
+                        <img t-attf-src="/web/image/website/#{website.id}/load_more_image"
+                             class="img img-fluid"/>
+                    </div>
+                </div>
+            </t>
+        </xpath>
+    </template>
+    <!--======================= Sort by =============================-->
+    <template id="sort_ept" inherit_id="website_sale.sort">
+        <xpath expr="//div[hasclass('dropdown_sorty_by')]/a[hasclass('btn')]" position="attributes">
+            <attribute name="class">dropdown-toggle btn te_sort_btn</attribute>
+        </xpath>
+        <xpath expr="//div[hasclass('dropdown_sorty_by')]" position="attributes">
+            <attribute name="class">dropdown mt-3 ml-sm-2 dropdown_sorty_by</attribute>
+        </xpath>
+    </template>
+    <!--======================= Grid/List View Button ==========================-->
+    <template id="add_grid_or_list_option_ept" inherit_id="website_sale.add_grid_or_list_option">
+        <xpath expr="//div[hasclass('o_wsale_apply_layout')]//label[1]" position="replace">
+            <label t-attf-class="btn #{'active' if layout_mode != 'list' else None} fa fa-th-large o_wsale_apply_grid te_shop_grid_btn mr-2"
+                   title="Grid">
+                <input type="radio" name="wsale_products_layout"
+                       t-att-checked="'checked' if layout_mode != 'list' else None"/>
+            </label>
+        </xpath>
+        <xpath expr="//div[hasclass('o_wsale_apply_layout')]//label[2]" position="replace">
+            <label t-attf-class="btn #{'active' if layout_mode == 'list' else None} fa fa-th-list o_wsale_apply_list te_shop_list_btn"
+                   title="List">
+                <input type="radio" name="wsale_products_layout"
+                       t-att-checked="'checked' if layout_mode == 'list' else None"/>
+            </label>
+        </xpath>
+        <xpath expr="//div[hasclass('o_wsale_apply_layout')]" position="attributes">
+            <attribute name="class">btn-group btn-group-toggle mt-3 ml-md-2 d-none d-sm-inline-flex
+                o_wsale_apply_layout
+            </attribute>
+        </xpath>
+    </template>
+    <!-- Brand filter -->
+    <template id="product_brand_attribute" inherit_id="website_sale.products_attributes">
+        <xpath expr="//form/ul" position="inside">
+            <t t-if="not is_brand_page">
+                <t t-if="products" t-set="brand_list" t-value="request.website.get_brand(products)"/>
+                <t t-if="brand_list">
+                    <li class="nav-item">
+                        <div class="te_attr_title">
+                            <span>Brand</span>
+                            <a class="te_clear_all_variant">(Clear)</a>
+                        </div>
+                        <ul class="nav nav-pills flex-column brand_main">
+                            <t t-foreach="brand_list" t-as="brand">
+                                <li class="nav-item">
+                                    <label style="margin: 0 20px;"
+                                           t-attf-class="nav-link#{' active' if [0,brand.id] in attrib_values else ''}">
+                                        <input type="checkbox" name="attrib" t-att-value="'0-%s' % (brand.id)"
+                                               t-att-checked="'checked' if [0,brand.id] in attrib_values else None"/>
+                                        <span style="font-weight: normal" t-field="brand.name"/>
+                                    </label>
+                                </li>
+                            </t>
+                        </ul>
+                    </li>
+                </t>
+            </t>
+        </xpath>
+    </template>
+    <!--========================= Product Attributes ==========================-->
+    <template id="products_attributes_ept" inherit_id="website_sale.products_attributes">
+        <xpath expr="//form/input[@name='search']" position="before">
+            <t t-set="attrib_list" t-value="request.httprequest.args.getlist('attrib')"/>
+            <t t-set="attrib_values" t-value="[[int(x) for x in v.split('-')] for v in attrib_list if v]"/>
+            <t t-set="attrib_set" t-value="{v[1] for v in attrib_values if v[0] != 0}"/>
+        </xpath>
+        <xpath expr="//ul/t/li[hasclass('nav-item')]/div" position="replace">
+            <div class="te_attr_title">
+                <span t-field="a.name"></span>
+            </div>
+        </xpath>
+        <xpath expr="//ul/t/li[hasclass('nav-item')]/div" position="inside">
+            <a t-att-attribute-name="a.id" class="te_clear_all_variant">(Clear)</a>
+        </xpath>
+        <xpath expr="//form[hasclass('js_attributes')]/ul" position="attributes">
+            <attribute name="class">nav nav-pills flex-column te_shop_attr_ul
+            </attribute>
+        </xpath>
+        <xpath expr="//form[hasclass('js_attributes')]//ul//li//t[3]"
+               position="replace">
+            <t t-if="a.display_type == 'color'">
+                <ul class="nav nav-pills flex-column">
+                    <t t-foreach="a.value_ids" t-as="v">
+                        <li class="color-with-name-divmaxW nav-item">
+                            <label t-attf-style="background-color:#{v.html_color or v.name}"
+                                   t-attf-class="css_attribute_color #{'active' if v.id in attrib_set else ''}">
+                                <input type="checkbox" name="attrib" t-att-value="'%s-%s' % (a.id,v.id)"
+                                       t-att-checked="'checked' if v.id in attrib_set else None"
+                                       t-att-title="v.name"/>
+                            </label>
+                            <span class="te_color-name" t-esc="v.name"/>
+                        </li>
+                    </t>
+                </ul>
+            </t>
+        </xpath>
+
+        <!-- Quick Filter -->
+        <!--<xpath expr="//ul/t/li[hasclass('nav-item')]"
+               position="attributes">
+            <attribute name="t-if">not a.is_quick_filter and a.value_ids and len(a.value_ids) &gt; 1
+            </attribute>
+        </xpath>-->
+        <xpath expr="//form[hasclass('js_attributes')]/ul[hasclass('te_shop_attr_ul')]" position="after">
+            <div class="te_quick_filter_dropdown_menu mb16">
+                <span class="te_res_filter_title d-none">Quick Filter</span>
+                <div class="te_filter_btn_close">
+                    <span class="te_filter_icon_close">x</span>
+                </div>
+                <ul class="te_quick_filter_ul nav nav-pills flex-column">
+                    <t t-foreach="attributes" t-as="a">
+                        <t t-if="request.env['website'].checkQuickFilter(website.id,a.website_ids.ids)">
+                            <li t-if="a.is_quick_filter and a.value_ids and len(a.value_ids) &gt; 1"
+                                class="nav-item px-3">
+                                <div class="te_quick_filter_name mb8" t-if="a.is_quick_filter">
+                                    <strong t-field="a.name"/>
+                                    <a t-att-attribute-name="a.id"
+                                       class="te_clear_all_variant px-3" href="#">(Clear)
+                                    </a>
+                                </div>
+                                <t t-if="a.display_type == 'select'">
+                                    <select class="form-control" name="attrib" t-if="a.is_quick_filter">
+                                        <option value=""/>
+                                        <t t-foreach="a.value_ids" t-as="v">
+                                            <option t-att-value="'%s-%s' % (a.id,v.id)" t-esc="v.name"
+                                                    t-att-selected="v.id in attrib_set"/>
+                                        </t>
+                                    </select>
+                                </t>
+                                <t t-if="a.display_type == 'radio'">
+                                    <ul class="nav nav-pills" t-if="a.is_quick_filter">
+                                        <t t-foreach="a.value_ids" t-as="v">
+                                            <li class="nav-item">
+                                                <label t-attf-class="nav-link#{' active' if v.id in attrib_set else ''}">
+                                                    <input type="checkbox" name="attrib"
+                                                           t-att-value="'%s-%s' % (a.id,v.id)"
+                                                           t-att-checked="'checked' if v.id in attrib_set else None"/>
+                                                    <span class="te_qfilter_checkbox" style="font-weight: normal"
+                                                          t-field="v.name"/>
+                                                </label>
+                                            </li>
+                                        </t>
+                                    </ul>
+                                </t>
+                                <t t-if="a.display_type == 'color'">
+                                    <ul class="nav nav-pills flex-column" t-if="a.is_quick_filter">
+                                        <t t-foreach="a.value_ids" t-as="v">
+                                            <li class="py-1 nav-item">
+                                                <label t-attf-style="background-color:#{v.html_color or v.name}"
+                                                       t-attf-class="css_attribute_color #{'active' if v.id in attrib_set else ''}">
+                                                    <input type="checkbox" name="attrib"
+                                                           t-att-value="'%s-%s' % (a.id,v.id)"
+                                                           t-att-checked="'checked' if v.id in attrib_set else None"
+                                                           t-att-title="v.name"/>
+                                                </label>
+                                                <span class="te_color-name" t-esc="v.name"/>
+                                            </li>
+                                        </t>
+                                    </ul>
+                                </t>
+                            </li>
+                        </t>
+
+                    </t>
+
+                </ul>
+            </div>
+        </xpath>
+        <xpath expr="//button[@data-target='#wsale_products_attributes_collapse']" position="attributes">
+            <attribute name="class">btn btn-link d-lg-none te_show_option</attribute>
+        </xpath>
+        <xpath expr="//button[@data-target='#wsale_products_attributes_collapse']" position="inside">
+            <i class="fa fa-chevron-down"></i>
+        </xpath>
+        <xpath expr="//div[@id='products_grid_before']" position="inside">
+            <div class="te_quick_filter_res btn" href="#">
+                <i class="fa fa-filter mr-1"></i>
+                Quick Filter
+            </div>
+        </xpath>
+    </template>
+
+    <!--======================= Ecommerce Categories ==========================-->
+    <template id="products_categories_ept" inherit_id="website_sale.products_categories"
+              name="Ecommerce Categories">
+        <xpath expr="//div[@id='wsale_products_categories_collapse']/ul[hasclass('flex-column')]" position="before">
+            <div class="te_ctg_h4 d-none d-lg-block">
+                Product Category
+            </div>
+        </xpath>
+        <xpath expr="//div[@id='wsale_products_categories_collapse']/ul[hasclass('flex-column')]"
+               position="attributes">
+            <attribute name="class">nav nav-pills flex-column mt16
+                te_shop_ctg_list open_ul
+            </attribute>
+        </xpath>
+        <xpath expr="//button[@data-target='#wsale_products_categories_collapse']" position="attributes">
+            <attribute name="class">btn btn-link d-lg-none te_show_category</attribute>
+        </xpath>
+        <xpath expr="//button[@data-target='#wsale_products_categories_collapse']" position="inside">
+            <i class="fa fa-chevron-right"></i>
+        </xpath>
+    </template>
+    <template id="option_collapse_categories_recursive_ept" name="Collapse Category Recursive"
+              inherit_id="website_sale.option_collapse_categories_recursive">
+        <xpath expr="//li[hasclass('nav-item')]//a" position="replace">
+            <t t-if="c.is_category_page">
+                <t t-set="category_url" t-value="c.sudo().category_page.url"/>
+            </t>
+            <t t-else="">
+                <t t-set="category_url" t-value="keep('/shop/category/' + slug(c), category=0)"/>
+            </t>
+            <a t-att-href="category_url"
+               t-attf-class="nav-link #{'active' if c.id == category.id else ''}">
+                <span t-field="c.name"/>
+            </a>
+        </xpath>
+    </template>
+    <!-- ==================== Loading icon =================== -->
+    <template id="load_icon_template" inherit_id="web.frontend_layout">
+        <xpath expr="//div[@id='wrapwrap']" position="after">
+            <div class="d-none cus_theme_loader_layout">
+                <div class="cus_theme_loader_div_layout">
+                    <svg version="1.1" id="Layer_1" x="0px" y="0px" width="24px"
+                         height="30px" viewBox="0 0 24 30" style="enable-background:new 0 0 50 50;"
+                         xml:space="preserve">
+                        <rect x="0" y="0" width="4" height="10"
+                              fill="#333">
+                            <animateTransform
+                                    attributeType="xml" attributeName="transform" type="translate"
+                                    values="0 0; 0 20; 0 0" begin="0" dur="0.6s"
+                                    repeatCount="indefinite">
+                            </animateTransform>
+                        </rect>
+                        <rect x="10" y="0" width="4" height="10"
+                              fill="#333">
+                            <animateTransform
+                                    attributeType="xml" attributeName="transform" type="translate"
+                                    values="0 0; 0 20; 0 0" begin="0.2s" dur="0.6s"
+                                    repeatCount="indefinite">
+                            </animateTransform>
+                        </rect>
+                        <rect x="20" y="0" width="4" height="10"
+                              fill="#333">
+                            <animateTransform
+                                    attributeType="xml" attributeName="transform" type="translate"
+                                    values="0 0; 0 20; 0 0" begin="0.4s" dur="0.6s"
+                                    repeatCount="indefinite">
+                            </animateTransform>
+                        </rect>
+                    </svg>
+                </div>
+            </div>
+        </xpath>
+    </template>
+    <!-- ==================== Ajax Add to cart =================== -->
+    <template id="products_add_to_cart_ept" inherit_id="website_sale.products_add_to_cart">
+        <xpath expr="//t[@t-if='product_variant_id']/a[hasclass('a-submit')]" position="attributes">
+            <attribute name="t-att-variant-count">product.product_variant_count</attribute>
+            <attribute name="t-att-product-id">'%s' % product.id</attribute>
+            <attribute name="class">btn btn-secondary a-submit not_product_page</attribute>
+        </xpath>
+    </template>
+
+</odoo>

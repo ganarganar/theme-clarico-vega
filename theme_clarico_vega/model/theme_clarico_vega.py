@@ -1,4 +1,4 @@
-from harpiya import models
+from odoo import models
 
 class theme_utils(models.AbstractModel):
     _inherit = 'theme.utils'

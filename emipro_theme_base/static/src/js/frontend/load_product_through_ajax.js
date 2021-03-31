@@ -1,4 +1,4 @@
-harpiya.define('emipro_theme_base.load_product_through_ajax', function(require) {
+odoo.define('emipro_theme_base.load_product_through_ajax', function(require) {
     'use strict';
 
     var sAnimations = require('website.content.snippets.animation');
@@ -35,7 +35,7 @@ harpiya.define('emipro_theme_base.load_product_through_ajax', function(require) 
                 _.each($('.ecom-zoomable img[data-zoom]'), function (el) {
                     onImageLoaded(el, function () {
                         var $img = $(el);
-                        $img.zoomHarpiya({event: autoZoom ? 'mouseenter' : 'click', attach: attach});
+                        $img.zoomOdoo({event: autoZoom ? 'mouseenter' : 'click', attach: attach});
                         $img.attr('data-zoom', 1);
                     });
                 });

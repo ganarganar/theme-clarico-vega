@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<harpiya>
+<odoo>
     <act_window
             id="action_open_brand_products"
             name="Brand Products"
@@ -44,7 +44,7 @@
                     <div groups="website.group_multi_website">
                         <label for="website_id" string="Website" class="col-sm-1 p-0 pt-3"/>
                         <field name="website_id"
-                               domain="[('theme_id.author','like','Harpiya Software Tech.')]"
+                               domain="[('theme_id.author','like','Emipro Technologies Pvt. Ltd.')]"
                                options="{'no_quick_create': True, 'no_create_edit' : True}"/>
                     </div>
                     <xpath>
@@ -137,4 +137,4 @@
             id="menu_product_brand_ept"
             action="action_product_brand_ept"
             parent="website.menu_website_global_configuration"/>
-</harpiya>
+</odoo>

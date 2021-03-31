@@ -1,4 +1,4 @@
-harpiya.define('theme_clarico_vega.category_slider', function(require) {
+odoo.define('theme_clarico_vega.category_slider', function(require) {
     'use strict';
 
     var ajax = require('web.ajax');

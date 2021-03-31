@@ -273,7 +273,7 @@ INDEX:
 			}
 		}
 	}
-	/*------------ Use this variable because 960px breakpoint is not include in harpiya variable --------------*/
+	/*------------ Use this variable because 960px breakpoint is not include in odoo variable --------------*/
 	@media (max-width: 960px) and (min-width: 767.98px) 
 	{
 		ul
@@ -329,7 +329,7 @@ INDEX:
 	}
 }
 
-/*------------ Use this variable because 600px breakpoint is not include in harpiya variable --------------*/
+/*------------ Use this variable because 600px breakpoint is not include in odoo variable --------------*/
 @include media-breakpoint-down(xs)
 {
 	.te_menu_style_3
@@ -579,7 +579,7 @@ INDEX:
 	}
 }
 .te_employee_name_ti{
-	@include style(7,10,null,null,capitalize);
+	@include style(7,10);
 }
 .te_designation_name_sub_ti{
 	color: nth($f_color,4);

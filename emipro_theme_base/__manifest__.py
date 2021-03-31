@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 {
     # Theme information
-    'name': 'Harpiya Tema Temeli',
+    'name': 'Emipro Theme Base',
     'category': 'Base',
-    'summary': 'Harpiya temaları için temel modül.',
-    'version': '2.0.7',
+    'summary': 'Base module containing common libraries for all Emipro eCommerce themes.',
+    'version': '2.1.0',
     'license': 'OPL-1',
     'depends': [
         'website_theme_install',
@@ -17,19 +17,22 @@
         'templates/template.xml',
 	    'security/ir.model.access.csv',
         'views/social_sharing.xml',
+        'views/product_template.xml'
     ],
 
-    #Harpiya Store Specific
+    #Odoo Store Specific
     'images': [
         'static/description/emipro_theme_base.jpg',
     ],
 
     # Author
-    'author': 'Harpiya Software Tech.',
-    'website': 'https://www.harpiya.com',
-    'maintainer': 'Harpiya Software Tech.',
+    'author': 'Emipro Technologies Pvt. Ltd.',
+    'website': 'https://www.emiprotechnologies.com',
+    'maintainer': 'Emipro Technologies Pvt. Ltd.',
 
     # Technical
     'installable': True,
     'auto_install': False,
+    'price': 9.00,
+    'currency': 'EUR',
 }

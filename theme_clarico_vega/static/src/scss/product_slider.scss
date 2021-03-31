@@ -42,7 +42,7 @@
 			display: inline-block;
 			h4
 			{
-				@include style(7,23)
+				@include style(7,23);
 				border-right: 1px solid nth($f_color,17);
 				padding: 0px 30px;
 				border-bottom: 0;

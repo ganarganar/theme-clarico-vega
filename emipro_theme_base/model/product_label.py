@@ -2,7 +2,7 @@
 """
     This model is used to create a product line field
 """
-from harpiya import models, fields, api
+from odoo import models, fields, api
 
 class product_label(models.Model):
     _name = "product.label"

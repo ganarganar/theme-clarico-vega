@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<harpiya>
+<odoo>
 	<!--======================== 404 Page ==========================-->	
 	<template id="404_ept" inherit_id="http_routing.404">
 			<xpath expr="//div[hasclass('oe_empty')]" position="replace">
@@ -8,13 +8,13 @@
 						<section>
 							<img class="te_404_img" src="/theme_clarico_vega/static/src/img/404/404-error-image.jpg" alt="404"></img>
 						</section>
-	           	        <p>Ulaşmaya çalıştığınız sayfa bulunamadı</p>
+	           	        <p>The page you requested could not be found</p>
 	                    <ul class="mt16 mb32">
-	                        <li class="mr8"><a href="/" class="btn btn-primary">Anasayfa</a></li>
-	                        <li><a href="/contactus" class="btn btn-primary">İletişim</a></li>
+	                        <li class="mr8"><a href="/" class="btn btn-primary">Homepage</a></li>
+	                        <li><a href="/contactus" class="btn btn-primary">Contact Us</a></li>
 	                    </ul>
 					</div>
 				</div>
 			</xpath>
 	</template>
-</harpiya>
+</odoo>

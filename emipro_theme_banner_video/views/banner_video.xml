@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<harpiya>
+<odoo>
 
     <record id="res_config_settings_view_form" model="ir.ui.view">
         <field name="name">res.config.settings</field>
@@ -17,7 +17,7 @@
                                     Video URL for the banner
                                 </div>
                                 <div class="mt8">
-                                    <field name="banner_video_url" />
+                                    <field name="banner_video_url" domain="[('mimetype', '=', 'video/mp4')]" />
                                 </div>
                             </div>
                         </div>
@@ -26,5 +26,4 @@
             </div>
         </field>
     </record>
-
-</harpiya>
+</odoo>

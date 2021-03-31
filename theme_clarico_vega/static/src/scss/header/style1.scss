@@ -68,7 +68,7 @@ header.affixed > nav.navbar
 		margin:0px auto;
 		>li > a.nav-link {
 			border-top: 2px solid nth($f_color,27);
-			@include style(2,6)
+			@include style(2,6);
 			font-weight: 600;
 			@include position(relative) 
 			padding-top:1rem;

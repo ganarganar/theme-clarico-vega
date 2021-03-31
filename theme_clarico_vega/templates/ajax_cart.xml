@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<harpiya>
+<odoo>
     <template id="ajaxcart_popup_product" inherit_id="website_sale.product">
         <xpath expr="//t[@t-call='website.layout']" position="before">
             <input type="hidden" id="ajax_cart_product_template" value="1"/>
@@ -20,7 +20,7 @@
                 <div class="modal-dialog modal-md modal-dialog-centered">
                     <div class="modal-content ajax_cart_modal">
                         <button type="button" class="close" data-dismiss="modal"
-                                aria-label="Kapat" tabindex="-1">
+                                aria-label="Close" tabindex="-1">
                         </button>
                         <!--<t t-if="is_shop">-->
                         <div class="modal-body"/>
@@ -41,7 +41,7 @@
                     <div class="modal-dialog modal-md modal-dialog-centered">
                         <div class="modal-content ajax_cart_modal">
                             <button type="button" class="close" data-dismiss="modal"
-                                    aria-label="Kapat" tabindex="-1">
+                                    aria-label="Close" tabindex="-1">
                             </button>
                             <div class="modal-body">
                             </div>
@@ -150,7 +150,8 @@
                                     <t t-else="">$0</t>
                                 </t>
 
-                                <p t-if="True" class="css_not_available_msg alert alert-warning">Bu kombinasyon mevcut değil.
+                                <p t-if="True" class="css_not_available_msg alert alert-warning">This combination does
+                                    not exist.
                                 </p>
                                 <t t-set="qty_show"
                                    t-value="request.website.viewref('website_sale.product_quantity').active"/>
@@ -161,8 +162,8 @@
                                          contenteditable="false">
                                         <div class="input-group-prepend">
                                             <a t-attf-href="javascript:void(0)" class="btn btn-secondary js_add_cart_json"
-                                               aria-label="Birini kaldır"
-                                               title="Birini kaldır">
+                                               aria-label="Remove one"
+                                               title="Remove one">
                                                 <span class="fa fa-minus"/>
                                             </a>
                                         </div>
@@ -170,7 +171,7 @@
                                                value="1"/>
                                         <div class="input-group-append">
                                             <a t-attf-href="javascript:void(0)" class="btn btn-secondary float_left js_add_cart_json"
-                                               aria-label="Bir tane ekle" title="Bir tane ekle">
+                                               aria-label="Add one" title="Add one">
                                                 <span class="fa fa-plus"/>
                                             </a>
                                         </div>
@@ -180,23 +181,24 @@
                                    class="btn btn-primary btn-lg mt16 a-submit te_theme_button ajax-add-to-cart"
                                    href="javascript:void(0)" id="add_to_cart" t-att-product-id="product.id">
                                     <span class="fa fa-shopping-cart"/>
-                                    Sepete Ekle
+                                    Add to Cart
                                 </a>
                                 <t t-if="buy_now_show">
                                     <a role="button" id="buy_now"
                                        class="btn btn-outline-primary btn-lg mt16 d-block d-sm-inline-block te_theme_button"
                                        href="javascript:void(0)">
                                         <span class="fa fa-bolt"/>
-                                        Hemen Al
+                                        Buy Now
                                     </a>
                                 </t>
                                 <div class="availability_messages o_not_editable"/>
                                 <div id="product_option_block"/>
                             </div>
                         </form>
-                        <p t-elif="not product.active" class="alert alert-warning">Bu ürün artık mevcut değil.
+                        <p t-elif="not product.active" class="alert alert-warning">This product is no longer
+                            available.
                         </p>
-                        <p t-else="" class="alert alert-warning">Bu ürünün geçerli bir kombinasyonu yok.</p>
+                        <p t-else="" class="alert alert-warning">This product has no valid combination.</p>
                     </div>
                 </div>
             </section>
@@ -225,9 +227,10 @@
                         <h1 itemprop="name" t-field="product.name" class="te_product_name">Product Name</h1>
                     </div>
                     <div class="shopping-line">
+                        <span>You added</span>
                         <spant t-field="product.name" class="te_product_name">Product Name</spant>
-                        <span>ürünü</span>
-                        <a type='button' href='/shop/cart'>sepetinize eklendi.</a>
+                        <span>to your</span>
+                        <a type='button' href='/shop/cart'>shopping cart.</a>
                     </div>
                     <div class="product-image-container">
                         <span class="new_span d-flex h-100 justify-content-center align-items-center">
@@ -240,11 +243,11 @@
                         <div class="te_cart_btn">
                             <a role="button" href="javascript:void(0)"
                                class="btn btn-secondary mb32 d-xl-inline-block ajax-sucess-continue">
-                                <span class="">Alışverişe Devam Et</span>
+                                <span class="">Continue Shopping</span>
                             </a>
                             <a role="button" class="btn btn-primary float-right d-xl-inline-block ajax-sucess-checkout"
                                href="/shop/checkout?express=1">
-                                <span class="">Ödeme</span>
+                                <span class="">Process Checkout</span>
                                 <span class="fa fa-chevron-right"/>
                             </a>
                         </div>
@@ -253,4 +256,4 @@
             </section>
         </xpath>
     </template>
-</harpiya>
+</odoo>

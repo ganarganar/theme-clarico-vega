@@ -205,7 +205,7 @@ INDEX:
 .s_website_form{
     .col-form-label
     {
-        @include style(3,1,$o-theme-fonts,null,capitalize);
+        @include style(3,1,$o-theme-fonts,null);
         font-weight: normal;
     }
     .form-control

@@ -3,7 +3,7 @@
     This model is used to create a website wise dynamic category listing
 """
 
-from harpiya import api, fields, models
+from odoo import api, fields, models
 
 class WebsiteMenu(models.Model):
 

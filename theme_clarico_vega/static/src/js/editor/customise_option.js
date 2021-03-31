@@ -1,7 +1,7 @@
 //--------------------------------------------------------------------------
 //Customise Option file included
 //--------------------------------------------------------------------------
-harpiya.define('theme_clarico_vega.options', function (require) {
+odoo.define('theme_clarico_vega.options', function (require) {
 'use strict';
 
 var core = require('web.core');

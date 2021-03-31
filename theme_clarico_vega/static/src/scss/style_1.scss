@@ -129,6 +129,10 @@ td.text-center.text-xl-right.border-0
     }
     .d-flex.justify-content-between.mt-4{
         margin-top:0px !important;
+        @include media-breakpoint-down(sm){
+             margin-top: 0px !important;
+            margin-bottom: 35px;
+        }
     }
 }
 /*================== 2. Price Filter ===================*/
@@ -381,6 +385,10 @@ td.text-center.text-xl-right.border-0
             margin-bottom: 0;
         }
 	}
+	#o_cart_summary .d-xl-none.mt8 a {
+        margin-top: 25px;
+        margin-bottom: 70px !important;
+    }
 }
 /*----------------- Suggested Products --------------------*/
 #suggested_products
@@ -797,6 +805,10 @@ form.checkout_autoformat
 			content:'*';
 		}
 	}
+	.d-flex.justify-content-between{
+        margin-bottom: 50px;
+        margin-top: 25px !important;
+	}
 }
 /*----------------------- Checkout Address -------------------*/
 .all_shipping .te_add_address
@@ -952,6 +964,11 @@ form.checkout_autoformat
 #payment_method form.o_payment_form .card
 {
 	margin-bottom:16px;
+}
+#payment_method{
+    @include media-breakpoint-down(xs){
+        margin-bottom: 55px;
+    }
 }
 .oe_accept_cgv_button > label
 {

@@ -1,7 +1,7 @@
 //--------------------------------------------------------------------------
 // Contains Aos animation editor js
 //--------------------------------------------------------------------------
-harpiya.define('theme_clarico_vega.s_editor_js', function (require) {
+odoo.define('theme_clarico_vega.s_editor_js', function (require) {
 	'use strict';
 	var EditorMenuBar = require("web_editor.editor");
 	

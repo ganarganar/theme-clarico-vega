@@ -397,8 +397,33 @@ header .js_language_selector .dropdown-menu.show {
         display: inline-block;
         font-size: 17px;
     }
-    .te_header_10_search {
-        display: none;
+    .te_header_10_search.te_header_search
+    {
+        opacity: 1;
+        visibility: visible;
+        transform: translate(0, -20px);
+        outline: 0;
+        position: absolute;
+        top: 30px;
+        right: 0px;
+        bottom: auto;
+        width: 100%;
+        padding: 4px 10px;
+        .te_sub_search{
+            display: none;
+            .input-group{
+                background: #ffffff;
+            }
+        }
+        &.active{
+            opacity: 1;
+            visibility: visible;
+            top:28px;
+            right:10px;
+            .te_sub_search{
+                display: block;
+            }
+        }
     }
     i.fa.fa-times.te_srch_close {
         display: none;
@@ -418,6 +443,19 @@ header .js_language_selector .dropdown-menu.show {
         bottom: 0px;
         @include media-breakpoint-down(sm){
             transform: translate3d(0px, -40px, 0px) !important;
+        }
+    }
+}
+@include media-breakpoint-down(xs){
+    .te_header_10_search.te_header_search
+    {
+        top: 37px;
+        right: 6px;
+        &.active{
+            top:30px;
+            .te_srch_close{
+                left: 3px;
+            }
         }
     }
 }
@@ -549,9 +587,16 @@ header .js_language_selector .dropdown-menu.show {
         display: none;
     }
 }
-.te_srch_icon_mobile_header .te_srch_close {
+.te_srch_icon_mobile_header i.fa.fa-times.te_srch_close {
     @include media-breakpoint-down(lg){
         display: none;
+    }
+    @include media-breakpoint-down(md){
+        top: 1px;
+        left: 4px;
+    }
+    @include media-breakpoint-down(sm){
+        top: -6px;
     }
 }
 .te_header_10_search.te_header_search {
@@ -610,8 +655,12 @@ header .js_language_selector .dropdown-menu.show {
     }
     @include media-breakpoint-down(sm){
         position: relative;
-        left: -4px;
-        top: -2px;
+        left: -10px;
+        top: 6px;
+    }
+    @include media-breakpoint-down(xs){
+        left: 0px;
+        top: -1px;
     }
  }
 .te_header_right_icon {
@@ -621,6 +670,7 @@ header .js_language_selector .dropdown-menu.show {
         text-align: right;
         flex: 0 0 7%;
         max-width: 7%;
+        position: initial;
     }
 }
 /*--------- Menu label text styles --------*/

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<harpiya>
+<odoo>
     <!--===============All Snippet List================== -->
     <template id="theme_clarico_extra_pages" inherit_id="website.snippets">
         <xpath expr="//div[@id='snippet_content']/div[hasclass('o_panel_body')]" position="after">
@@ -113,6 +113,15 @@
                 <t t-snippet="theme_clarico_vega.contact_us_1"
                    t-thumbnail="/theme_clarico_vega/static/src/img/snippets/page_snippet_thumbnails/Contact-Us.jpg"/>
             </div>
+            <!-- Coming Soon -->
+            <div class="o_panel_header">
+                Coming Soon
+            </div>
+            <div class="o_panel_body">
+                <!-- Coming Soon Style 1 -->
+                <t t-snippet="theme_clarico_vega.coming_soon_style_1"
+                   t-thumbnail="/theme_clarico_vega/static/src/img/snippets/page_snippet_thumbnails/Coming-Soon.jpg"/>
+            </div>
             <!-- 404 -->
             <div class="o_panel_header">
                 404
@@ -212,7 +221,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-6">
-                                <h2 class="text-capitalize te_s_it_heading o_default_snippet_text">My Heading
+                                <h2 class="te_s_it_heading o_default_snippet_text">My Heading
                                     2
                                 </h2>
                                 <div class="s_hr text-left pb32 pt8">
@@ -254,7 +263,7 @@
                                     <section class="text-center pb16 pt16 te_3_col_content">
                                         <h5 class="mb0">
                                             <a href="#"
-                                               class="te_fix_content_h3 text-capitalize o_default_snippet_text">
+                                               class="te_fix_content_h3 o_default_snippet_text">
                                                 My Heading 5
                                             </a>
                                         </h5>
@@ -269,7 +278,7 @@
                                     <section class="text-center pb16 pt16 te_3_col_content">
                                         <h5 class="mb0">
                                             <a href="#"
-                                               class="te_fix_content_h3 text-capitalize o_default_snippet_text">
+                                               class="te_fix_content_h3  o_default_snippet_text">
                                                 My Heading 5
                                             </a>
                                         </h5>
@@ -296,7 +305,7 @@
                                     <section class="text-center pb16 pt16 te_3_col_content">
                                         <h5 class="mb0">
                                             <a href="#"
-                                               class="te_fix_content_h3 text-capitalize o_default_snippet_text">
+                                               class="te_fix_content_h3  o_default_snippet_text">
                                                 My Heading 5
                                             </a>
                                         </h5>
@@ -584,7 +593,7 @@
                                     <section class="text-center pb8 pt16 te_button_position">
                                         <h6 class="mb0">
                                             <a href="#"
-                                               class="te_fix_content_h3 text-capitalize o_default_snippet_text">
+                                               class="te_fix_content_h3  o_default_snippet_text">
                                                 My Heading 6
                                             </a>
                                         </h6>
@@ -605,7 +614,7 @@
                                     <section class="text-center pb8 pt16 te_button_position">
                                         <h6 class="mb0">
                                             <a href="#"
-                                               class="te_fix_content_h3 text-capitalize o_default_snippet_text">
+                                               class="te_fix_content_h3  o_default_snippet_text">
                                                 My Heading 6
                                             </a>
                                         </h6>
@@ -626,7 +635,7 @@
                                     <section class="text-center pb8 pt16 te_button_position">
                                         <h6 class="mb0">
                                             <a href="#"
-                                               class="te_fix_content_h3 text-capitalize o_default_snippet_text">
+                                               class="te_fix_content_h3  o_default_snippet_text">
                                                 My Heading 6
                                             </a>
                                         </h6>
@@ -1390,7 +1399,7 @@
                                     <section class="text-center pb16 pt16 te_3_col_content">
                                         <h5 class="mb0">
                                             <a href="#"
-                                               class="te_fix_content_h3 text-capitalize o_default_snippet_text">My
+                                               class="te_fix_content_h3  o_default_snippet_text">My
                                                 Heading 5
                                             </a>
                                         </h5>
@@ -1404,7 +1413,7 @@
                                     <section class="text-center pb16 pt16 te_3_col_content">
                                         <h5 class="mb0">
                                             <a href="#"
-                                               class="te_fix_content_h3 text-capitalize o_default_snippet_text">My
+                                               class="te_fix_content_h3  o_default_snippet_text">My
                                                 Heading 5
                                             </a>
                                         </h5>
@@ -1430,7 +1439,7 @@
                                     <section class="text-center pb16 pt16 te_3_col_content">
                                         <h5 class="mb0">
                                             <a href="#"
-                                               class="te_fix_content_h3 text-capitalize o_default_snippet_text">My
+                                               class="te_fix_content_h3  o_default_snippet_text">My
                                                 Heading 5
                                             </a>
                                         </h5>
@@ -2796,7 +2805,7 @@
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-lg-6">
-                            <h2 class="text-capitalize te_s_it_heading o_default_snippet_text">My Heading 2</h2>
+                            <h2 class=" te_s_it_heading o_default_snippet_text">My Heading 2</h2>
                             <div class="s_hr text-left pb32 pt8" data-name="Separator">
                                 <hr class="border-600 s_hr_solid w-25 mr-auto s_hr_4px border-alpha"/>
                             </div>
@@ -3768,7 +3777,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-6">
-                                <h2 class="text-capitalize te_s_it_heading o_default_snippet_text">My Heading 2</h2>
+                                <h2 class=" te_s_it_heading o_default_snippet_text">My Heading 2</h2>
                                 <div class="s_hr text-left pb32 pt8">
                                     <hr class="border-600 aos-init s_hr_solid w-25 mr-auto s_hr_4px border-alpha aos-animate"
                                         data-aos="s_hr_4px"/>
@@ -5303,7 +5312,7 @@
                             </div>
                         </div>
                         <div class="col-lg-6">
-                            <h2 class="te_s_it_heading text-capitalize">Graphics</h2>
+                            <h2 class="te_s_it_heading ">Graphics</h2>
                             <div class="s_hr text-left pb32 pt8">
                                 <hr class="border-600 aos-init s_hr_solid w-25 mr-auto s_hr_4px border-alpha aos-animate"
                                     data-aos="s_hr_4px"/>
@@ -5333,7 +5342,7 @@
                 <div class="container">
                     <div class="row align-items-center" data-aos="align-items-center">
                         <div class="col-lg-6">
-                            <h2 class="text-capitalize te_s_it_heading">tasks</h2>
+                            <h2 class=" te_s_it_heading">tasks</h2>
                             <div class="s_hr text-left pb32 pt8">
                                 <hr class="border-600 s_hr_solid w-25 mr-auto s_hr_4px border-alpha"/>
                             </div>
@@ -5374,7 +5383,7 @@
                             </div>
                         </div>
                         <div class="col-lg-6">
-                            <h2 class="text-capitalize te_s_it_heading">Design</h2>
+                            <h2 class=" te_s_it_heading">Design</h2>
                             <div class="s_hr text-left pb32 pt8">
                                 <hr class="border-600 aos-init s_hr_solid w-25 mr-auto s_hr_4px border-alpha"
                                     data-aos="s_hr_4px"/>
@@ -5890,7 +5899,7 @@
                         <div class="carousel-item oe_custom_bg oe_img_bg pb16 pt16 active"
                              style="background-color: rgb(239, 239, 239);" data-name="Slide">
                             <div class="container">
-                                <h2 class="text-capitalize mb16 te_s8_title">My Heading 2</h2>
+                                <h2 class=" mb16 te_s8_title">My Heading 2</h2>
                                 <div class="container">
                                     <div class="row content">
                                         <div class="col-lg-7 align-self-center">
@@ -5909,7 +5918,7 @@
                                                 </div>
                                             </section>
                                             <section>
-                                                <h5 class="text-black text-capitalize mb16 o_default_snippet_text">My
+                                                <h5 class="text-black  mb16 o_default_snippet_text">My
                                                     Heading 5
                                                 </h5>
                                                 <p class="o_default_snippet_text">
@@ -6449,7 +6458,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-6">
-                                <h2 class="text-capitalize te_s_it_heading o_default_snippet_text">My Heading 2</h2>
+                                <h2 class=" te_s_it_heading o_default_snippet_text">My Heading 2</h2>
                                 <div class="s_hr text-left pb32 pt8">
                                     <hr class="border-600 aos-init s_hr_solid w-25 mr-auto s_hr_4px border-alpha aos-animate"
                                         data-aos="s_hr_4px"/>
@@ -6619,7 +6628,7 @@
                                     <section class="text-center pb8 pt16 te_button_position">
                                         <h6 class="mb0">
                                             <a href="#"
-                                               class="te_fix_content_h3 text-capitalize o_default_snippet_text">My
+                                               class="te_fix_content_h3  o_default_snippet_text">My
                                                 Heading 6
                                             </a>
                                         </h6>
@@ -6638,7 +6647,7 @@
                                     <section class="text-center pb8 pt16 te_button_position">
                                         <h6 class="mb0">
                                             <a href="#"
-                                               class="te_fix_content_h3 text-capitalize o_default_snippet_text">My
+                                               class="te_fix_content_h3  o_default_snippet_text">My
                                                 Heading 6
                                             </a>
                                         </h6>
@@ -6657,7 +6666,7 @@
                                     <section class="text-center pb8 pt16 te_button_position">
                                         <h6 class="mb0">
                                             <a href="#"
-                                               class="te_fix_content_h3 text-capitalize o_default_snippet_text">My
+                                               class="te_fix_content_h3  o_default_snippet_text">My
                                                 Heading 6
                                             </a>
                                         </h6>
@@ -7368,7 +7377,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-6">
-                                <h2 class="text-capitalize te_s_it_heading o_default_snippet_text">My Heading 2</h2>
+                                <h2 class=" te_s_it_heading o_default_snippet_text">My Heading 2</h2>
                                 <div class="s_hr text-left pb32 pt8">
                                     <hr class="border-600 aos-init s_hr_solid w-25 mr-auto s_hr_4px border-alpha aos-animate"
                                         data-aos="s_hr_4px"/>
@@ -7621,4 +7630,4 @@
             </div>
         </section>
     </template>
-</harpiya>
+</odoo>

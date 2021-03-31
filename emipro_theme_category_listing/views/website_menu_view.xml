@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<harpiya>
+<odoo>
     <!-- ============= Added is_dynamic_menu in form view  =========== -->
 	<record id="website_menus_form_inherit" model="ir.ui.view">
         <field name="name">website.menus.form.inherit</field>
@@ -28,6 +28,6 @@
             </xpath>
         </field>
     </record>
-</harpiya>
+</odoo>
 
 

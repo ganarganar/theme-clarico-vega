@@ -20,9 +20,9 @@
 	'static/description/emipro_theme_product_tabs.jpg',
     ],
     # Author
-    'author': 'Harpiya Software Tech.',
-    'website': 'http://www.harpiya.com',
-   'maintainer': 'Harpiya Software Tech.',
+    'author': 'Emipro Technologies Pvt. Ltd.',
+    'website': 'http://www.emiprotechnologies.com',
+   'maintainer': 'Emipro Technologies Pvt. Ltd.',
 
     # Technical
      'installable': True,

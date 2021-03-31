@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<harpiya>
+<odoo>
     <!-- ================ Added new custom Header in customize option ================ -->
     <template id="theme_customize_ept" inherit_id="website.theme_customize">
         <xpath expr="//content[@id='theme_customize_content_fonts']"
@@ -49,38 +49,49 @@
                 <more data-depends="">
                     <list>
                         <opt data-xmlid="theme_clarico_vega.option_header_01_assets,theme_clarico_vega.customize_header_style_1"
-                                data-icon="/theme_clarico_vega/static/src/img/customise_option/h_style-1.jpg" data-reload="/"
-                                string=" "/>
+                             data-icon="/theme_clarico_vega/static/src/img/customise_option/h_style-1.jpg"
+                             data-reload="/"
+                             string=" "/>
                         <opt data-xmlid="theme_clarico_vega.option_header_02_assets,theme_clarico_vega.customize_header_style_2"
-                                data-icon="/theme_clarico_vega/static/src/img/customise_option/h_style-2.jpg" data-reload="/"
-                                string=" "/>
+                             data-icon="/theme_clarico_vega/static/src/img/customise_option/h_style-2.jpg"
+                             data-reload="/"
+                             string=" "/>
                         <opt data-xmlid="theme_clarico_vega.option_header_03_assets,theme_clarico_vega.customize_header_style_3"
-                                data-icon="/theme_clarico_vega/static/src/img/customise_option/h_style-3.jpg" data-reload="/"
-                                string=" "/>
+                             data-icon="/theme_clarico_vega/static/src/img/customise_option/h_style-3.jpg"
+                             data-reload="/"
+                             string=" "/>
                         <opt data-xmlid="theme_clarico_vega.option_header_04_assets,theme_clarico_vega.customize_header_style_4"
-                                data-icon="/theme_clarico_vega/static/src/img/customise_option/h_style-4.jpg" data-reload="/"
-                                string=" "/>
+                             data-icon="/theme_clarico_vega/static/src/img/customise_option/h_style-4.jpg"
+                             data-reload="/"
+                             string=" "/>
                         <opt data-xmlid="theme_clarico_vega.option_header_05_assets,theme_clarico_vega.customize_header_style_5"
-                                data-icon="/theme_clarico_vega/static/src/img/customise_option/h_style-5.jpg" data-reload="/"
-                                string=" "/>
+                             data-icon="/theme_clarico_vega/static/src/img/customise_option/h_style-5.jpg"
+                             data-reload="/"
+                             string=" "/>
                         <opt data-xmlid="theme_clarico_vega.option_header_06_assets,theme_clarico_vega.customize_header_style_6"
-                                data-icon="/theme_clarico_vega/static/src/img/customise_option/h_style-6.jpg" data-reload="/"
-                                string=" "/>
+                             data-icon="/theme_clarico_vega/static/src/img/customise_option/h_style-6.jpg"
+                             data-reload="/"
+                             string=" "/>
                         <opt data-xmlid="theme_clarico_vega.option_header_07_assets,theme_clarico_vega.customize_header_style_7"
-                                data-icon="/theme_clarico_vega/static/src/img/customise_option/h_style-7.jpg" data-reload="/"
-                                string=" "/>
-                         <opt data-xmlid="theme_clarico_vega.option_header_08_assets,theme_clarico_vega.customize_header_style_8"
-                                data-icon="/theme_clarico_vega/static/src/img/customise_option/h_style-8.jpg" data-reload="/"
-                                string=" "/>
+                             data-icon="/theme_clarico_vega/static/src/img/customise_option/h_style-7.jpg"
+                             data-reload="/"
+                             string=" "/>
+                        <opt data-xmlid="theme_clarico_vega.option_header_08_assets,theme_clarico_vega.customize_header_style_8"
+                             data-icon="/theme_clarico_vega/static/src/img/customise_option/h_style-8.jpg"
+                             data-reload="/"
+                             string=" "/>
                         <opt data-xmlid="theme_clarico_vega.option_header_09_assets,theme_clarico_vega.customize_header_style_9"
-                                data-icon="/theme_clarico_vega/static/src/img/customise_option/h_style-9.jpg" data-reload="/"
-                                string=" "/>
+                             data-icon="/theme_clarico_vega/static/src/img/customise_option/h_style-9.jpg"
+                             data-reload="/"
+                             string=" "/>
                         <opt data-xmlid="theme_clarico_vega.option_header_10_assets,theme_clarico_vega.customize_header_style_10"
-                                data-icon="/theme_clarico_vega/static/src/img/customise_option/h_style-10.jpg" data-reload="/"
-                                string=" "/>
+                             data-icon="/theme_clarico_vega/static/src/img/customise_option/h_style-10.jpg"
+                             data-reload="/"
+                             string=" "/>
                         <opt data-xmlid="theme_clarico_vega.option_header_11_assets,theme_clarico_vega.customize_header_style_11"
-                                data-icon="/theme_clarico_vega/static/src/img/customise_option/h_style-11.jpg" data-reload="/"
-                                string=" "/>
+                             data-icon="/theme_clarico_vega/static/src/img/customise_option/h_style-11.jpg"
+                             data-reload="/"
+                             string=" "/>
                     </list>
                 </more>
             </content>
@@ -89,25 +100,32 @@
                 <more data-depends="">
                     <list>
                         <opt data-xmlid="theme_clarico_vega.option_footer_01_assets,theme_clarico_vega.customize_footer_style_1"
-                             data-reload="/" data-icon="/theme_clarico_vega/static/src/img/customise_option/footer_1.jpg"
+                             data-reload="/"
+                             data-icon="/theme_clarico_vega/static/src/img/customise_option/footer_1.jpg"
                              string=" "/>
                         <opt data-xmlid="theme_clarico_vega.option_footer_02_assets,theme_clarico_vega.customize_footer_style_2"
-                             data-reload="/" data-icon="/theme_clarico_vega/static/src/img/customise_option/footer_2.jpg"
+                             data-reload="/"
+                             data-icon="/theme_clarico_vega/static/src/img/customise_option/footer_2.jpg"
                              string=" "/>
                         <opt data-xmlid="theme_clarico_vega.option_footer_03_assets,theme_clarico_vega.customize_footer_style_3"
-                             data-reload="/" data-icon="/theme_clarico_vega/static/src/img/customise_option/footer_3.jpg"
+                             data-reload="/"
+                             data-icon="/theme_clarico_vega/static/src/img/customise_option/footer_3.jpg"
                              string=" "/>
                         <opt data-xmlid="theme_clarico_vega.option_footer_04_assets,theme_clarico_vega.customize_footer_style_4"
-                             data-reload="/" data-icon="/theme_clarico_vega/static/src/img/customise_option/footer_4.jpg"
+                             data-reload="/"
+                             data-icon="/theme_clarico_vega/static/src/img/customise_option/footer_4.jpg"
                              string=" "/>
                         <opt data-xmlid="theme_clarico_vega.option_footer_05_assets,theme_clarico_vega.customize_footer_style_5"
-                             data-reload="/" data-icon="/theme_clarico_vega/static/src/img/customise_option/footer_5.jpg"
+                             data-reload="/"
+                             data-icon="/theme_clarico_vega/static/src/img/customise_option/footer_5.jpg"
                              string=" "/>
                         <opt data-xmlid="theme_clarico_vega.option_footer_06_assets,theme_clarico_vega.customize_footer_style_6"
-                             data-reload="/" data-icon="/theme_clarico_vega/static/src/img/customise_option/footer_6.jpg"
+                             data-reload="/"
+                             data-icon="/theme_clarico_vega/static/src/img/customise_option/footer_6.jpg"
                              string=" "/>
                         <opt data-xmlid="theme_clarico_vega.option_footer_07_assets,theme_clarico_vega.customize_footer_style_7"
-                             data-reload="/" data-icon="/theme_clarico_vega/static/src/img/customise_option/footer_7.jpg"
+                             data-reload="/"
+                             data-icon="/theme_clarico_vega/static/src/img/customise_option/footer_7.jpg"
                              string=" "/>
                     </list>
                 </more>
@@ -122,13 +140,17 @@
                     </checkbox>
                     <checkbox>
                         <opt data-xmlid="theme_clarico_vega.quickview_icon_shop_product_item" data-reload="/"
-                             string="Hızlı Görünüm"/>
+                             string="Quick View"/>
                     </checkbox>
                     <checkbox>
                         <opt data-xmlid="theme_clarico_vega.website_pricefilter_ept" data-reload="/"
-                             string="Fiyat Filtresi"/>
+                             string="Price Filter"/>
                     </checkbox>
-                     <checkbox>
+                    <checkbox>
+                        <opt data-xmlid="theme_clarico_vega.website_attribute_values_count_ept" data-reload="/"
+                             string="Product Count In Shop Filter"/>
+                    </checkbox>
+                    <checkbox>
                         <opt data-xmlid="theme_clarico_vega.custom_template" data-reload="/"
                              string="Advance Mini cart"/>
                     </checkbox>
@@ -150,10 +172,10 @@
                         <opt data-xmlid="theme_clarico_vega.load_products_through_ajax" data-reload="/"
                              string="Load Products Through Ajax"/>
                     </checkbox>
-                     <checkbox>
+                    <checkbox>
                         <opt data-xmlid="theme_clarico_vega.product_brand_container" data-reload="/"
                              string="Product Brand"/>
-                     </checkbox>
+                    </checkbox>
                     <checkbox>
                         <opt data-xmlid="theme_clarico_vega.menu_vertical" data-reload="/"
                              string="Vertical Menu"/>
@@ -184,4 +206,4 @@
         </xpath>
     </template>
 
-</harpiya>
+</odoo>

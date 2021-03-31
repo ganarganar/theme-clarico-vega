@@ -1,7 +1,7 @@
 //----------------------------------------------------
 // Dynamic Product Slider Snippet
 //----------------------------------------------------
-harpiya.define('website_slider.product_offer_slider', function (require) {
+odoo.define('website_slider.product_offer_slider', function (require) {
     'use strict';
 
     var ajax = require("web.ajax");

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<harpiya>
+<odoo>
     <!-- ============= Comparison =========== -->
     <template id="product_attributes_body_ept" inherit_id="website_sale_comparison.product_attributes_body" priority="20" >
 		<xpath expr="//section[@id='product_full_spec']//div" position="replace" />
@@ -55,10 +55,10 @@
               inherit_id="website_sale_comparison.product_add_to_compare">
         <xpath expr="//button[hasclass('o_add_compare_dyn')]" position="replace">
             <button t-if="product_variant" type="button" role="button"
-                    class="d-none d-md-inline-block btn btn-link mt16 o_add_compare_dyn te_theme_button" aria-label="Karşılaştır"
+                    class="d-none d-md-inline-block btn btn-link mt16 o_add_compare_dyn te_theme_button" aria-label="Compare"
                     t-att-data-product-product-id="product_variant.id" data-action="o_comparelist">
                 <span class="fa fa-exchange"></span>
             </button>
         </xpath>
     </template>
-</harpiya>
+</odoo>

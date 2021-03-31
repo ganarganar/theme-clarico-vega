@@ -6,7 +6,7 @@
 // 01. Multi Item Carousel
 //------------------------------------------
 
-harpiya.define('theme_clarico_vega.multi_item_carousel', function(require) {
+odoo.define('theme_clarico_vega.multi_item_carousel', function(require) {
     'use strict';
 
     var publicWidget = require('web.public.widget');

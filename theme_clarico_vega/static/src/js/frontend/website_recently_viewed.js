@@ -1,4 +1,4 @@
-harpiya.define('theme_clarico_vega.website_recently_viewed', function (require) {
+odoo.define('theme_clarico_vega.website_recently_viewed', function (require) {
     "use strict";
 
     var publicWidget = require('web.public.widget');

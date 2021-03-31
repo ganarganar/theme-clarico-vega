@@ -2,7 +2,7 @@
 """
     This model is used to create a product brand fields
 """
-from harpiya import api, fields, models
+from odoo import api, fields, models
 
 
 class ProductBrandEpt(models.Model):

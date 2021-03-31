@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<harpiya>
+<odoo>
     <!-- Quick view in shop -->
     <template id="quickview_icon_shop_product_item" inherit_id="website_sale.products_item">
         <xpath expr="//div[hasclass('o_wsale_product_btn')]" position="inside">
-            <a title="Hızlı Görünüm" class="btn btn-secondary quick-view-a te_quick_view"
+            <a title="Quick View" class="btn btn-secondary quick-view-a te_quick_view"
                t-att-data-id="'%s' % product.id">
                 <span class="fa fa-eye"/>
             </a>
@@ -20,7 +20,7 @@
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content quick_view_modal">
                     <button type="button" class="close quick_close" data-dismiss="modal"
-                            aria-label="Kapat" tabindex="-1">
+                            aria-label="Close" tabindex="-1">
                     </button>
                     <t t-if="is_shop">
                         <div class="modal-body"/>
@@ -39,7 +39,7 @@
                 <div class="modal-dialog modal-lg modal-dialog-centered">
                     <div class="modal-content quick_view_modal">
                         <button type="button" class="close quick_close" data-dismiss="modal"
-                                aria-label="Kapat" tabindex="-1">
+                                aria-label="Close" tabindex="-1">
                         </button>
                         <div class="modal-body">
                         </div>
@@ -147,7 +147,8 @@
                                     <t t-else="">$0</t>
                                 </t>
 
-                                <p t-if="True" class="css_not_available_msg alert alert-warning">Bu kombinasyon mevcut değil.
+                                <p t-if="True" class="css_not_available_msg alert alert-warning">This combination does
+                                    not exist.
                                 </p>
                                 <t t-set="qty_show"
                                    t-value="request.website.viewref('website_sale.product_quantity').active"/>
@@ -158,8 +159,8 @@
                                          contenteditable="false">
                                         <div class="input-group-prepend">
                                             <a t-attf-href="#" class="btn btn-secondary js_add_cart_json"
-                                               aria-label="Birini kaldır"
-                                               title="Birini kaldır">
+                                               aria-label="Remove one"
+                                               title="Remove one">
                                                 <span class="fa fa-minus"/>
                                             </a>
                                         </div>
@@ -167,7 +168,7 @@
                                                value="1"/>
                                         <div class="input-group-append">
                                             <a t-attf-href="#" class="btn btn-secondary float_left js_add_cart_json"
-                                               aria-label="Bir tane ekle" title="Bir tane ekle">
+                                               aria-label="Add one" title="Add one">
                                                 <span class="fa fa-plus"/>
                                             </a>
                                         </div>
@@ -178,19 +179,19 @@
                                 <t t-if="configurator_state and configurator_state.state == 'installed'">
                                     <a role="button"
                                        t-att-id="'add_to_cart' if not product.optional_product_ids else ''"
-                                       t-attf-class="btn btn-primary btn-lg mt16 a-submit te_theme_button quick-add-to-cart #{'disabled out_of_stock' if product.virtual_available &lt; 1 else ''}"
+                                       t-attf-class="btn btn-primary btn-lg mt16 a-submit te_theme_button quick-add-to-cart #{'disabled out_of_stock' if product.sudo().virtual_available &lt; 1 else ''}"
                                        href="#">
                                         <span class="fa fa-shopping-cart"/>
-                                        Sepete Ekle
+                                        Add to Cart
                                     </a>
                                 </t>
                                 <t t-else="">
                                     <a role="button"
                                        id="add_to_cart"
-                                       t-attf-class="btn btn-primary btn-lg mt16 a-submit te_theme_button quick-add-to-cart #{'disabled out_of_stock' if product.virtual_available &lt; 1 else ''}"
+                                       t-attf-class="btn btn-primary btn-lg mt16 a-submit te_theme_button quick-add-to-cart #{'disabled out_of_stock' if product.sudo().virtual_available &lt; 1 else ''}"
                                        href="#">
                                         <span class="fa fa-shopping-cart"/>
-                                        Sepete Ekle
+                                        Add to Cart
                                     </a>
                                 </t>
                                 <t t-if="buy_now_show">
@@ -198,19 +199,20 @@
                                        class="btn btn-outline-primary btn-lg mt16 d-block d-sm-inline-block te_theme_button"
                                        href="#">
                                         <span class="fa fa-bolt"/>
-                                        Hemen Al
+                                        Buy Now
                                     </a>
                                 </t>
                                 <div class="availability_messages o_not_editable"/>
                                 <div id="product_option_block"/>
                             </div>
                         </form>
-                        <p t-elif="not product.active" class="alert alert-warning">Bu ürün artık mevcut değil.
+                        <p t-elif="not product.active" class="alert alert-warning">This product is no longer
+                            available.
                         </p>
-                        <p t-else="" class="alert alert-warning">Bu ürünün geçerli bir kombinasyonu yok.</p>
+                        <p t-else="" class="alert alert-warning">This product has no valid combination.</p>
                     </div>
                 </div>
             </section>
         </xpath>
     </template>
-</harpiya>
+</odoo>

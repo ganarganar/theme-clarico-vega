@@ -1,4 +1,4 @@
-harpiya.define('emipro_theme_base.category_content_editor', function (require) {
+odoo.define('emipro_theme_base.category_content_editor', function (require) {
 'use strict';
     var core = require('web.core');
     var weWidgetsContentMenu = require('website.contentMenu');

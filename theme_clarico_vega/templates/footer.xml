@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<harpiya>
+<odoo>
     <!--=============================== Footer Style-1 =============================-->
     <template id="customize_footer_style_1" inherit_id="website.footer_custom" active="True">
         <xpath expr="//div[@id='footer']" position="replace">
@@ -1573,4 +1573,4 @@
             </div>
         </div>
     </template>
-</harpiya>
+</odoo>

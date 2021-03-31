@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<harpiya>
+<odoo>
     <!--============ Contactus Info ===============-->
     <template id="contact_us_ept" inherit_id="website.contactus" name="Contact Us">
         <!--<xpath expr="//section[hasclass('s_text_block')]" position="replace">
@@ -109,4 +109,4 @@
             </a>
         </t>
     </template>
-</harpiya>
+</odoo>

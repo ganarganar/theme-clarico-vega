@@ -4,8 +4,8 @@
     This model is used to create a html field.
 """
 
-from harpiya import api, fields, models, _
-from harpiya.exceptions import UserError, ValidationError
+from odoo import api, fields, models, _
+from odoo.exceptions import UserError, ValidationError
 
 
 class ProductPublicCategory(models.Model):

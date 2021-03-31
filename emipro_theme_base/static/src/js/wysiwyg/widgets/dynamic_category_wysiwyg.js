@@ -1,4 +1,4 @@
-harpiya.define('emipro_theme_base.dynamic_category_wysiwyg', function (require) {
+odoo.define('emipro_theme_base.dynamic_category_wysiwyg', function (require) {
 'use strict';
     var LinkDialog = require('wysiwyg.widgets.LinkDialog')
     var Dialog = require('web.Dialog');

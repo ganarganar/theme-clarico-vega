@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<harpiya>
+<odoo>
     <record id="slider_form_view" model="ir.ui.view">
         <field name="name">slider.form</field>
         <field name="model">slider</field>
@@ -17,7 +17,7 @@
                     </div>
                     <group>
                         <field name="name"/>
-                        <field name="website_id" domain="[('theme_id.author','like','Harpiya Software Tech.')]"/>
+                        <field name="website_id" domain="[('theme_id.author','like','Emipro Technologies Pvt. Ltd.')]"/>
                         <field name="theme_id"/>
                         <field name="slider_filter_ids"/>
                         <field name="slider_limit"/>
@@ -34,7 +34,7 @@
         <field name="arch" type="xml">
             <tree string="slider">
                 <field name="name"/>
-                <field name="website_id" domain="[('theme_id.author','like','Harpiya Software Tech.')]"/>
+                <field name="website_id" domain="[('theme_id.author','like','Emipro Technologies Pvt. Ltd.')]"/>
             </tree>
         </field>
     </record>
@@ -50,4 +50,4 @@
     <menuitem id="menu_sliders" name="Sliders" action="action_sliders"
               parent="emipro_theme_product_carousel.menu_slider_settings"/>
 
-</harpiya>
+</odoo>

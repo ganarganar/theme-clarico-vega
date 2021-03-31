@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<harpiya>
+<odoo>
     <template id="clarico_product_page_label" inherit_id="website_sale.product"
               priority="23">
         <xpath expr="//div[@id='product_details']/h1" position="before">
@@ -91,4 +91,4 @@
             </div>
         </div>
     </template>
-</harpiya>
+</odoo>

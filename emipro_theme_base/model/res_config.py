@@ -3,9 +3,9 @@
     This model is used to create a boolean social sharing options.
 """
 import base64
-from harpiya import fields, models, tools, api, _
-from harpiya.modules.module import get_resource_path
-from harpiya.addons.website.tools import get_video_embed_code
+from odoo import fields, models, tools, api, _
+from odoo.modules.module import get_resource_path
+from odoo.addons.website.tools import get_video_embed_code
 
 class res_config(models.TransientModel):
     _inherit = "res.config.settings"
@@ -29,7 +29,7 @@ class res_config(models.TransientModel):
                                  help="Lazy load will be enabled.")
     lazy_load_image = fields.Binary(string='Lazyload Image', related='website_id.lazy_load_image', readonly=False,
                                    help="Display this image while lazy load applies.")
-    banner_video_url = fields.Char(string='Video URL', related='website_id.banner_video_url', help='URL of a video for banner.', readonly=False)
+    banner_video_url = fields.Many2one('ir.attachment', "Video URL", related='website_id.banner_video_url', help='URL of a video for banner.', readonly=False)
     number_of_product_line = fields.Selection([
         ('1', '1'),
         ('2', '2'),

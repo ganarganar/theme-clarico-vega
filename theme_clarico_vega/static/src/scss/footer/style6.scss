@@ -28,7 +28,7 @@ footer.o_footer
 {
     .te_block_title
     {
-        @include style(8,28,inherit,unset,capitalize);
+        @include style(8,28);
         font-weight: 600;
         margin-bottom: 20px;
         display: inline-block;

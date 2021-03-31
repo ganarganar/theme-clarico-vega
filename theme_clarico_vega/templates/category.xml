@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<harpiya>
+<odoo>
     <template id="category_carousel_body" inherit_id="emipro_theme_base.theme_category_carousel">
         <xpath expr="//div[hasclass('oe_theme_category_carousel_container')]" position="inside">
             <t t-if="object">
@@ -30,4 +30,4 @@
             </t>
         </xpath>
     </template>
-</harpiya>
+</odoo>

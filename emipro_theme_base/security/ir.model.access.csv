@@ -6,4 +6,4 @@ access_slider,slider,model_slider,,1,0,0,0
 access_slider_filter,slider.filter,model_slider_filter,,1,0,0,0
 access_slider_styles,slider.styles,model_slider_styles,,1,0,0,0
 access_product_tab_line,product.tab.line,model_product_tab_line,,1,0,0,0
-access_product_connector_line,product.connector.line,model_product_connector_line,,1,1,1,1
+access_product_document_id,access.product.document.name,model_ir_attachment,,1,0,0,0

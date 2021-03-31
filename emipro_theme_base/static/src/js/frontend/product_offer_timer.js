@@ -1,4 +1,4 @@
-harpiya.define('emipro_theme_base.product_offer_timer', function(require) {
+odoo.define('emipro_theme_base.product_offer_timer', function(require) {
     'use strict';
 
     var sAnimations = require('website.content.snippets.animation');

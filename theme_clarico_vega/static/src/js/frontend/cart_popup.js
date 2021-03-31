@@ -1,4 +1,4 @@
-harpiya.define('theme_clarico_vego.cart_popup', function(require) {
+odoo.define('theme_clarico_vego.cart_popup', function(require) {
     'use strict';
 
     var ajax = require('web.ajax');

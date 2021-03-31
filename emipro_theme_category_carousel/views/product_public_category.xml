@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<harpiya>
+<odoo>
     <!-- Product Public Categories -->
     <record id="product_public_category_form_view_ept" model="ir.ui.view">
         <field name="name">product.public.category.form.allow.category.in.crousel</field>
@@ -11,4 +11,4 @@
              </xpath>
         </field>
     </record>
-</harpiya>
+</odoo>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<harpiya>
+<odoo>
     <!--======================== Latest Blog snippet =====================-->
     <template id="s_latest_posts_big_picture_ept" inherit_id="website_blog.s_latest_posts_big_picture">
         <xpath expr="//section[hasclass('s_latest_posts_big_picture')]//h2" position="replace"></xpath>
@@ -7,7 +7,7 @@
             <attribute name="class">te_latest_posts_big_picture s_latest_posts_big_picture pt16 pb16</attribute>
         </xpath>
          <xpath expr="//div[hasclass('s_col_no_bgcolor')]" position="before">
-            <h3 class="te_blog_heading">Son Gönderiler</h3>
+            <h3 class="te_blog_heading">Latest Posts</h3>
         </xpath>
     </template>
     <template id="s_latest_posts_big_picture_template_ept"
@@ -34,7 +34,7 @@
         <xpath expr="//div[hasclass('s_latest_posts_post_subtitle')]" position="after">
             <a class="btn btn-sm mt-1 btn-primary te_theme_button px-2 py-1"
                t-attf-href="/blog/#{p.blog_id.id}/post/#{p.id}">
-                <span>Devamı...</span>
+                <span>Read More</span>
             </a>
         </xpath>
         <xpath expr="//div[hasclass('s_latest_posts_post_subtitle')]" position="attributes">
@@ -67,4 +67,4 @@
         </xpath>
     </template>
 
-</harpiya>
+</odoo>

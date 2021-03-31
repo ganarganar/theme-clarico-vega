@@ -1,7 +1,7 @@
 //---------------------------------------------------------
 // Countdown For offer timer snippet
 //---------------------------------------------------------
-harpiya.define('theme_clarico_vega.front_js',function(require){
+odoo.define('theme_clarico_vega.front_js',function(require){
 	'use strict';
   var sAnimation = require('website.content.snippets.animation');
   var ajax = require("web.ajax");
@@ -69,7 +69,7 @@ harpiya.define('theme_clarico_vega.front_js',function(require){
     				if(self.$target.find(".snippet_right_timer_div"))
     				{
 						self.$target.find(".snippet_right_timer_div").remove()
-						var append_data="<div class='snippet_right_timer_div text-left mt16 date_time'><span class='col-lg-3 col-md-2 col-sm-2 col-3 text-center d-inline-block p-0'><div class='rounded_digit py-3'><span id='days' class='d-block  te_days_hr_min_sec_digit text-black o_default_snippet_text'>"+	days +"</span><span id='d_lbl' class='d-block'>Days</span></div></span><span class='col-lg-3 col-md-2 col-sm-2 col-3 text-center d-inline-block p-0'><div class='rounded_digit py-3'><span id='hours' class='d-block  te_days_hr_min_sec_digit text-black o_default_snippet_text'>"+hours+"</span><span id='h_lbl' class='d-block'>Hrs</span></div></span><span class='col-lg-3 col-md-2 col-sm-2 col-3 text-center d-inline-block p-0'><div class='rounded_digit py-3'><span id='minutes' class='d-block te_days_hr_min_sec_digit text-black o_default_snippet_text'>"+minutes+"</span><span id='m_lbl' class=' d-block'>Mins</span></div></span><span class='col-lg-3 col-md-2 col-sm-2 col-3 text-center d-inline-block p-0'><div class='rounded_digit py-3'><span id='seconds' class='d-block te_days_hr_min_sec_digit text-black o_default_snippet_text'>"+seconds+"</span><span id='s_lbl' class='d-block'>Secs</span></div></span></div>";
+						var append_data="<div class='snippet_right_timer_div text-left mt16 date_time'><span class='col-lg-3 col-md-2 col-sm-2 col-3 text-center d-inline-block p-0'><div class='rounded_digit py-3'><span id='days' class='d-block  te_days_hr_min_sec_digit  o_default_snippet_text'>"+	days +"</span><span id='d_lbl' class='d-block'>Days</span></div></span><span class='col-lg-3 col-md-2 col-sm-2 col-3 text-center d-inline-block p-0'><div class='rounded_digit py-3'><span id='hours' class='d-block  te_days_hr_min_sec_digit o_default_snippet_text'>"+hours+"</span><span id='h_lbl' class='d-block'>Hrs</span></div></span><span class='col-lg-3 col-md-2 col-sm-2 col-3 text-center d-inline-block p-0'><div class='rounded_digit py-3'><span id='minutes' class='d-block te_days_hr_min_sec_digit  o_default_snippet_text'>"+minutes+"</span><span id='m_lbl' class=' d-block'>Mins</span></div></span><span class='col-lg-3 col-md-2 col-sm-2 col-3 text-center d-inline-block p-0'><div class='rounded_digit py-3'><span id='seconds' class='d-block te_days_hr_min_sec_digit o_default_snippet_text'>"+seconds+"</span><span id='s_lbl' class='d-block'>Secs</span></div></span></div>";
 						self.$target.find(".snippet_right_timer_div").css("display","block")
                         self.$target.append(append_data)	
 					}
